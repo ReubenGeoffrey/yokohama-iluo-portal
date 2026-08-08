@@ -92,7 +92,7 @@ Create a `.env` file in the root directory:
 ```env
 PORT=8080
 SESSION_SECRET=yokohama_iluo_qa_secret_2026
-ADMIN_EMAIL=reubengeoffrey16@gmail.com
+ADMIN_EMAIL=
 
 # SMTP Configuration (Gmail)
 SMTP_HOST=smtp.gmail.com
