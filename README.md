@@ -97,12 +97,12 @@ ADMIN_EMAIL=reubengeoffrey16@gmail.com
 # SMTP Configuration (Gmail)
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=reubengeoffrey16@gmail.com
-SMTP_PASS=wydejmkbmbngbqwo
+SMTP_USER=
+SMTP_PASS=
 
 # Upstash Redis Cloud Database Credentials
-UPSTASH_REDIS_REST_URL=https://proud-mink-94929.upstash.io
-UPSTASH_REDIS_REST_TOKEN=your_upstash_read_write_token
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
 ```
 
 ### 4. Run Server Locally
