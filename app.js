@@ -25,6 +25,7 @@ function initStorage() {
     localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify({}));
   }
   syncCloudRecords();
+  syncCloudQuestions();
 }
 
 function getStoredRecords() {
@@ -64,6 +65,35 @@ async function syncCloudRecords() {
         renderAdminTable(searchInput ? searchInput.value : '');
       }
     }
+  } catch (e) {}
+}
+
+async function syncCloudQuestions() {
+  try {
+    const res = await fetch('/api/questions');
+    const data = await res.json();
+    if (data.success && data.questionBank) {
+      ['L', 'U', 'O'].forEach(lvl => {
+        if (data.questionBank[lvl] && Array.isArray(data.questionBank[lvl])) {
+          QUESTION_BANK[lvl] = data.questionBank[lvl];
+        }
+      });
+      if (document.getElementById('questionsListContainer')) {
+        renderQuestionsManager();
+      }
+    }
+  } catch (e) {}
+}
+
+function saveCustomQuestionsToServer() {
+  try {
+    fetch('/api/questions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ questionBank: QUESTION_BANK })
+    }).then(res => res.json()).then(data => {
+      console.log('☁️ Question Bank Cloud Save Status:', data.message);
+    }).catch(err => console.log('Question cloud sync pending:', err.message));
   } catch (e) {}
 }
 
@@ -1237,6 +1267,7 @@ function saveQuestionFromModal(e) {
     showToast('New question added successfully! ➕');
   }
 
+  saveCustomQuestionsToServer();
   closeQModal();
   renderQuestionsManager();
 }
@@ -1251,6 +1282,7 @@ function deleteQuestion(qId) {
     }
   });
 
+  saveCustomQuestionsToServer();
   showToast('Question deleted successfully 🗑️');
   renderQuestionsManager();
 }
@@ -1400,6 +1432,7 @@ function clearAllQuestions() {
   QUESTION_BANK.U = [];
   QUESTION_BANK.O = [];
 
+  saveCustomQuestionsToServer();
   showToast('All questions deleted! Bank is now empty 🗑️');
   renderQuestionsManager();
 }
@@ -1496,6 +1529,7 @@ function handleDocxUpload(event) {
         if (!QUESTION_BANK[level_code]) QUESTION_BANK[level_code] = [];
         QUESTION_BANK[level_code].push(...parsed_qs);
 
+        saveCustomQuestionsToServer();
         showToast(`🎉 Successfully imported ${parsed_qs.length} questions from ${filename}!`);
         renderQuestionsManager();
       })

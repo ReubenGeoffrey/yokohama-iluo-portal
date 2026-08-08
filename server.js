@@ -327,6 +327,42 @@ app.delete('/api/records/:empNo', async (req, res) => {
   res.json({ success: true, message: `Record reset for employee ${empNo}` });
 });
 
+// ---------------------------------------------------------------------
+// QUESTION BANK CLOUD PERSISTENCE ENGINE (Permanent Admin Edits)
+// ---------------------------------------------------------------------
+let customQuestionBankMemory = null;
+
+// API ROUTE: GET /api/questions (Fetch custom question bank edits)
+app.get('/api/questions', async (req, res) => {
+  if (kvUrl && kvToken) {
+    const cloudQuestions = await syncWithCloudKv('GET', 'yokohama_question_bank');
+    if (cloudQuestions && typeof cloudQuestions === 'object' && Object.keys(cloudQuestions).length > 0) {
+      customQuestionBankMemory = cloudQuestions;
+    }
+  }
+
+  res.json({
+    success: true,
+    questionBank: customQuestionBankMemory
+  });
+});
+
+// API ROUTE: POST /api/questions (Save custom question bank edits permanently)
+app.post('/api/questions', async (req, res) => {
+  const { questionBank } = req.body;
+  if (!questionBank) {
+    return res.status(400).json({ success: false, message: 'questionBank object required' });
+  }
+
+  customQuestionBankMemory = questionBank;
+
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', 'yokohama_question_bank', questionBank);
+  }
+
+  res.json({ success: true, message: 'Question Bank updated and synced permanently to Cloud DB!' });
+});
+
 // Protected Admin API Example Endpoint
 app.get('/api/admin/dashboard-stats', requireAdminAuth, (req, res) => {
   res.json({
