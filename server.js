@@ -257,16 +257,22 @@ async function syncWithCloudKv(action, key = 'yokohama_records', value = null) {
         headers: { Authorization: `Bearer ${kvToken}` }
       });
       const data = await resp.json();
-      return data.result ? JSON.parse(data.result) : {};
+      if (data && data.result) {
+        return typeof data.result === 'string' ? JSON.parse(data.result) : data.result;
+      }
+      return {};
     } else if (action === 'SET') {
-      await fetch(`${kvUrl}/set/${key}`, {
+      const valStr = JSON.stringify(value);
+      const resp = await fetch(kvUrl, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${kvToken}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(JSON.stringify(value))
+        body: JSON.stringify(['SET', key, valStr])
       });
+      const resData = await resp.json();
+      console.log('☁️ Upstash Cloud KV Save Status:', resData);
     }
   } catch (err) {
     console.error('Cloud KV sync error:', err.message);
