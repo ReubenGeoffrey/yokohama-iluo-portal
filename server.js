@@ -241,6 +241,86 @@ app.post('/api/auth/admin/logout', (req, res) => {
   return res.json({ success: true, message: 'Logged out successfully' });
 });
 
+// ---------------------------------------------------------------------
+// CLOUD RECORD PERSISTENCE ENGINE (Multi-Device Global Sync)
+// ---------------------------------------------------------------------
+const globalAssessmentRecords = new Map();
+
+const kvUrl = process.env.UPSTASH_REDIS_REST_URL;
+const kvToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+async function syncWithCloudKv(action, key = 'yokohama_records', value = null) {
+  if (!kvUrl || !kvToken) return null;
+  try {
+    if (action === 'GET') {
+      const resp = await fetch(`${kvUrl}/get/${key}`, {
+        headers: { Authorization: `Bearer ${kvToken}` }
+      });
+      const data = await resp.json();
+      return data.result ? JSON.parse(data.result) : {};
+    } else if (action === 'SET') {
+      await fetch(`${kvUrl}/set/${key}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${kvToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(JSON.stringify(value))
+      });
+    }
+  } catch (err) {
+    console.error('Cloud KV sync error:', err.message);
+  }
+  return null;
+}
+
+// API ROUTE: GET /api/records (Fetch all exam records across devices)
+app.get('/api/records', async (req, res) => {
+  let recordsObj = Object.fromEntries(globalAssessmentRecords);
+
+  if (kvUrl && kvToken) {
+    const cloudRecords = await syncWithCloudKv('GET');
+    if (cloudRecords && typeof cloudRecords === 'object') {
+      recordsObj = { ...cloudRecords, ...recordsObj };
+      Object.entries(recordsObj).forEach(([k, v]) => globalAssessmentRecords.set(k, v));
+    }
+  }
+
+  res.json({ success: true, records: recordsObj });
+});
+
+// API ROUTE: POST /api/records (Save / Update employee assessment result)
+app.post('/api/records', async (req, res) => {
+  const { empNo, recordData } = req.body;
+  if (!empNo || !recordData) {
+    return res.status(400).json({ success: false, message: 'empNo and recordData required' });
+  }
+
+  const existing = globalAssessmentRecords.get(empNo) || {};
+  const updated = { ...existing, ...recordData };
+  globalAssessmentRecords.set(empNo, updated);
+
+  const recordsObj = Object.fromEntries(globalAssessmentRecords);
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', 'yokohama_records', recordsObj);
+  }
+
+  res.json({ success: true, message: `Record saved for employee ${empNo}`, record: updated });
+});
+
+// API ROUTE: DELETE /api/records/:empNo (Reset specific employee exam)
+app.delete('/api/records/:empNo', async (req, res) => {
+  const { empNo } = req.params;
+  if (globalAssessmentRecords.has(empNo)) {
+    globalAssessmentRecords.delete(empNo);
+    const recordsObj = Object.fromEntries(globalAssessmentRecords);
+    if (kvUrl && kvToken) {
+      await syncWithCloudKv('SET', 'yokohama_records', recordsObj);
+    }
+  }
+  res.json({ success: true, message: `Record reset for employee ${empNo}` });
+});
+
 // Protected Admin API Example Endpoint
 app.get('/api/admin/dashboard-stats', requireAdminAuth, (req, res) => {
   res.json({

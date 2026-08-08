@@ -24,6 +24,7 @@ function initStorage() {
   if (!localStorage.getItem(STORAGE_KEY_RECORDS)) {
     localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify({}));
   }
+  syncCloudRecords();
 }
 
 function getStoredRecords() {
@@ -38,6 +39,32 @@ function saveRecord(empNo, recordData) {
   const records = getStoredRecords();
   records[empNo] = { ...records[empNo], ...recordData };
   localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify(records));
+
+  // Sync to server cloud API in background
+  try {
+    fetch('/api/records', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ empNo, recordData })
+    }).catch(err => console.log('Server sync pending:', err.message));
+  } catch (e) {}
+}
+
+async function syncCloudRecords() {
+  try {
+    const res = await fetch('/api/records');
+    const data = await res.json();
+    if (data.success && data.records) {
+      const local = getStoredRecords();
+      const merged = { ...local, ...data.records };
+      localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify(merged));
+      // Re-render admin table if visible
+      if (document.getElementById('adminTableBody')) {
+        const searchInput = document.getElementById('adminSearchInput');
+        renderAdminTable(searchInput ? searchInput.value : '');
+      }
+    }
+  } catch (e) {}
 }
 
 // ---------------------------------------------------------------------
@@ -1318,6 +1345,9 @@ function confirmAndResetExam(empNo, empName) {
     if (records[empNo]) {
       delete records[empNo];
       localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify(records));
+      try {
+        fetch('/api/records/' + encodeURIComponent(empNo), { method: 'DELETE' }).catch(e => {});
+      } catch (e) {}
       showToast(`Exam reset successfully for Employee ${empNo}`);
       renderAdminTable('');
     }
