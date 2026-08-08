@@ -1,0 +1,1478 @@
+// Yokohama ILUO MCQ Assessment Application Logic & Router
+
+// LocalStorage Keys
+const STORAGE_KEY_RECORDS = 'iluo_assessment_records_v1';
+const STORAGE_KEY_SESSION = 'iluo_current_session_v1';
+
+// Global App State
+let currentUser = null; // { empNo, name, dept, section, doj, currentLevel, targetLevel }
+let activeExam = null; // { empNo, targetLevel, questions, currentIndex, responses, remainingSeconds, tabSwitchCount, isCompleted }
+let timerInterval = null;
+let pieChartInstance = null;
+let barChartInstance = null;
+let lastTabSwitchTime = 0; // Debounce duplicate events
+
+// Initialize App & Router
+document.addEventListener('DOMContentLoaded', () => {
+  initStorage();
+  initSecurityMonitors();
+  window.addEventListener('hashchange', handleRoute);
+  checkExistingSession();
+});
+
+function initStorage() {
+  if (!localStorage.getItem(STORAGE_KEY_RECORDS)) {
+    localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify({}));
+  }
+}
+
+function getStoredRecords() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY_RECORDS)) || {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveRecord(empNo, recordData) {
+  const records = getStoredRecords();
+  records[empNo] = { ...records[empNo], ...recordData };
+  localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify(records));
+}
+
+// ---------------------------------------------------------------------
+// URL ROUTER ENGINE (/employee/* and /control-center/*)
+// ---------------------------------------------------------------------
+function navigateTo(path) {
+  window.location.hash = path;
+}
+
+function handleRoute() {
+  const rawHash = window.location.hash.slice(1);
+  const hash = rawHash || '/';
+  const sessionStr = localStorage.getItem(STORAGE_KEY_SESSION);
+  const session = sessionStr ? JSON.parse(sessionStr) : null;
+
+  // Root Public Website Landing Page (/)
+  if (hash === '/' || hash === '' || hash === '/public') {
+    showView('viewPublicLanding');
+    updateUserBadge(session && session.name ? session.name : (session && session.role === 'admin' ? 'Administrator' : null));
+    return;
+  }
+
+  // Explicit Employee Login Page (/employee-portal)
+  if (hash === '/employee-portal' || hash === '/employee/login') {
+    showView('viewEmpLogin');
+    document.getElementById('btnSwitchPortal').innerText = 'Admin Portal';
+    document.getElementById('navbarSystemTitle').innerText = 'Tire Building QA Assessment Portal';
+    return;
+  }
+
+  // Explicit Admin Login Page (/secure-control)
+  if (hash === '/secure-control' || hash === '/admin-login' || hash === '/admin') {
+    showView('viewAdminLogin');
+    document.getElementById('btnSwitchPortal').innerText = 'Employee Portal';
+    document.getElementById('navbarSystemTitle').innerText = 'Admin Control Center';
+    return;
+  }
+
+  // Protect Admin routes (/control-center/* and /secure-control/* subviews)
+  if (hash.startsWith('/control-center') || hash.startsWith('/secure-control/')) {
+    if (!session || session.role !== 'admin') {
+      navigateTo('/secure-control');
+      return;
+    }
+    document.getElementById('btnSwitchPortal').innerText = 'Employee Portal';
+    document.getElementById('navbarSystemTitle').innerText = 'Admin Control Center';
+    updateUserBadge(session.name || 'Administrator');
+    
+    const sub = hash.replace('/control-center/', '').replace('/secure-control/', '') || 'dashboard';
+    showControlCenterSubView(sub);
+    return;
+  }
+
+  // Protect Employee routes (/employee/*)
+  if (hash.startsWith('/employee/')) {
+    if (!session || session.role !== 'emp') {
+      navigateTo('/employee-portal');
+      return;
+    }
+    document.getElementById('btnSwitchPortal').innerText = 'Admin Portal';
+    document.getElementById('navbarSystemTitle').innerText = 'Tire Building QA Assessment Portal';
+    
+    if (currentUser) updateUserBadge(currentUser.name);
+
+    if (hash === '/employee/dashboard') {
+      showEmpDashboard();
+    } else if (hash === '/employee/exams') {
+      showEmpExamsView();
+    } else if (hash.startsWith('/employee/exam/')) {
+      showView('viewQuiz');
+    } else if (hash === '/employee/results') {
+      showEmpResultsView();
+    } else if (hash === '/employee/profile') {
+      showEmpProfileView();
+    }
+    return;
+  }
+
+  showView('viewPublicLanding');
+}
+
+// ---------------------------------------------------------------------
+// SECURITY MONITORS: Copy-Paste Restriction & Tab Switch Detection (Max 3)
+// ---------------------------------------------------------------------
+function initSecurityMonitors() {
+  // Prevent Copy, Cut, Paste, Right Click
+  ['copy', 'cut', 'paste', 'contextmenu'].forEach(evt => {
+    document.addEventListener(evt, (e) => {
+      if (isExamActive()) {
+        e.preventDefault();
+        showToast('🔒 Action restricted during assessment!');
+      }
+    });
+  });
+
+  // Prevent keyboard shortcuts (Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, F12, DevTools)
+  document.addEventListener('keydown', (e) => {
+    if (isExamActive()) {
+      const forbiddenKeys = ['F12', 'u', 'i', 'j', 'c', 'v', 'x', 'a', 's', 'p'];
+      if (
+        e.key === 'F12' ||
+        ((e.ctrlKey || e.metaKey) && forbiddenKeys.includes(e.key.toLowerCase())) ||
+        ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i', 'j', 'c', 'k'].includes(e.key.toLowerCase()))
+      ) {
+        e.preventDefault();
+        showToast('🔒 Keyboard shortcut blocked during assessment!');
+      }
+    }
+  });
+
+  // Tab Switcher / Focus Loss Monitor
+  const handleTabSwitch = () => {
+    if (!isExamActive()) return;
+
+    const now = Date.now();
+    if (now - lastTabSwitchTime < 1500) return;
+    lastTabSwitchTime = now;
+
+    if (!activeExam.tabSwitchCount) activeExam.tabSwitchCount = 0;
+    activeExam.tabSwitchCount++;
+
+    saveRecord(activeExam.empNo, {
+      tabSwitchCount: activeExam.tabSwitchCount
+    });
+
+    updateTabWarningBadge();
+
+    if (activeExam.tabSwitchCount <= 3) {
+      showSecurityWarningModal(activeExam.tabSwitchCount);
+    } else {
+      terminateExamOnViolation('Exceeded 3 Tab Switches Limit');
+    }
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) handleTabSwitch();
+  });
+
+  window.addEventListener('blur', () => {
+    handleTabSwitch();
+  });
+}
+
+function isExamActive() {
+  return activeExam && !activeExam.isCompleted && document.getElementById('viewQuiz').classList.contains('active');
+}
+
+function updateTabWarningBadge() {
+  const badgeContainer = document.getElementById('tabWarningBadgeContainer');
+  const countDisplay = document.getElementById('tabSwitchCountDisplay');
+  
+  const count = activeExam ? (activeExam.tabSwitchCount || 0) : 0;
+  countDisplay.innerText = `${count} / 3`;
+
+  if (count > 0) {
+    badgeContainer.classList.add('danger');
+  } else {
+    badgeContainer.classList.remove('danger');
+  }
+}
+
+function showSecurityWarningModal(count) {
+  const modal = document.getElementById('securityWarningModal');
+  document.getElementById('secWarningNum').innerText = count;
+  modal.classList.add('active');
+}
+
+function closeSecurityWarningModal() {
+  document.getElementById('securityWarningModal').classList.remove('active');
+}
+
+function terminateExamOnViolation(reason) {
+  if (timerInterval) clearInterval(timerInterval);
+  if (!activeExam) return;
+
+  activeExam.isCompleted = true;
+  closeSecurityWarningModal();
+
+  const questions = activeExam.questions;
+  const responses = activeExam.responses;
+  let correctCount = 0;
+
+  questions.forEach(q => {
+    if (responses[q.id] && responses[q.id] === q.correctAnswer) {
+      correctCount++;
+    }
+  });
+
+  const totalQs = questions.length;
+  const markPct = Math.round((correctCount / totalQs) * 100);
+
+  let uMark = 0, lMark = 0, oMark = 0;
+  if (activeExam.targetLevel === 'U') uMark = correctCount;
+  else if (activeExam.targetLevel === 'L') lMark = correctCount;
+  else if (activeExam.targetLevel === 'O') oMark = correctCount;
+
+  const recordData = {
+    empNo: currentUser.empNo,
+    name: currentUser.name,
+    dept: currentUser.dept,
+    section: currentUser.section,
+    doj: currentUser.doj,
+    targetLevel: activeExam.targetLevel,
+    inProgress: false,
+    isCompleted: true,
+    tabSwitchCount: activeExam.tabSwitchCount,
+    responses: responses,
+    attemptedCount: Object.keys(responses).length,
+    uMark: uMark,
+    lMark: lMark,
+    oMark: oMark,
+    totalMark: correctCount,
+    markPct: markPct,
+    status: `Terminated (${reason})`,
+    attemptDate: new Date().toLocaleDateString('en-GB')
+  };
+
+  saveRecord(currentUser.empNo, recordData);
+  showResultView(recordData);
+}
+
+// ---------------------------------------------------------------------
+// Session & Navigation Check
+// ---------------------------------------------------------------------
+async function checkExistingSession() {
+  try {
+    const res = await fetch('/api/auth/admin/session');
+    const data = await res.json();
+    if (data.authenticated && data.admin) {
+      localStorage.setItem(STORAGE_KEY_SESSION, JSON.stringify({ role: 'admin', email: data.admin.email, name: data.admin.name }));
+      updateUserBadge(data.admin.name);
+      handleRoute();
+      return;
+    }
+  } catch (e) {
+    console.error('Session check error:', e);
+  }
+
+  const sessionStr = localStorage.getItem(STORAGE_KEY_SESSION);
+  if (sessionStr) {
+    try {
+      const session = JSON.parse(sessionStr);
+      if (session.role === 'admin') {
+        updateUserBadge(session.name || 'Reuben Geoffrey (Superadmin)');
+        handleRoute();
+        return;
+      } else if (session.empNo) {
+        const emp = EMPLOYEES.find(e => e.empNo === session.empNo);
+        if (emp) {
+          currentUser = emp;
+          updateUserBadge(emp.name);
+          handleRoute();
+          return;
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  
+  if (!window.location.hash) {
+    navigateTo('/');
+  } else {
+    handleRoute();
+  }
+}
+
+// Toast Notifications
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.innerText = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// Show View Helper
+function showView(viewId) {
+  document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+  const target = document.getElementById(viewId);
+  if (target) target.classList.add('active');
+}
+
+function updateUserBadge(name) {
+  const badge = document.getElementById('navUserBadge');
+  const avatar = document.getElementById('navAvatar');
+  const nameSpan = document.getElementById('navUserName');
+  const logoutBtn = document.getElementById('btnLogout');
+
+  if (name) {
+    badge.style.display = 'flex';
+    logoutBtn.style.display = 'block';
+    avatar.innerText = name.charAt(0).toUpperCase();
+    nameSpan.innerText = name;
+  } else {
+    badge.style.display = 'none';
+    logoutBtn.style.display = 'none';
+  }
+}
+
+function togglePortalMode() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#/control-center') || hash === '#/admin-login') {
+    navigateTo('/employee/login');
+  } else {
+    navigateTo('/admin-login');
+  }
+}
+
+// Employee Login
+function handleEmpLogin(e) {
+  e.preventDefault();
+  const empIdVal = document.getElementById('empIdInput').value.trim();
+  
+  if (!empIdVal) {
+    showToast('Please enter a valid Employee ID');
+    return;
+  }
+
+  const emp = EMPLOYEES.find(e => e.empNo === empIdVal || e.empNo === '0' + empIdVal);
+  if (!emp) {
+    showToast('Employee ID not found in database!');
+    return;
+  }
+
+  currentUser = emp;
+  localStorage.setItem(STORAGE_KEY_SESSION, JSON.stringify({ role: 'emp', empNo: emp.empNo }));
+  updateUserBadge(emp.name);
+
+  navigateTo('/employee/dashboard');
+}
+
+// ---------------------------------------------------------------------
+// Admin Mail ID + OTP Verification Handlers
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// 30-Second Integrity Admin Mail ID + OTP Verification Handlers
+// ---------------------------------------------------------------------
+let adminOtpState = {
+  email: '',
+  generatedOtp: '',
+  expiresAt: 0,
+  timerInterval: null,
+  secondsLeft: 30
+};
+
+function startOtpCountdownTimer() {
+  if (adminOtpState.timerInterval) clearInterval(adminOtpState.timerInterval);
+  adminOtpState.secondsLeft = 30;
+  adminOtpState.expiresAt = Date.now() + 30000; // 30 seconds limit
+
+  const timerEl = document.getElementById('otpTimerDisplay');
+  const resendBtn = document.getElementById('btnResendOtp');
+
+  if (resendBtn) {
+    resendBtn.disabled = true;
+    resendBtn.innerText = `Resend OTP in 30s`;
+  }
+  if (timerEl) timerEl.innerText = `30s`;
+
+  adminOtpState.timerInterval = setInterval(() => {
+    adminOtpState.secondsLeft--;
+
+    if (adminOtpState.secondsLeft > 0) {
+      if (timerEl) timerEl.innerText = `${adminOtpState.secondsLeft}s`;
+      if (resendBtn) resendBtn.innerText = `Resend OTP in ${adminOtpState.secondsLeft}s`;
+    } else {
+      clearInterval(adminOtpState.timerInterval);
+      if (timerEl) timerEl.innerText = `Expired`;
+      if (resendBtn) {
+        resendBtn.disabled = false;
+        resendBtn.innerText = `🔄 Resend New OTP`;
+      }
+      showToast('⚠️ OTP Code Expired (30s Integrity Limit)! Click Resend OTP.');
+    }
+  }, 1000);
+}
+
+async function handleSendAdminOTP(e) {
+  if (e) e.preventDefault();
+  const emailInput = document.getElementById('adminEmailInput').value.trim();
+
+  if (!emailInput || !emailInput.includes('@')) {
+    showToast('Please enter a valid Admin Email ID');
+    return;
+  }
+
+  showToast('📩 Sending OTP to ' + emailInput + ' via Gmail SMTP...');
+
+  try {
+    const res = await fetch('/api/auth/admin/send-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: emailInput })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      adminOtpState.email = emailInput;
+
+      document.getElementById('otpTargetEmail').innerText = emailInput;
+      document.getElementById('adminEmailForm').style.display = 'none';
+      document.getElementById('adminOtpForm').style.display = 'block';
+
+      // Clear input so user MUST check Gmail inbox and enter OTP manually
+      document.getElementById('adminOtpInput').value = '';
+      document.getElementById('adminOtpInput').focus();
+
+      startOtpCountdownTimer();
+
+      showToast(data.message || '✉️ OTP sent to your email inbox. Please check your Gmail and enter the 6-digit OTP.');
+    } else {
+      showToast('⚠️ ' + (data.message || 'Failed to send OTP'));
+    }
+  } catch (err) {
+    console.error('API Error:', err);
+    showToast('⚠️ Could not connect to authentication server. Please check your network or server status.');
+  }
+}
+
+function resendAdminOTP() {
+  handleSendAdminOTP(null);
+}
+
+async function handleVerifyAdminOTP(e) {
+  e.preventDefault();
+  const otpEntered = document.getElementById('adminOtpInput').value.trim();
+  const email = adminOtpState.email;
+
+  if (!otpEntered || otpEntered.length !== 6) {
+    showToast('Please enter the 6-digit OTP code received in your Gmail inbox');
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/auth/admin/verify-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, otp: otpEntered })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      if (adminOtpState.timerInterval) clearInterval(adminOtpState.timerInterval);
+
+      const adminName = data.admin && data.admin.name ? data.admin.name : 'Reuben Geoffrey (Superadmin)';
+
+      localStorage.setItem(STORAGE_KEY_SESSION, JSON.stringify({ role: 'admin', email: email, name: adminName }));
+      updateUserBadge(adminName);
+      showToast(`✅ Authenticated successfully as ${adminName}`);
+      navigateTo('/secure-control/dashboard');
+    } else {
+      showToast(`❌ ${data.message || 'Verification failed: Incorrect OTP code'}`);
+    }
+  } catch (err) {
+    console.error('API Error:', err);
+    showToast('❌ Verification error. Please try again.');
+  }
+}
+
+function resetAdminOtpForm() {
+  if (adminOtpState.timerInterval) clearInterval(adminOtpState.timerInterval);
+  document.getElementById('adminOtpForm').style.display = 'none';
+  document.getElementById('adminEmailForm').style.display = 'block';
+  document.getElementById('adminOtpInput').value = '';
+}
+
+// Logout
+async function logout() {
+  if (timerInterval) clearInterval(timerInterval);
+  try {
+    await fetch('/api/auth/admin/logout', { method: 'POST' });
+  } catch (e) {
+    console.error(e);
+  }
+  localStorage.removeItem(STORAGE_KEY_SESSION);
+  currentUser = null;
+  activeExam = null;
+  navigateTo('/');
+}
+
+// ---------------------------------------------------------------------
+// EMPLOYEE VIEWS (/employee/*)
+// ---------------------------------------------------------------------
+function showEmpDashboard() {
+  if (!currentUser) return;
+
+  const currentLevel = currentUser.currentLevel || 'I';
+  const currentRules = LEVEL_RULES[currentLevel] || LEVEL_RULES['I'];
+  const targetLevel = currentRules.nextLevel;
+  const targetRules = LEVEL_RULES[targetLevel] || LEVEL_RULES['L'];
+
+  currentUser.targetLevel = targetLevel;
+
+  document.getElementById('infoEmpNo').innerText = currentUser.empNo;
+  document.getElementById('infoEmpName').innerText = currentUser.name;
+  document.getElementById('infoEmpDept').innerText = `${currentUser.dept} / ${currentUser.section || 'QA'}`;
+  document.getElementById('infoEmpDoj').innerText = currentUser.doj || 'N/A';
+  document.getElementById('infoTargetLevel').innerText = `${targetLevel} Level Assessment (${targetRules.numQuestions} Qs)`;
+
+  showView('viewEmpDashboard');
+}
+
+function showEmpExamsView() {
+  if (!currentUser) return;
+  showView('viewEmpExams');
+  
+  const currentLevel = currentUser.currentLevel || 'I';
+  const currentRules = LEVEL_RULES[currentLevel] || LEVEL_RULES['I'];
+  const targetLevel = currentRules.nextLevel;
+  const targetRules = LEVEL_RULES[targetLevel] || LEVEL_RULES['L'];
+
+  const records = getStoredRecords();
+  const rec = records[currentUser.empNo];
+
+  const container = document.getElementById('empExamListContainer');
+  
+  if (rec && rec.isCompleted) {
+    container.innerHTML = `
+      <div class="info-item" style="border-left: 4px solid var(--success-color);">
+        <div style="font-weight: 700; font-size: 1.1rem;">Level ${targetLevel} MCQ Assessment</div>
+        <div style="font-size: 0.88rem; color: var(--text-muted); margin: 6px 0;">Status: <strong>${rec.status}</strong> | Score: ${rec.totalMark} Marks (${rec.markPct}%)</div>
+        <div style="font-size: 0.8rem; color: var(--success-color); font-weight: 600;">✔ Completed on ${rec.attemptDate}</div>
+      </div>
+    `;
+  } else {
+    container.innerHTML = `
+      <div class="info-item" style="border-left: 4px solid var(--primary-color);">
+        <div style="font-weight: 700; font-size: 1.1rem;">Level ${targetLevel} MCQ Assessment</div>
+        <div style="font-size: 0.88rem; color: var(--text-muted); margin: 6px 0;">Questions: ${targetRules.numQuestions} | Time Allowed: 45 Mins | Passing: >${targetRules.passingPct}%</div>
+        <button class="btn-primary" style="max-width: 220px; margin-top: 12px;" onclick="startOrResumeExam()">
+          ${rec && rec.inProgress ? 'Resume Assessment ➔' : 'Start Assessment ➔'}
+        </button>
+      </div>
+    `;
+  }
+}
+
+function showEmpResultsView() {
+  if (!currentUser) return;
+  const records = getStoredRecords();
+  const record = records[currentUser.empNo] || {};
+
+  showResultView(record);
+}
+
+function showEmpProfileView() {
+  if (!currentUser) return;
+  showView('viewEmpProfile');
+
+  const grid = document.getElementById('profInfoGrid');
+  grid.innerHTML = `
+    <div class="info-item">
+      <div class="label">Employee ID</div>
+      <div class="value">${currentUser.empNo}</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Full Name</div>
+      <div class="value">${currentUser.name}</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Department</div>
+      <div class="value">${currentUser.dept}</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Section</div>
+      <div class="value">${currentUser.section || 'Tire Building QA'}</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Qualification</div>
+      <div class="value">${currentUser.qualification || 'N/A'}</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Date of Joining (DOJ)</div>
+      <div class="value">${currentUser.doj || 'N/A'}</div>
+    </div>
+    <div class="info-item">
+      <div class="label">Current Skill Level</div>
+      <div class="value" style="color: var(--primary-color); font-weight: 800;">${currentUser.currentLevel || 'I'} Level</div>
+    </div>
+  `;
+}
+
+function normalizeSectionName(sec) {
+  let s = (sec || '').toLowerCase().trim();
+  s = s.replace(/\s+/g, ' ');
+  s = s.replace('ware house', 'warehouse');
+  if (s.includes('rro') || s.includes('alt')) return 'final finish rro & alt qa';
+  if (s.includes('building') || s.includes('tbm')) return 'tire building qa';
+  if (s.includes('curing')) return 'tire curing qa';
+  if (s.includes('solid')) return 'solid tire qa';
+  if (s.includes('preparatory')) return 'preparatory qa';
+  if (s.includes('fid')) return 'fid inspector qa';
+  if (s.includes('warehouse') || s.includes('data entry')) return 'warehouse qa';
+  if (s.includes('finish')) return 'final finish qa';
+  return s;
+}
+
+function shuffleArray(arr) {
+  const array = [...arr];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Section-based Question Selection (Balanced Sequence across Safety, CI & TPM, and QA & Process)
+function getQuestionsForSection(targetLevel, section) {
+  const allLevelQuestions = QUESTION_BANK[targetLevel] || QUESTION_BANK['L'] || [];
+  const rules = LEVEL_RULES[targetLevel] || LEVEL_RULES['L'] || { numQuestions: 40 };
+  const requiredCount = rules.numQuestions || 40;
+
+  if (!section) return allLevelQuestions.slice(0, requiredCount);
+
+  const empSecNorm = normalizeSectionName(section);
+
+  // Filter questions matching employee section
+  const sectionQs = allLevelQuestions.filter(q => normalizeSectionName(q.section) === empSecNorm);
+
+  if (sectionQs.length === 0) {
+    return allLevelQuestions.slice(0, requiredCount);
+  }
+
+  // Group by category to ensure Technical / QA & Process questions are included
+  const byCategory = {};
+  sectionQs.forEach(q => {
+    const cat = q.category || 'General';
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(q);
+  });
+
+  const categories = Object.keys(byCategory);
+  const numCats = categories.length;
+
+  if (numCats <= 1) return sectionQs.slice(0, requiredCount);
+
+  const baseTarget = Math.floor(requiredCount / numCats);
+  const extraSlots = requiredCount % numCats;
+
+  const selected = [];
+  categories.forEach((cat, idx) => {
+    const targetForCat = baseTarget + (idx < extraSlots ? 1 : 0);
+    selected.push(...byCategory[cat].slice(0, targetForCat));
+  });
+
+  if (selected.length < requiredCount) {
+    const selectedIds = new Set(selected.map(q => q.id));
+    const remainingSectionQs = sectionQs.filter(q => !selectedIds.has(q.id));
+    selected.push(...remainingSectionQs.slice(0, requiredCount - selected.length));
+  }
+
+  return selected.slice(0, requiredCount);
+}
+
+// Start or Resume Exam
+function startOrResumeExam() {
+  if (!currentUser) return;
+
+  const targetLevel = currentUser.targetLevel || 'L';
+  const sectionQuestions = getQuestionsForSection(targetLevel, currentUser.section);
+
+  const records = getStoredRecords();
+  let empRecord = records[currentUser.empNo];
+
+  if (empRecord && empRecord.inProgress && !empRecord.isCompleted) {
+    activeExam = {
+      empNo: currentUser.empNo,
+      targetLevel: targetLevel,
+      questions: empRecord.questions || sectionQuestions,
+      currentIndex: empRecord.currentIndex || 0,
+      responses: empRecord.responses || {},
+      remainingSeconds: empRecord.remainingSeconds || (45 * 60),
+      tabSwitchCount: empRecord.tabSwitchCount || 0,
+      isCompleted: false
+    };
+    showToast('Resuming active assessment...');
+  } else {
+    activeExam = {
+      empNo: currentUser.empNo,
+      targetLevel: targetLevel,
+      questions: sectionQuestions,
+      currentIndex: 0,
+      responses: {},
+      remainingSeconds: 45 * 60,
+      tabSwitchCount: 0,
+      isCompleted: false
+    };
+
+    saveRecord(currentUser.empNo, {
+      empNo: currentUser.empNo,
+      name: currentUser.name,
+      dept: currentUser.dept,
+      section: currentUser.section,
+      doj: currentUser.doj,
+      targetLevel: targetLevel,
+      inProgress: true,
+      isCompleted: false,
+      questions: activeExam.questions,
+      currentIndex: 0,
+      responses: {},
+      remainingSeconds: activeExam.remainingSeconds,
+      tabSwitchCount: 0,
+      startedAt: new Date().toISOString()
+    });
+  }
+
+  navigateTo(`/employee/exam/${targetLevel}`);
+  updateTabWarningBadge();
+  renderCurrentQuestion();
+  startTimer();
+}
+
+// Timer Engine
+function startTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  updateTimerDisplay();
+
+  timerInterval = setInterval(() => {
+    if (!activeExam || activeExam.isCompleted) {
+      clearInterval(timerInterval);
+      return;
+    }
+
+    activeExam.remainingSeconds--;
+
+    if (activeExam.remainingSeconds % 5 === 0) {
+      saveRecord(activeExam.empNo, {
+        remainingSeconds: activeExam.remainingSeconds,
+        currentIndex: activeExam.currentIndex,
+        responses: activeExam.responses,
+        tabSwitchCount: activeExam.tabSwitchCount
+      });
+    }
+
+    updateTimerDisplay();
+
+    if (activeExam.remainingSeconds <= 0) {
+      clearInterval(timerInterval);
+      showToast('Time expired! Submitting assessment...');
+      submitAssessment();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  if (!activeExam) return;
+  const mins = Math.floor(activeExam.remainingSeconds / 60);
+  const secs = activeExam.remainingSeconds % 60;
+  const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  document.getElementById('timerDisplay').innerText = formatted;
+}
+
+// Question Renderer
+function renderCurrentQuestion() {
+  if (!activeExam) return;
+
+  const totalQs = activeExam.questions.length;
+  const qIndex = activeExam.currentIndex;
+
+  if (qIndex >= totalQs) {
+    submitAssessment();
+    return;
+  }
+
+  const q = activeExam.questions[qIndex];
+
+  document.getElementById('quizProgressText').innerText = `Question ${qIndex + 1} of ${totalQs}`;
+  document.getElementById('quizSubText').innerText = `Target: Level ${activeExam.targetLevel} Assessment`;
+  document.getElementById('qCategoryTag').innerText = q.category || 'QA & Safety';
+  document.getElementById('qTitleText').innerText = q.question;
+
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+
+  const selectedOpt = activeExam.responses[q.id];
+
+  q.options.forEach(opt => {
+    const optDiv = document.createElement('div');
+    optDiv.className = `option-item ${selectedOpt === opt.key ? 'selected' : ''}`;
+    optDiv.onclick = () => selectOption(opt.key);
+
+    optDiv.innerHTML = `
+      <div class="option-key">${opt.key}</div>
+      <div class="option-text">${opt.text}</div>
+    `;
+
+    container.appendChild(optDiv);
+  });
+
+  const nextBtn = document.getElementById('btnNextQ');
+  if (qIndex === totalQs - 1) {
+    nextBtn.innerText = 'Submit Assessment ✔';
+  } else {
+    nextBtn.innerText = 'Next Question ➔';
+  }
+
+  nextBtn.disabled = !selectedOpt;
+}
+
+function selectOption(key) {
+  if (!activeExam) return;
+  const q = activeExam.questions[activeExam.currentIndex];
+  activeExam.responses[q.id] = key;
+
+  renderCurrentQuestion();
+
+  saveRecord(activeExam.empNo, {
+    currentIndex: activeExam.currentIndex,
+    responses: activeExam.responses
+  });
+}
+
+function nextQuestion() {
+  if (!activeExam) return;
+  const totalQs = activeExam.questions.length;
+
+  if (activeExam.currentIndex < totalQs - 1) {
+    activeExam.currentIndex++;
+    saveRecord(activeExam.empNo, {
+      currentIndex: activeExam.currentIndex,
+      responses: activeExam.responses
+    });
+    renderCurrentQuestion();
+  } else {
+    submitAssessment();
+  }
+}
+
+// Submit & Scoring Engine
+function submitAssessment() {
+  if (timerInterval) clearInterval(timerInterval);
+  if (!activeExam) return;
+
+  activeExam.isCompleted = true;
+
+  const questions = activeExam.questions;
+  const responses = activeExam.responses;
+  let correctCount = 0;
+
+  questions.forEach(q => {
+    if (responses[q.id] && responses[q.id] === q.correctAnswer) {
+      correctCount++;
+    }
+  });
+
+  const totalQs = questions.length;
+  const markPct = Math.round((correctCount / totalQs) * 100);
+
+  const currentLevel = currentUser ? currentUser.currentLevel : 'I';
+  const rules = LEVEL_RULES[currentLevel] || LEVEL_RULES['I'];
+  const pass = markPct >= rules.passingPct;
+
+  let uMark = 0, lMark = 0, oMark = 0;
+  if (activeExam.targetLevel === 'U') uMark = correctCount;
+  else if (activeExam.targetLevel === 'L') lMark = correctCount;
+  else if (activeExam.targetLevel === 'O') oMark = correctCount;
+
+  const recordData = {
+    empNo: currentUser.empNo,
+    name: currentUser.name,
+    dept: currentUser.dept,
+    section: currentUser.section,
+    doj: currentUser.doj,
+    targetLevel: activeExam.targetLevel,
+    inProgress: false,
+    isCompleted: true,
+    tabSwitchCount: activeExam.tabSwitchCount || 0,
+    responses: responses,
+    attemptedCount: Object.keys(responses).length,
+    uMark: uMark,
+    lMark: lMark,
+    oMark: oMark,
+    totalMark: correctCount,
+    markPct: markPct,
+    status: pass ? 'Passed' : 'Failed',
+    attemptDate: new Date().toLocaleDateString('en-GB')
+  };
+
+  saveRecord(currentUser.empNo, recordData);
+  navigateTo('/employee/results');
+}
+
+function showResultView(record) {
+  document.getElementById('resAttempted').innerText = `${record.attemptedCount || 0} Questions`;
+  
+  const statusEl = document.getElementById('resStatus');
+  statusEl.innerText = record.status || 'Completed';
+  
+  if (record.status && record.status.includes('Terminated')) {
+    statusEl.style.color = 'var(--accent-red)';
+  } else {
+    statusEl.style.color = record.status === 'Passed' ? 'var(--success-color)' : 'var(--accent-red)';
+  }
+
+  showView('viewResult');
+}
+
+// ---------------------------------------------------------------------
+// CONTROL CENTER VIEWS (/control-center/*)
+// ---------------------------------------------------------------------
+function showControlCenterSubView(subName) {
+  showView('viewControlCenterWrapper');
+
+  // Highlight active sidebar link
+  document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+  document.querySelectorAll('.control-subview').forEach(sub => sub.style.display = 'none');
+
+  const targetSidebarLink = document.getElementById(`navCtrl${capitalize(subName)}`);
+  if (targetSidebarLink) targetSidebarLink.classList.add('active');
+
+  const targetSubView = document.getElementById(`ctrlSub${capitalize(subName)}`);
+  if (targetSubView) targetSubView.style.display = 'block';
+
+  // Render sub-view data
+  if (subName === 'dashboard') renderAdminDashboard();
+  else if (subName === 'questions') renderQuestionsManager();
+  else if (subName === 'employees') renderEmployeeDirectory();
+  else if (subName === 'results') renderAdminTable('');
+}
+
+function capitalize(str) {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Admin Dashboard Analytics
+function renderAdminDashboard() {
+  const records = getStoredRecords();
+  const allEmps = EMPLOYEES;
+
+  let completedCount = 0;
+  let inProgressCount = 0;
+
+  allEmps.forEach(emp => {
+    const rec = records[emp.empNo];
+    if (rec && rec.isCompleted) completedCount++;
+    else if (rec && rec.inProgress) inProgressCount++;
+  });
+
+  const notStartedCount = allEmps.length - completedCount - inProgressCount;
+
+  document.getElementById('statTotalEmp').innerText = allEmps.length;
+  document.getElementById('statCompleted').innerText = completedCount;
+  document.getElementById('statInProgress').innerText = inProgressCount;
+  document.getElementById('statNotStarted').innerText = notStartedCount;
+
+  renderPieChart(completedCount, inProgressCount, notStartedCount);
+  renderBarChart(records);
+}
+
+function renderPieChart(completed, inProgress, notStarted) {
+  const ctx = document.getElementById('completionPieChart').getContext('2d');
+  if (pieChartInstance) pieChartInstance.destroy();
+
+  pieChartInstance = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Completed', 'In Progress', 'Not Attempted'],
+      datasets: [{
+        data: [completed, inProgress, notStarted],
+        backgroundColor: ['#10B981', '#F59E0B', '#94A3B8']
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom' }
+      }
+    }
+  });
+}
+
+function renderBarChart(records) {
+  const ctx = document.getElementById('levelBarChart').getContext('2d');
+  if (barChartInstance) barChartInstance.destroy();
+
+  let uCount = 0, lCount = 0, oCount = 0, iCount = 0;
+
+  EMPLOYEES.forEach(emp => {
+    const lvl = emp.currentLevel || 'I';
+    if (lvl === 'U') uCount++;
+    else if (lvl === 'L') lCount++;
+    else if (lvl === 'O') oCount++;
+    else iCount++;
+  });
+
+  barChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['I Level', 'L Level', 'U Level', 'O Level'],
+      datasets: [{
+        label: 'Employee Count',
+        data: [iCount, lCount, uCount, oCount],
+        backgroundColor: ['#3B82F6', '#F59E0B', '#10B981', '#E31B23']
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+}
+
+// Question Bank Manager View & Manual Mapping Engine
+function renderQuestionsManager() {
+  const levelFilter = document.getElementById('qLevelFilter').value;
+  const sectionFilter = document.getElementById('qSectionFilter') ? document.getElementById('qSectionFilter').value : 'ALL';
+  const searchVal = document.getElementById('qSearchInput').value.toLowerCase().trim();
+  const container = document.getElementById('questionsListContainer');
+  container.innerHTML = '';
+
+  let allQs = [];
+  if (levelFilter === 'ALL') {
+    allQs = [...(QUESTION_BANK.L || []), ...(QUESTION_BANK.U || []), ...(QUESTION_BANK.O || [])];
+  } else {
+    allQs = QUESTION_BANK[levelFilter] || [];
+  }
+
+  const filtered = allQs.filter(q => {
+    let matchSec = true;
+    if (sectionFilter !== 'ALL') {
+      matchSec = normalizeSectionName(q.section) === normalizeSectionName(sectionFilter);
+    }
+
+    let matchSearch = true;
+    if (searchVal) {
+      matchSearch = q.question.toLowerCase().includes(searchVal) || 
+                    (q.category && q.category.toLowerCase().includes(searchVal)) ||
+                    (q.section && q.section.toLowerCase().includes(searchVal));
+    }
+
+    return matchSec && matchSearch;
+  });
+
+  document.getElementById('qCountText').innerText = filtered.length;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 40px; color: var(--text-muted);">
+        <p style="font-size: 1.1rem; margin-bottom: 8px;">No questions found matching your filter.</p>
+        <button class="btn-primary" style="max-width: 200px; margin: 0 auto;" onclick="openAddQuestionModal()">➕ Add Question Manually</button>
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach((q, idx) => {
+    const card = document.createElement('div');
+    card.className = 'info-item';
+    card.style.borderLeft = q.category === 'Safety' ? '4px solid #E31B23' : (q.category === 'CI & TPM' ? '4px solid #F59E0B' : '4px solid #005B9E');
+    card.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+        <div>
+          <span class="q-category-tag" style="margin: 0; background: var(--bg-surface); color: var(--text-dark); border: 1px solid var(--border-color);">Level ${q.level}</span>
+          <span class="q-category-tag" style="margin: 0 4px;">${q.section || 'General QA'}</span>
+          <span class="q-category-tag" style="margin: 0;">${q.category || 'QA & Process'}</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">ID: ${q.id}</span>
+          <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;" onclick="openEditQuestionModal('${q.id}')">✏️ Edit</button>
+          <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.75rem; color: var(--accent-red); border-color: #FECDD3;" onclick="deleteQuestion('${q.id}')">🗑️ Delete</button>
+        </div>
+      </div>
+      <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; line-height: 1.5;">${idx + 1}. ${q.question}</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+        ${q.options.map(opt => `
+          <div style="background: ${opt.key === q.correctAnswer ? '#DCFCE7' : '#F8FAFC'}; border: 1px solid ${opt.key === q.correctAnswer ? '#86EFAC' : '#E2E8F0'}; padding: 6px 12px; border-radius: 6px; font-size: 0.82rem;">
+            <strong>${opt.key}:</strong> ${opt.text} ${opt.key === q.correctAnswer ? '✔ (Correct)' : ''}
+          </div>
+        `).join('')}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function openAddQuestionModal() {
+  document.getElementById('modalQTitle').innerText = '➕ Add New Question';
+  document.getElementById('qEditId').value = '';
+  document.getElementById('modalQText').value = '';
+  document.getElementById('modalOptA').value = '';
+  document.getElementById('modalOptB').value = '';
+  document.getElementById('modalOptC').value = '';
+  document.getElementById('modalOptD').value = '';
+  document.getElementById('modalQCorrect').value = 'A';
+  document.getElementById('modalAddEditQuestion').style.display = 'flex';
+}
+
+function openEditQuestionModal(qId) {
+  let targetQ = null;
+  ['L', 'U', 'O'].forEach(lvl => {
+    const found = (QUESTION_BANK[lvl] || []).find(q => q.id === qId);
+    if (found) targetQ = found;
+  });
+
+  if (!targetQ) return showToast('Question not found');
+
+  document.getElementById('modalQTitle').innerText = '✏️ Edit Question';
+  document.getElementById('qEditId').value = targetQ.id;
+  document.getElementById('modalQLevel').value = targetQ.level || 'O';
+  document.getElementById('modalQSection').value = targetQ.section || 'Final Finish QA';
+  document.getElementById('modalQCategory').value = targetQ.category || 'QA & Process';
+  document.getElementById('modalQText').value = targetQ.question || '';
+
+  const opts = targetQ.options || [];
+  document.getElementById('modalOptA').value = opts[0] ? opts[0].text : '';
+  document.getElementById('modalOptB').value = opts[1] ? opts[1].text : '';
+  document.getElementById('modalOptC').value = opts[2] ? opts[2].text : '';
+  document.getElementById('modalOptD').value = opts[3] ? opts[3].text : '';
+  document.getElementById('modalQCorrect').value = targetQ.correctAnswer || 'A';
+
+  document.getElementById('modalAddEditQuestion').style.display = 'flex';
+}
+
+function closeQModal() {
+  document.getElementById('modalAddEditQuestion').style.display = 'none';
+}
+
+function saveQuestionFromModal(e) {
+  e.preventDefault();
+  const qId = document.getElementById('qEditId').value;
+  const level = document.getElementById('modalQLevel').value;
+  const section = document.getElementById('modalQSection').value;
+  const category = document.getElementById('modalQCategory').value;
+  const qText = document.getElementById('modalQText').value.trim();
+
+  const optA = document.getElementById('modalOptA').value.trim();
+  const optB = document.getElementById('modalOptB').value.trim();
+  const optC = document.getElementById('modalOptC').value.trim();
+  const optD = document.getElementById('modalOptD').value.trim();
+  const correctAnswer = document.getElementById('modalQCorrect').value;
+
+  const newQ = {
+    id: qId || `${level}_${section.replace(/\s+/g, '_')}_${Date.now()}`,
+    level: level,
+    section: section,
+    category: category,
+    question: qText,
+    options: [
+      { key: 'A', text: optA },
+      { key: 'B', text: optB },
+      { key: 'C', text: optC },
+      { key: 'D', text: optD }
+    ],
+    correctAnswer: correctAnswer
+  };
+
+  if (!QUESTION_BANK[level]) QUESTION_BANK[level] = [];
+
+  if (qId) {
+    // Edit existing
+    ['L', 'U', 'O'].forEach(lvl => {
+      const idx = (QUESTION_BANK[lvl] || []).findIndex(q => q.id === qId);
+      if (idx !== -1) QUESTION_BANK[lvl].splice(idx, 1);
+    });
+    QUESTION_BANK[level].push(newQ);
+    showToast('Question updated successfully! ✏️');
+  } else {
+    // Add new
+    QUESTION_BANK[level].push(newQ);
+    showToast('New question added successfully! ➕');
+  }
+
+  closeQModal();
+  renderQuestionsManager();
+}
+
+function deleteQuestion(qId) {
+  if (!confirm('Are you sure you want to delete this question?')) return;
+
+  ['L', 'U', 'O'].forEach(lvl => {
+    const idx = (QUESTION_BANK[lvl] || []).findIndex(q => q.id === qId);
+    if (idx !== -1) {
+      QUESTION_BANK[lvl].splice(idx, 1);
+    }
+  });
+
+  showToast('Question deleted successfully 🗑️');
+  renderQuestionsManager();
+}
+
+// Employee Directory View
+function renderEmployeeDirectory() {
+  const search = document.getElementById('empDirectorySearch').value.toLowerCase().trim();
+  const tbody = document.getElementById('empDirectoryTbody');
+  tbody.innerHTML = '';
+
+  const filtered = EMPLOYEES.filter(emp => {
+    if (!search) return true;
+    return emp.empNo.toLowerCase().includes(search) || emp.name.toLowerCase().includes(search) || emp.dept.toLowerCase().includes(search);
+  });
+
+  document.getElementById('empDirCountText').innerText = filtered.length;
+
+  filtered.forEach(emp => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><strong>${emp.empNo}</strong></td>
+      <td>${emp.name}</td>
+      <td>${emp.dept}</td>
+      <td>${emp.section || '-'}</td>
+      <td>${emp.doj || '-'}</td>
+      <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: 4px;">${emp.currentLevel || 'I'}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Results Database Table & Reset Action
+function renderAdminTable(query) {
+  const records = getStoredRecords();
+  const tbody = document.getElementById('adminTableBody');
+  tbody.innerHTML = '';
+
+  const q = query.toLowerCase().trim();
+
+  const filtered = EMPLOYEES.filter(emp => {
+    if (!q) return true;
+    return (
+      emp.empNo.toLowerCase().includes(q) ||
+      emp.name.toLowerCase().includes(q) ||
+      emp.dept.toLowerCase().includes(q) ||
+      (emp.section && emp.section.toLowerCase().includes(q))
+    );
+  });
+
+  document.getElementById('tableCountText').innerText = filtered.length;
+
+  filtered.forEach(emp => {
+    const rec = records[emp.empNo] || {};
+
+    const tr = document.createElement('tr');
+
+    const statusBadge = rec.isCompleted
+      ? `<span class="${rec.status && rec.status.includes('Terminated') ? 'badge-fail' : 'badge-pass'}">${rec.status || 'Completed'}</span>`
+      : rec.inProgress
+      ? `<span class="badge-pending">In Progress (${rec.tabSwitchCount || 0} Sw)</span>`
+      : `<span style="color: #94A3B8;">Not Started</span>`;
+
+    const hasRecord = rec.isCompleted || rec.inProgress;
+    const actionBtn = hasRecord
+      ? `<button class="btn-reset" onclick="confirmAndResetExam('${emp.empNo}', '${emp.name.replace(/'/g, "\\'")}')">🔄 Reset Exam</button>`
+      : `<span style="color: #CBD5E1; font-size: 0.8rem;">No attempt</span>`;
+
+    tr.innerHTML = `
+      <td><strong>${emp.empNo}</strong></td>
+      <td>${emp.name}</td>
+      <td>${emp.doj || '-'}</td>
+      <td>${emp.dept}</td>
+      <td>${emp.section || '-'}</td>
+      <td>${emp.currentLevel || 'I'}</td>
+      <td>${rec.uMark !== undefined ? rec.uMark : '-'}</td>
+      <td>${rec.lMark !== undefined ? rec.lMark : '-'}</td>
+      <td>${rec.oMark !== undefined ? rec.oMark : '-'}</td>
+      <td><strong>${rec.totalMark !== undefined ? rec.totalMark : '-'}</strong></td>
+      <td>${rec.markPct !== undefined ? rec.markPct + '%' : '-'}</td>
+      <td>${statusBadge}</td>
+      <td>${rec.attemptDate || '-'}</td>
+      <td>${actionBtn}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+function confirmAndResetExam(empNo, empName) {
+  if (confirm(`Are you sure you want to RESET the assessment for Employee ${empNo} (${empName})?\n\nThis will clear all previous answers, marks, tab switch warnings, and status so they can take the test again.`)) {
+    const records = getStoredRecords();
+    if (records[empNo]) {
+      delete records[empNo];
+      localStorage.setItem(STORAGE_KEY_RECORDS, JSON.stringify(records));
+      showToast(`Exam reset successfully for Employee ${empNo}`);
+      renderAdminTable('');
+    }
+  }
+}
+
+function filterAdminTable() {
+  const val = document.getElementById('adminSearchInput').value;
+  renderAdminTable(val);
+}
+
+// Export Excel Report for Admin Only
+function exportAdminExcel() {
+  const records = getStoredRecords();
+
+  const exportData = EMPLOYEES.map((emp, index) => {
+    const rec = records[emp.empNo] || {};
+    return {
+      "S.No": index + 1,
+      "Employee No": emp.empNo,
+      "Name": emp.name,
+      "DOJ": emp.doj || "",
+      "Department": emp.dept,
+      "Section": emp.section || "",
+      "Skill Level": emp.currentLevel || "I",
+      "U mark": rec.uMark !== undefined ? rec.uMark : 0,
+      "L mark": rec.lMark !== undefined ? rec.lMark : 0,
+      "O mark": rec.oMark !== undefined ? rec.oMark : 0,
+      "Total Mark": rec.totalMark !== undefined ? rec.totalMark : 0,
+      "Percentage": rec.markPct !== undefined ? rec.markPct + "%" : "0%",
+      "Tab Switches": rec.tabSwitchCount || 0,
+      "Status": rec.status || (rec.inProgress ? "In Progress" : "Not Started"),
+      "Attempt Date": rec.attemptDate || ""
+    };
+  });
+
+  const worksheet = XLSX.utils.json_to_sheet(exportData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "ILUO Assessment Report");
+
+  XLSX.writeFile(workbook, `Yokohama_ILUO_QA_Assessment_Report_${new Date().toISOString().split('T')[0]}.xlsx`);
+  showToast('Excel report downloaded successfully!');
+}
+
+// Bulk Clear & Docx Upload Parser
+function clearAllQuestions() {
+  if (!confirm('⚠️ WARNING: Are you sure you want to DELETE ALL QUESTIONS?\n\nThis will clear the entire question bank. You can then upload your own custom .docx files!')) return;
+
+  QUESTION_BANK.L = [];
+  QUESTION_BANK.U = [];
+  QUESTION_BANK.O = [];
+
+  showToast('All questions deleted! Bank is now empty 🗑️');
+  renderQuestionsManager();
+}
+
+function handleDocxUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  if (!file.name.endsWith('.docx')) {
+    alert('Please select a valid Word Document (.docx) file.');
+    return;
+  }
+
+  const filename = file.name;
+  let level_code = 'O';
+  if (filename.includes('L Level') || filename.includes('L_Level') || filename.startsWith('L ')) level_code = 'L';
+  else if (filename.includes('U Level') || filename.includes('U_Level') || filename.startsWith('U ')) level_code = 'U';
+  else if (filename.includes('O Level') || filename.includes('O_Level') || filename.startsWith('O ')) level_code = 'O';
+
+  let section_name = 'Final Finish QA';
+  if (filename.includes('Final Finish QA')) section_name = 'Final Finish QA';
+  else if (filename.includes('Tire Building')) section_name = 'Tire Building QA';
+  else if (filename.includes('Tire Curing')) section_name = 'Tire Curing QA';
+  else if (filename.includes('Solid Tire')) section_name = 'Solid Tire QA';
+  else if (filename.includes('Preparatory')) section_name = 'Preparatory QA';
+  else if (filename.includes('Warehouse')) section_name = 'Warehouse QA';
+  else if (filename.includes('FID Inspector')) section_name = 'FID Inspector QA';
+  else if (filename.includes('RRO') || filename.includes('ALT')) section_name = 'Final Finish RRO & ALT QA';
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const arrayBuffer = e.target.result;
+    if (typeof mammoth === 'undefined') {
+      alert('Mammoth.js library loading... Please try again in a moment.');
+      return;
+    }
+
+    mammoth.extractRawText({ arrayBuffer: arrayBuffer })
+      .then(function(result) {
+        const text = result.value;
+        const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        
+        let current_cat = 'Safety';
+        let parsed_qs = [];
+        let i = 0;
+
+        while (i < lines.length) {
+          const line = lines[i];
+          const l_upper = line.toUpperCase();
+
+          if (l_upper.includes('SAFETY')) { current_cat = 'Safety'; i++; continue; }
+          if (l_upper.includes('CI & TPM') || l_upper.includes('TPM')) { current_cat = 'CI & TPM'; i++; continue; }
+          if (l_upper.includes('PROCESS') || l_upper.includes('QUALITY') || l_upper.includes('QA')) { current_cat = 'QA & Process'; i++; continue; }
+
+          if (line.startsWith('Assessment Questionnaire') || line.startsWith('Marks Classification:')) { i++; continue; }
+
+          // Options check
+          let opts = [];
+          let j = i + 1;
+          while (j < lines.length && j <= i + 4) {
+            const next_line = lines[j];
+            const is_opt = /^([a-d1-4])[\.\)]\s*(.*)/i.test(next_line);
+            if (is_opt) {
+              const match = next_line.match(/^([a-d1-4])[\.\)]\s*(.*)/i);
+              const keys = ['A', 'B', 'C', 'D'];
+              opts.push({ key: keys[opts.length] || 'A', text: match ? match[2] : next_line });
+              j++;
+            } else {
+              break;
+            }
+          }
+
+          if (opts.length >= 2) {
+            parsed_qs.push({
+              id: `${level_code}_${section_name.replace(/\s+/g, '_')}_${parsed_qs.length + 1}`,
+              level: level_code,
+              section: section_name,
+              category: current_cat,
+              question: line,
+              options: opts,
+              correctAnswer: 'A'
+            });
+            i = j;
+            continue;
+          }
+          i++;
+        }
+
+        if (parsed_qs.length === 0) {
+          alert(`Could not extract questions from '${filename}'. Make sure options are formatted as a. b. c. d.`);
+          return;
+        }
+
+        if (!QUESTION_BANK[level_code]) QUESTION_BANK[level_code] = [];
+        QUESTION_BANK[level_code].push(...parsed_qs);
+
+        showToast(`🎉 Successfully imported ${parsed_qs.length} questions from ${filename}!`);
+        renderQuestionsManager();
+      })
+      .catch(function(err) {
+        alert('Error parsing docx file: ' + err.message);
+      });
+  };
+
+  reader.readAsArrayBuffer(file);
+}

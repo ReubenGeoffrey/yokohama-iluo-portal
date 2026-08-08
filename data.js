@@ -1,0 +1,16041 @@
+// Yokohama ILUO MCQ Assessment Master Data Bank
+const EMPLOYEES = [
+  {
+    "empNo": "900141",
+    "name": "V. JOSEPH RAJ",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "SSLC",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900142",
+    "name": "P. KANNAPIRAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900143",
+    "name": "T. MOHAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI Turner",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900201",
+    "name": "A. JUSTIN PRABHAKAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900210",
+    "name": "V. RAJAGOPAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "5th Std",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900259",
+    "name": "G. MURUGAIAH PANDIAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "B.Sc Zoology",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900260",
+    "name": "M. RAMESH",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "SSLC",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900261",
+    "name": "P. PARAMASIVAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "HSC",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900262",
+    "name": "S. MEENAKSHI SUNDARAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "BBA",
+    "doj": "2011-04-01",
+    "expCount": 170,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900338",
+    "name": "MATHANA GOPAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "BA (History)",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900339",
+    "name": "N.M. SENTHIL KUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900340",
+    "name": "G. MARIMUTHU",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900341",
+    "name": "E. ANTHONY",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900342",
+    "name": "T. NATARAJAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900343",
+    "name": "U. KUTTY RAJA",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "Single",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900429",
+    "name": "P. ARICHANDRAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "ITI Turner",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900444",
+    "name": "S. BALU",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DME",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900445",
+    "name": "C. KANNAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "B.com",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900446",
+    "name": "I. JESU RAJ",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "B.Com (Discontine)",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900447",
+    "name": "PATTANI C",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "SSLC",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900459",
+    "name": "M. MARIAPPAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th Fail",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900460",
+    "name": "SELVA PANDI N",
+    "dept": "QUALITY CONTROL",
+    "section": "FINAL FINISH",
+    "qualification": "SSLC",
+    "doj": "2012-04-01",
+    "expCount": 158,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900542",
+    "name": "M. VASANTH",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI Welder",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900543",
+    "name": "M. MURUGESAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900544",
+    "name": "A. MURUGANANTHAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900545",
+    "name": "J. ARUL KUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900546",
+    "name": "T. THINESH KUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900547",
+    "name": "V. SUNDAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900548",
+    "name": "C. SUDALAI MUTHU",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900549",
+    "name": "A. MUNDA SAMY",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900550",
+    "name": "S. VEMPAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900551",
+    "name": "A. MAHA RAJAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900552",
+    "name": "K. POOVA LINGAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900553",
+    "name": "C. VEMPAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900554",
+    "name": "A. ARUMUGAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900555",
+    "name": "S. MAHESHKUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900556",
+    "name": "S. MASANA MUTHU",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "5th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900595",
+    "name": "P. VENISH KUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900596",
+    "name": "K. ESAKKI MUTHU",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900597",
+    "name": "M. SANKARALINGAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900598",
+    "name": "M. THANGA PERUMAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "10th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900599",
+    "name": "B. ARUNACHALAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "ITI",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900740",
+    "name": "P. CHELLADURAI",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2011-11-25",
+    "expCount": 163,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900841",
+    "name": "K. THANGA PANDI",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2011-05-07",
+    "expCount": 169,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900844",
+    "name": "SAVARIMUTHU F",
+    "dept": "QUALITY CONTROL",
+    "section": "FINAL FINISH",
+    "qualification": "SSLC",
+    "doj": "2011-08-05",
+    "expCount": 166,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900845",
+    "name": "B. RATHAN SINGH",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2011-11-10",
+    "expCount": 163,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900846",
+    "name": "U. ANSARI",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8th",
+    "doj": "2011-12-17",
+    "expCount": 162,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900847",
+    "name": "I. ANANTHAPPAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2012-01-10",
+    "expCount": 161,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "900848",
+    "name": "S. BALASUBRAMANIAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2012-05-10",
+    "expCount": 157,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0252",
+    "name": "MARI SELVAM J",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2014-02-12",
+    "expCount": 136,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0305",
+    "name": "MADASAMY M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8th",
+    "doj": "2011-08-06",
+    "expCount": 166,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0626",
+    "name": "BALUMAHENDRA G",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9th",
+    "doj": "2011-05-26",
+    "expCount": 169,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0718",
+    "name": "SENTHIL KUMAR S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI ELECTRICAN",
+    "doj": "2017-11-25",
+    "expCount": 91,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0767",
+    "name": "MADASAMY",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2018-02-10",
+    "expCount": 88,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0967",
+    "name": "NAMBIPERUMAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "ITI AUTO MOBILE",
+    "doj": "2020-10-29",
+    "expCount": 56,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK0989",
+    "name": "SARAVANAKUMAR K",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2020-12-18",
+    "expCount": 54,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "AK1123",
+    "name": "ATHITHINAKARAN C",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH FAIL",
+    "doj": "2022-05-12",
+    "expCount": 37,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "AK1142",
+    "name": "SELVA RAMESH C",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2022-09-17",
+    "expCount": 33,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "KK0033",
+    "name": "SURESH K",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2013-09-21",
+    "expCount": 141,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK0345",
+    "name": "THANGA PANDIAN D",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "7TH",
+    "doj": "2015-02-14",
+    "expCount": 124,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK0413",
+    "name": "SAVARI REGANRAJ R",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "DEEE",
+    "doj": "2015-07-22",
+    "expCount": 119,
+    "yearExp": "9-10 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK0960",
+    "name": "SATHIYARAJ",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2018-09-03",
+    "expCount": 81,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK1176",
+    "name": "M VENKADESH",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish ALT QA",
+    "qualification": "12TH",
+    "doj": "2020-11-18",
+    "expCount": 55,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK1184",
+    "name": "RAMKUMAR N",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish ALT QA",
+    "qualification": "ITI WELDER",
+    "doj": "2020-12-08",
+    "expCount": 54,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK1208",
+    "name": "VENGATESH",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2021-02-15",
+    "expCount": 52,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "KK1357",
+    "name": "VEMBAN ESAKKI",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8TH",
+    "doj": "2022-02-14",
+    "expCount": 40,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "KK1444",
+    "name": "JEGANVINOTH NARAYANAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2023-05-13",
+    "expCount": 25,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "LN0039",
+    "name": "PRAKASH R",
+    "dept": "QUALITY CONTROL",
+    "section": "Data Entry QA",
+    "qualification": "B E MECH",
+    "doj": "2023-12-13",
+    "expCount": 18,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0059",
+    "name": "MURUGAPERUMAL V",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI",
+    "doj": "2023-12-13",
+    "expCount": 18,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0085",
+    "name": "SENTHIL VELMURUGAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI",
+    "doj": "2023-12-21",
+    "expCount": 18,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0091",
+    "name": "SAKTHI KUMAR K",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DECE",
+    "doj": "2024-01-08",
+    "expCount": 17,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0103",
+    "name": "C THANGARAJ",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DME",
+    "doj": "2024-01-18",
+    "expCount": 17,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0176",
+    "name": "SURESH KANNAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "B,SC",
+    "doj": "2024-02-21",
+    "expCount": 16,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0241",
+    "name": "PRAKASH",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DEEE",
+    "doj": "2024-03-18",
+    "expCount": 15,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0263",
+    "name": "DHINAKARAN P",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2024-03-25",
+    "expCount": 15,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0439",
+    "name": "PETCHIAMMAL P",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "B.COM",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0443",
+    "name": "SIVARANJANI MARIAPPAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "M.SC",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0445",
+    "name": "HEPHZIBHA PONNAIAH",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "BBA",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0447",
+    "name": "MUTHUMARI MURUGAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12th",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0448",
+    "name": "JEYASHREE V",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "BE",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0460",
+    "name": "SANGEETHA S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DIPLOMA",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0461",
+    "name": "MUTHULAKSHMI DURAIPANDI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "BSC CS",
+    "doj": "2024-07-09",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0462",
+    "name": "GOODWIN",
+    "dept": "QUALITY CONTROL",
+    "section": "Preparatory QA",
+    "qualification": "DAE",
+    "doj": "2024-07-17",
+    "expCount": 11,
+    "yearExp": "9-12 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0510",
+    "name": "VELLADURAI G",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2024-11-12",
+    "expCount": 7,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0639",
+    "name": "PARAMASIVAN V",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "B.SC PHY",
+    "doj": "2024-12-05",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0660",
+    "name": "ESAKKIAMMAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2024-12-11",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0662",
+    "name": "MUTHU PRIYA",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "DECF",
+    "doj": "2024-12-11",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0664",
+    "name": "MARIAMMAL  S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2024-12-11",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0670",
+    "name": "MUTHARAMMAL S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "B.A TAM",
+    "doj": "2024-12-11",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0674",
+    "name": "VASTHI RANI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12 TH",
+    "doj": "2024-12-11",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0677",
+    "name": "VAITHEESWARI Y",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "BA HRD",
+    "doj": "2024-12-12",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0678",
+    "name": "ARUL MURUGAN T",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI",
+    "doj": "2024-12-13",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0679",
+    "name": "MAHARAJAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9 TH",
+    "doj": "2024-12-13",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0681",
+    "name": "SUDALAIMANI M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2024-12-13",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0687",
+    "name": "PALMURUGAN V",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "B.COM",
+    "doj": "2024-12-13",
+    "expCount": 6,
+    "yearExp": "6-9 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0759",
+    "name": "SAFIN BANU",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "10TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0763",
+    "name": "SANGEETHA S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0766",
+    "name": "STELLA C",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "12TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0769",
+    "name": "MALINI.S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "12TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0770",
+    "name": "PRADEEPA T",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0771",
+    "name": "MAHADEVI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "DECE",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0774",
+    "name": "C SRI DHANASEYA",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "10 TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0776",
+    "name": "NAVINA G",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "ITI",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0777",
+    "name": "SARITHA BANU",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12 TH",
+    "doj": "2025-02-11",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0779",
+    "name": "RAMYA S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "B.SC ZOO",
+    "doj": "2025-02-12",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0783",
+    "name": "RICHARD P",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "BCOM",
+    "doj": "2025-02-14",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "LN0847",
+    "name": "KALEESWARI A",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "12 TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0851",
+    "name": "JEYAPRIYA M",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12 TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0852",
+    "name": "NAGAKANI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "10 TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0856",
+    "name": "SUDALI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0858",
+    "name": "MUNIYAMMAL PALDURAI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "10TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0859",
+    "name": "VAIJAYANDHIMALA",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0861",
+    "name": "ESAKKI MUTHUSELVI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0863",
+    "name": "MARIYAMMAL B",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "10TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0867",
+    "name": "VENI P",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "10TH",
+    "doj": "2025-04-23",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0870",
+    "name": "DEVI",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12 TH",
+    "doj": "2025-04-24",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "LN0874",
+    "name": "KARPAGAVALLI K",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "12 TH",
+    "doj": "2025-04-24",
+    "expCount": 2,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "MG0156",
+    "name": "MURUGAN C",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "10th",
+    "doj": "2012-08-19",
+    "expCount": 154,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG0219",
+    "name": "SHANMUGAVEL M",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2012-12-27",
+    "expCount": 150,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG0464",
+    "name": "JOHN VARKISH G",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "5th",
+    "doj": "2014-03-04",
+    "expCount": 135,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG0575",
+    "name": "GANESHA MOORTHY S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "DEEE",
+    "doj": "2014-09-23",
+    "expCount": 129,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG0758",
+    "name": "MADASAMY P",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "4th",
+    "doj": "2013-04-01",
+    "expCount": 146,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG0784",
+    "name": "ESAKKI RAJA P",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "10th",
+    "doj": "2013-01-30",
+    "expCount": 149,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG0788",
+    "name": "SUNIL KUMAR T",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2012-11-20",
+    "expCount": 151,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1055",
+    "name": "ESAKKI S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "DME PASS",
+    "doj": "2017-06-26",
+    "expCount": 96,
+    "yearExp": "8-9 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1125",
+    "name": "SELVAKUMAR S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "12TH",
+    "doj": "2017-10-31",
+    "expCount": 91,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1126",
+    "name": "MUTHU C",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "10TH",
+    "doj": "2017-10-31",
+    "expCount": 91,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1234",
+    "name": "MAHALINGAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2018-10-31",
+    "expCount": 79,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1243",
+    "name": "KARTHICK NARAYANAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "DME",
+    "doj": "2018-11-01",
+    "expCount": 79,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1268",
+    "name": "MANIKANDAN E",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2018-11-11",
+    "expCount": 79,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1271",
+    "name": "VETRIVEL R",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI FITTER",
+    "doj": "2018-11-14",
+    "expCount": 79,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1272",
+    "name": "MUTHU MARIAPPAN V",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2018-11-14",
+    "expCount": 79,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1322",
+    "name": "BALASUBRAMANIAN C",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire curing QA",
+    "qualification": "12th",
+    "doj": "2016-11-09",
+    "expCount": 103,
+    "yearExp": "8-9 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1323",
+    "name": "ESAKKI RAJA T",
+    "dept": "QUALITY CONTROL",
+    "section": "Preparatory QA",
+    "qualification": "12th",
+    "doj": "2016-01-07",
+    "expCount": 113,
+    "yearExp": "9-10 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1324",
+    "name": "LAKSHMANA PERUMAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2018-06-20",
+    "expCount": 84,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1325",
+    "name": "CHOKKALINGAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12th",
+    "doj": "2018-06-27",
+    "expCount": 84,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1328",
+    "name": "VENKATESH CHELLAPPA",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2018-09-24",
+    "expCount": 81,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1338",
+    "name": "A SUDALAIMUTHU",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH FAIL",
+    "doj": "2019-06-20",
+    "expCount": 72,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1408",
+    "name": "SIVAN A",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "10TH",
+    "doj": "2020-10-29",
+    "expCount": 56,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "MG1459",
+    "name": "S ESAKKI PANDI",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DIPOLOMA",
+    "doj": "2021-09-06",
+    "expCount": 45,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "MG1473",
+    "name": "KALLATHIYAN MARIAPPAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "12TH",
+    "doj": "2021-11-18",
+    "expCount": 43,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "MG1502",
+    "name": "ONESIMU MUTHUKUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish ALT QA",
+    "qualification": "ITI",
+    "doj": "2022-05-10",
+    "expCount": 37,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "MG1552",
+    "name": "EJAMAAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2023-05-09",
+    "expCount": 25,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "MG1554",
+    "name": "MARISELVAM M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2023-05-13",
+    "expCount": 25,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "MG1595",
+    "name": "M MANGALA KARTHIK",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2025-02-08",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK0666",
+    "name": "SUDALAI KANNU M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2013-08-29",
+    "expCount": 142,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0673",
+    "name": "SANKAR M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "6th",
+    "doj": "2014-01-28",
+    "expCount": 137,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0676",
+    "name": "BALAKRISHNAN M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "5th",
+    "doj": "2014-03-13",
+    "expCount": 135,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0759",
+    "name": "MANGLESH ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "5TH",
+    "doj": "2017-07-07",
+    "expCount": 95,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0822",
+    "name": "PAL PANDI V",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DECE PASS",
+    "doj": "2016-01-12",
+    "expCount": 113,
+    "yearExp": "9-10 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0842",
+    "name": "PRAKASH K",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "10th",
+    "doj": "2017-07-21",
+    "expCount": 95,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0926",
+    "name": "ARMUGAM ALIAS MAHARAJA",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2018-06-28",
+    "expCount": 84,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0928",
+    "name": "MURUGAPERUMAL NATARAJAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "DIPLOMA",
+    "doj": "2018-06-29",
+    "expCount": 84,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK0951",
+    "name": "JITRAM ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8TH",
+    "doj": "2018-11-26",
+    "expCount": 79,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1053",
+    "name": "VEMBU SUNDAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2020-05-22",
+    "expCount": 61,
+    "yearExp": "5-6 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1155",
+    "name": "KANNAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "10TH FAIL",
+    "doj": "2020-12-05",
+    "expCount": 54,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1178",
+    "name": "SANKAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DME",
+    "doj": "2021-02-05",
+    "expCount": 52,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1185",
+    "name": "SUBESH ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "05TH",
+    "doj": "2021-02-06",
+    "expCount": 52,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1186",
+    "name": "SUJIT ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "05TH",
+    "doj": "2021-02-06",
+    "expCount": 52,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1198",
+    "name": "INDRADEV ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9TH",
+    "doj": "2021-02-27",
+    "expCount": 52,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "PK1347",
+    "name": "SANKARAPANDIAN S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2022-02-05",
+    "expCount": 40,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "PK1351",
+    "name": "POOTHAPANDIAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "ECE",
+    "doj": "2022-02-10",
+    "expCount": 40,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "PK1355",
+    "name": "MAHARAJAN KARUPPASAMY",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "DCE",
+    "doj": "2022-02-14",
+    "expCount": 40,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "PK1375",
+    "name": "KABILAN THAMBIDURAI",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "12TH",
+    "doj": "2022-03-29",
+    "expCount": 39,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "PK1398",
+    "name": "MAHARAJAN C",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "DIPOLOMA EEE",
+    "doj": "2022-05-24",
+    "expCount": 37,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "PK1433",
+    "name": "SUDALAIMANI M",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2022-11-01",
+    "expCount": 31,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "PK1491",
+    "name": "CHINNADURAI",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2024-05-27",
+    "expCount": 13,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1497",
+    "name": "ESAKKY A",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2024-05-28",
+    "expCount": 13,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1498",
+    "name": "BALA MURUGAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2024-05-28",
+    "expCount": 13,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1504",
+    "name": "MYDEEN PITCHAI HAMEED MYDEEN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2024-05-30",
+    "expCount": 13,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1542",
+    "name": "KARUPPASAMY S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-01-27",
+    "expCount": 5,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1572",
+    "name": "PRADESIYA ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-02-17",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1573",
+    "name": "GOPI ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-02-17",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1574",
+    "name": "MAHADEV ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-02-17",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1575",
+    "name": "AJIT ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-02-17",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1576",
+    "name": "SANTOSH ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-02-17",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "PK1580",
+    "name": "SRIKRISHNAN P",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2025-05-12",
+    "expCount": 1,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1604",
+    "name": "DEVANATH ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-07",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1609",
+    "name": "DINESH ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-07",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1611",
+    "name": "AMAR ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-07",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1612",
+    "name": "PINTU ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-07",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1614",
+    "name": "AMIT ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-16",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1615",
+    "name": "VISHAL ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-16",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "PK1616",
+    "name": "SHREE ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-16",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "SK0534",
+    "name": "SANJIV KUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2012-12-21",
+    "expCount": 150,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK0942",
+    "name": "RAJAN M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2013-11-06",
+    "expCount": 139,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK1403",
+    "name": "SURYA C",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "EEE",
+    "doj": "2014-07-08",
+    "expCount": 131,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2058",
+    "name": "SUBBIAH S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9 FAIL",
+    "doj": "2015-12-22",
+    "expCount": 114,
+    "yearExp": "9-10 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2131",
+    "name": "THANGA VEL S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DIPOLAMA FAIL",
+    "doj": "2016-05-10",
+    "expCount": 109,
+    "yearExp": "9-10 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2236",
+    "name": "ARUNACHALAM R",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH FAIL",
+    "doj": "2016-11-26",
+    "expCount": 103,
+    "yearExp": "8-9 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2310",
+    "name": "SURESH S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10th",
+    "doj": "2012-03-09",
+    "expCount": 159,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2589",
+    "name": "CHOTU MONDAL",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "5TH",
+    "doj": "2017-09-01",
+    "expCount": 93,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2644",
+    "name": "MARISELVAM RAJENDHIRAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8TH FAIL",
+    "doj": "2017-12-13",
+    "expCount": 90,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK2905",
+    "name": "PANKAJ KUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2019-08-08",
+    "expCount": 70,
+    "yearExp": "5-6 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK3141",
+    "name": "SUBASH",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DECE",
+    "doj": "2021-01-24",
+    "expCount": 53,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK3153",
+    "name": "MUTHU RAJ R",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DME",
+    "doj": "2021-03-08",
+    "expCount": 51,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK3164",
+    "name": "ARAVINDRAJAN G",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DME",
+    "doj": "2021-03-20",
+    "expCount": 51,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SK3319",
+    "name": "MURUGAN V",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2021-12-17",
+    "expCount": 42,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3363",
+    "name": "K PUTHIYAVAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9TH",
+    "doj": "2022-04-07",
+    "expCount": 38,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3366",
+    "name": "JAYAKUMAR S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "6TH",
+    "doj": "2022-04-09",
+    "expCount": 38,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3376",
+    "name": "JOHN PAULRAJ",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12TH",
+    "doj": "2022-04-21",
+    "expCount": 38,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3388",
+    "name": "THANGAMANI S",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish ALT QA",
+    "qualification": "9TH",
+    "doj": "2022-05-12",
+    "expCount": 37,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3438",
+    "name": "KAMLESH DHURVE",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "9TH",
+    "doj": "2022-08-04",
+    "expCount": 34,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3501",
+    "name": "S BALASUBRAMANIAN",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "DME",
+    "doj": "2023-05-09",
+    "expCount": 25,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3511",
+    "name": "VIJAY SAKTHIVEL",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "DCE",
+    "doj": "2023-05-19",
+    "expCount": 25,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SK3530",
+    "name": "ARUMUGAPANDI N",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "10TH",
+    "doj": "2023-06-19",
+    "expCount": 24,
+    "yearExp": "2-3 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SK3540",
+    "name": "SELVAKUMAR C",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2024-05-25",
+    "expCount": 13,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SK3564",
+    "name": "MITHUN ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2024-06-24",
+    "expCount": 12,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SK3593",
+    "name": "RAMU ORAON",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-01-27",
+    "expCount": 5,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SK3605",
+    "name": "DURGAI SAMY E",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-01-27",
+    "expCount": 5,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SK3674",
+    "name": "KALI PANDI",
+    "dept": "QUALITY CONTROL",
+    "section": "Solid Tire QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-02",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "SR0320",
+    "name": "PREMKUMAR P",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2015-04-08",
+    "expCount": 122,
+    "yearExp": "10+ years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0499",
+    "name": "VIGNESH S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12th",
+    "doj": "2016-02-25",
+    "expCount": 112,
+    "yearExp": "9-10 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0766",
+    "name": "MAHARAJAN G",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2017-09-16",
+    "expCount": 93,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0808",
+    "name": "MUTHUKUMAR P",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2017-12-06",
+    "expCount": 90,
+    "yearExp": "7-8 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0878",
+    "name": "MUTHUKUTTY M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12TH",
+    "doj": "2018-09-17",
+    "expCount": 81,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0983",
+    "name": "MAHESHKUMAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "8TH",
+    "doj": "2019-06-20",
+    "expCount": 72,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0984",
+    "name": "MAHARAJAN K",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI A/C MECH",
+    "doj": "2019-06-20",
+    "expCount": 72,
+    "yearExp": "6-7 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR0993",
+    "name": "SELVAM L",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "12TH",
+    "doj": "2019-09-16",
+    "expCount": 69,
+    "yearExp": "5-6 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR1008",
+    "name": "GURUMOORTHI",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "ITI ELECTRICAN",
+    "doj": "2019-11-29",
+    "expCount": 67,
+    "yearExp": "5-6 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR1111",
+    "name": "SURESH M",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "10TH",
+    "doj": "2021-01-22",
+    "expCount": 53,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR1153",
+    "name": "SUDALAIMANI",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "10TH",
+    "doj": "2021-05-03",
+    "expCount": 49,
+    "yearExp": "4-5 years",
+    "currentLevel": "O"
+  },
+  {
+    "empNo": "SR1286",
+    "name": "ARUN",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DIPOLOMA CIVIL",
+    "doj": "2022-05-18",
+    "expCount": 37,
+    "yearExp": "3-4 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SR1315",
+    "name": "SURESH",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish RRO QA",
+    "qualification": "12th",
+    "doj": "2022-11-01",
+    "expCount": 31,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SR1341",
+    "name": "MUPPIDATHI A SRITHAR",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DME",
+    "doj": "2023-02-07",
+    "expCount": 28,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SR1358",
+    "name": "VANAMAMALAI",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "DIPLOMA EEE",
+    "doj": "2023-04-12",
+    "expCount": 26,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SR1375",
+    "name": "PATTUDURAI RAJARAM",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "EEE",
+    "doj": "2023-05-21",
+    "expCount": 25,
+    "yearExp": "2-3 years",
+    "currentLevel": "U"
+  },
+  {
+    "empNo": "SR1385",
+    "name": "VIGNESH K",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "DME",
+    "doj": "2023-06-13",
+    "expCount": 24,
+    "yearExp": "2-3 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SR1387",
+    "name": "SRITHARAN M",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2023-08-07",
+    "expCount": 22,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SR1402",
+    "name": "AYIRADOSS S",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "12th",
+    "doj": "2024-05-28",
+    "expCount": 13,
+    "yearExp": "1-2 years",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SR1448",
+    "name": "GOKUL",
+    "dept": "QUALITY CONTROL",
+    "section": "Final Finish QA",
+    "qualification": "12th",
+    "doj": "2025-02-08",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SR1450",
+    "name": "CHINNADURAI M",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2025-02-08",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SR1459",
+    "name": "SHELTON JEROM A",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "12th",
+    "doj": "2025-02-08",
+    "expCount": 4,
+    "yearExp": "3-6 months",
+    "currentLevel": "L"
+  },
+  {
+    "empNo": "SR1485",
+    "name": "MARIA ANISH CHELLATHURAI",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-02",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "SR1492",
+    "name": "SELVAMANI A",
+    "dept": "QUALITY CONTROL",
+    "section": "Ware House QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-16",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  },
+  {
+    "empNo": "SR1493",
+    "name": "MATHESHKUMAR M",
+    "dept": "QUALITY CONTROL",
+    "section": "Tire building QA",
+    "qualification": "SSLC",
+    "doj": "2025-06-16",
+    "expCount": 0,
+    "yearExp": "0-3 months",
+    "currentLevel": "I"
+  }
+];
+
+const QUESTION_BANK = {
+  "L": [
+    {
+      "id": "L_FID_Inspector_QA_1",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is PPE?/PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_FID_Inspector_QA_2",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is unsafe act ?/ பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_FID_Inspector_QA_3",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ?/ பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_4",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What are fire  Classes?/ தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_FID_Inspector_QA_5",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency?/ அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_FID_Inspector_QA_6",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval?/5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_7",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? /5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_8",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S?/ 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_9",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? /TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "L_FID_Inspector_QA_10",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_11",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரை பழுதுபார்த்து சரி செய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறைபாடுகளை நீக்க\nb. To improve tire aesthetic / டயரின் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்அவுட் சோதிக்க\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃப்ளாஷ் வெட்டும் மற்றும் பீட் வென்ட் டிரிம்மிங், ஆய்வு, கையிருப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃப்ளாஷ் மற்றும் பீட் வென்ட் டிரிம்மிங், கையிருப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃப்ளாஷ் டிரிம்மிங் மற்றும் பீட் வென்ட் டிரிம்மிங், கையிருப்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_12",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Where to apply inspection stamp after Inspection of tire? / டயர் ஆய்வுக்குப் பிறகு எங்கு ஸ்டாம்ப் வைக்க வேண்டும்?\na. Bottom side Near Week code and top side near vulcanized bar code in sidewall / பாட்டம் பக்கத்தில் வீக் கோடிற்கருகிலும், மேல்பக்கத்தில் உள்ள வெல்கனைஸ் பார்கோடிற்கருகிலும்\nb. Anywhere in sidewall / சைட்வாலில் எங்கு வேண்டுமானாலும்\nc. Near bead area / பீட் பகுதியில்நெருக்கமாக\nd. At tread area / டிரெட் பகுதியில்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Find air leakage / காற்று கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "B",
+          "text": "Find flow crack / பிளவு மற்றும் கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "C",
+          "text": "Find Blister defect / பிளிஸ்டர் குறைபாடு கண்டறிதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_13",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "When the cured tire RRO testing is carried out? / கியூர் செய்யப்பட்ட டயருக்கு RRO சோதனை எப்போது செய்யப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Immediately after tire curing / டயர் கியூரிங்குக்குப் பிறகு உடனடியாக"
+        },
+        {
+          "key": "B",
+          "text": "After cured tire flash cutting / கியூர் டயர் ஃபிளாஷ் வெட்டலுக்குப் பிறகு"
+        },
+        {
+          "key": "C",
+          "text": "After online inspection / ஆன்லைன் ஆய்வுக்குப் பிறகு"
+        },
+        {
+          "key": "D",
+          "text": "After final inspection / இறுதி ஆய்வுக்குப் பிறகு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_14",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is the defect? குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Top side of tire only / டயரின் மேல் பக்கம் மட்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Bottom side of tire only / டயரின் கீழ் பக்கம் மட்டும்"
+        },
+        {
+          "key": "C",
+          "text": "Both side of tire / டயரின் இரு பக்கங்களிலும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_15",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is SOP? SOP என்றால் என்ன?\na. Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொஸிஜூர்\nb. Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் பிராசஸ்\nc. System Organization Process / சிஸ்டம் ஆர்கனைசேஷன் பிராசஸ்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதம் மற்றும் ஆண்டு"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / நாள் மற்றும் மாதம்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரம் மற்றும் மாதம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_FID_Inspector_QA_16",
+      "level": "L",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is Effect of poking in cured tire? / கியூர் செய்யப்பட்ட டயரில் துளைபோடுவதால் ஏற்படும் விளைவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் இருந்து காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் நெகிழ்ச்சி"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது டயர் காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Final_Finish_QA_1",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Final_Finish_QA_2",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Final_Finish_QA_3",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_4",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Final_Finish_QA_5",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Final_Finish_QA_6",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_7",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_8",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_9",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "L_Final_Finish_QA_10",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_11",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரைக் பழுது பார்த்து சரி செய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறையை நீக்க\nb. To improve tire aesthetic / டயர் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்அவுட் சரிபார்க்க\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் கட் மற்றும் பிட் வென்ட் குறைத்தல், ஆய்வு, கிடங்கு"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் குறைத்தல் மற்றும் பிட் வென்ட் குறைத்தல், கிடங்கு"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் குறைத்தல் மற்றும் பிட் வென்ட் குறைத்தல், கிடங்கு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_12",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the Finish tire paint code? / தயாரான டயரின் பேயிண்ட் குறியீடு என்ன?\na. FB 61\nb. FB 65\nc. FB 54\nd. FB 50",
+      "options": [
+        {
+          "key": "A",
+          "text": "Find air leakage / காற்று கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "B",
+          "text": "Find flow crack / ஓட்ட விரிசலை கண்டறிதல்"
+        },
+        {
+          "key": "C",
+          "text": "Find Blister defect / பிளிஸ்டர் குறையை கண்டறிதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_13",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "When the cured tire RRO testing is carried out? / கியூரான டயரின் RRO பரிசோதனை எப்போது நடைபெறுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Immediately after tire curing / டயர் கியூரிங் ஆனதும் உடனடியாக"
+        },
+        {
+          "key": "B",
+          "text": "After cured tire flash cutting / கியூர் ஆன டயர் ஃபிளாஷ் கட் பிறகு"
+        },
+        {
+          "key": "C",
+          "text": "After online inspection / ஆன்லைன் ஆய்வுக்கு பிறகு"
+        },
+        {
+          "key": "D",
+          "text": "After final inspection / இறுதி ஆய்வுக்கு பிறகு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_14",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the defect? / குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / குறிப்பிட்ட தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Top side of tire only / டயரின் மேல் பக்கத்தில் மட்டுமே"
+        },
+        {
+          "key": "B",
+          "text": "Bottom side of tire only / டயரின் கீழ்ப் பக்கத்தில் மட்டுமே"
+        },
+        {
+          "key": "C",
+          "text": "Both side of tire / டயரின் இரண்டு பக்கங்களிலும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_15",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is SOP? / SOP என்றால் என்ன?\na. Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொஸிஜூர்\nb. Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் பிராசஸ்\nc. System Organization Process / சிஸ்டம் ஆர்கனைசேஷன் ப்ராசஸ்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதம் மற்றும் ஆண்டு"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / நாள் மற்றும் மாதம்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரம் மற்றும் மாதம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_QA_16",
+      "level": "L",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the effect of poking in cured tire? / கியூர் செய்யப்பட்ட டயரில் துளையிடும் விளைவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் திருப்தியின்மை"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_1",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is PPE?/ PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_2",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is unsafe act ?/ பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_3",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ?/ பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_4",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? /தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_5",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? /அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_6",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? /5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_7",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place?/ 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_8",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S?/ 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_9",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ?/ TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_10",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_11",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரைக் கட்டமைப்பதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறையை நீக்க\nb. To improve tire aesthetic / டயரின் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன் அவுட் சரிபார்ப்பதற்காக\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃப்ளாஷ் கட் & பீட் வென்ட் டிரிம்மிங், இன்ஸ்பெக்ஷன், வேர் ஹவுசிங்"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / இன்ஸ்பெக்ஷன், ஃப்ளாஷ் டிரிம்மிங் & பீட் வென்ட் டிரிம்மிங், வேர் ஹவுசிங்"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / இன்ஸ்பெக்ஷன், ஃபிளாஷ் டிரிம்மிங் & பீட் வென்ட் டிரிம்மிங், வேர் ஹவுசிங்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_12",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "When is the cured tire RRO testing carried out? / கியூர்ட் டயரின் RRO சோதனை எப்போது நடைபெறுகிறது?\na. Immediately after tire curing / டயர் கியூரிங் செய்யப்பட்ட உடனே\nb. After cured tire flash cutting / கியூரிங் செய்யப்பட்ட டயர் ஃபிளாஷ் கட் ஆன பின்\nc. After online inspection / ஆன்லைன் இன்ஸ்பெக்ஷனுக்குப் பிறகு\nd. After final inspection / இறுதி ஆய்வுக்குப் பிறகு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Below 15\" / 15 இன்ச் கீழ்"
+        },
+        {
+          "key": "B",
+          "text": "Above 10\" / 10 இன்சிற்கு மேல்"
+        },
+        {
+          "key": "C",
+          "text": "Above 15\" / 15 இன்சிற்கு மேல்"
+        },
+        {
+          "key": "D",
+          "text": "Above 54\" / 54 இன்சிற்கு மேல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_13",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of RRO testing? / RRO சோதனையின் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "For checking air leak from tire / டயரில் காற்று கசியல் இருக்கிறதா என பார்ப்பதற்கு"
+        },
+        {
+          "key": "B",
+          "text": "For checking OD of tire / டயரின் வெளிப்புற விட்டத்தை பார்ப்பதற்காக"
+        },
+        {
+          "key": "C",
+          "text": "For checking radial runout of tire / டயரின் ரேடியல் ரன் அவுட் பார்ப்பதற்கு"
+        },
+        {
+          "key": "D",
+          "text": "For checking radial runout and OD of tire / டயரின் ரேடியல் ரன் அவுட் மற்றும் OD பார்ப்பதற்காக"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_14",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the defect? / குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Narrow bead / குறுகிய பீடு"
+        },
+        {
+          "key": "B",
+          "text": "Inner liner blister / இனர் லைனர் ப்ளிஸ்டர்"
+        },
+        {
+          "key": "C",
+          "text": "Parallel belt / சமமில்லாத பெல்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Damage / சேதம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_15",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is SOP? / SOP என்றால் என்ன?\na. Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொஸிஜூர்\nb. Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேஷனல் பிராசஸ்\nc. System Organization Process / சிஸ்டம் ஆர்கனைசேஷன் ப்ராசஸ்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Full Red Dot / முழுமையான சிவப்பு புள்ளி"
+        },
+        {
+          "key": "B",
+          "text": "Full/Hollow Yellow Dot / முழு அல்லது காலியான மஞ்சள் புள்ளி"
+        },
+        {
+          "key": "C",
+          "text": "Hollow Red Dot / காலியான சிவப்பு புள்ளி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Final_Finish_RRO_&_ALT_QA_16",
+      "level": "L",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the effect of poking in cured tire? / கியூர் செய்யப்பட்ட டயரில் துளைத்தால் ஏற்படும் விளைவுகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரிலிருந்து காற்று கசியும்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் அதிருப்தி"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியும்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே கூறியவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Preparatory_QA_1",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Preparatory_QA_2",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Preparatory_QA_3",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க"
+        },
+        {
+          "key": "B",
+          "text": "Getting injury / காயம் அடைதல்"
+        },
+        {
+          "key": "C",
+          "text": "Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_4",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Preparatory_QA_5",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_6",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_7",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_8",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_9",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_10",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_11",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What is IPS and MSS? / IPS மற்றும் MSS என்றால் என்ன?\na. Inspection Process Standard / ஆய்வு செயல்முறை நிலை\nb. Incoming Product Specification / வரும் பொருள் விவரம்\nc. In Process Sample and Master Sample / செயல்முறை மாதிரி மற்றும் முதன்மை மாதிரி\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "6 months / 6 மாதங்கள்"
+        },
+        {
+          "key": "B",
+          "text": "12 months / 12 மாதங்கள்"
+        },
+        {
+          "key": "C",
+          "text": "24 months / 24 மாதங்கள்"
+        },
+        {
+          "key": "D",
+          "text": "36 months / 36 மாதங்கள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_12",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How much is the least count in Vernier? / வெர்னியரில் Least கவுண்ட் எவ்வளவு?\na. 0.1 mm\nb. 0.01 mm\nc. 0.001 mm\nd. 1 mm",
+      "options": [
+        {
+          "key": "A",
+          "text": "Vernier caliper, Micrometer, Checklist, Camera / வெர்னியர் கலிப்பர், மைக்ரோமீட்டர், செக் லிஸ்ட், கேமரா"
+        },
+        {
+          "key": "B",
+          "text": "Hammer, Screwdriver, Wrench, Pliers / ஹாமர், ஸ்க்ரூ டிரைவர், ரெஞ்ச், பிளையர்ஸ்"
+        },
+        {
+          "key": "C",
+          "text": "Paintbrush, Glue, Cutter, Ruler / பேன்ட்ப்ரஷ், க்ளூ, கட்டர், ரூலர்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_13",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Temperature by what are we measured? / டெம்பரேச்சர் நாம் எதை கொண்டு அளவீடு செய்யப்படுகின்றோம்?\na. Thermometer / வெப்பமாப் பொறி\nb. Vernier / வெர்னியர்\nc. Caliper / கலிபர்\nd. Pressure gauge / அழுத்தக் கருவி",
+      "options": [
+        {
+          "key": "A",
+          "text": "Non-Conforming Material Report / பொருள் குறைபாடு அறிக்கை"
+        },
+        {
+          "key": "B",
+          "text": "New Component Manufacturing Record / புதிய கூறு உற்பத்தி பதிவு"
+        },
+        {
+          "key": "C",
+          "text": "Normal Customer Material Request / சாதாரண வாடிக்கையாளர் பொருள் கோரிக்கை"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_14",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "When should the stop note be raised? / ஸ்டாப் நோட் எப்பொழுது raise செய்ய வேண்டும்?\na. When critical defect is found / முக்கிய குறைபாடு கண்டுபிடிக்கப்படும்போது\nb. During normal inspection / சாதாரண ஆய்வின் போது\nc. After final inspection / இறுதி ஆய்விற்கு பின்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Allowable limit of variation / அனுமதிக்கப்பட்ட வேறுபாடு வரம்பு"
+        },
+        {
+          "key": "B",
+          "text": "Complete acceptance criteria / முழுமையான ஏற்றுக்கொள்ளல் நிபந்தனை"
+        },
+        {
+          "key": "C",
+          "text": "Rejection limit / நிராகரிப்பு வரம்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Preparatory_QA_15",
+      "level": "L",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What is SOP & WI? / SOP, WI என்றால் என்ன?\na. Standard Operating Procedure & Work Instruction / நிலையான செயல்முறை & பணிசெயல்முறை வழிகாட்டு\nb. Safety Operating Process & Work Implementation / பாதுகாப்பு செயல்முறை & பணியாற்றல்\nc. Standard Organizational Process & Work Information / நிலையான அமைப்பு செயல்முறை & பணிவிவரங்கள்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Designated Hold Area / நியமிக்கப்பட்ட ஹோல்ட் பகுதி"
+        },
+        {
+          "key": "B",
+          "text": "Warehouse only / கையிருப்பு பகுதி மட்டும்"
+        },
+        {
+          "key": "C",
+          "text": "Production floor / உற்பத்தி பகுதி"
+        },
+        {
+          "key": "D",
+          "text": "Any open space / எங்கும் திறந்த இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_1",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is unsafe act? / பாதுகாப்பற்ற செயல் என்றால் என்ன?\na. Using PPE / PPE ஐப் பயன்படுத்துதல்\nb. Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை\nc. Floor is clean / தரை சுத்தமாக இருக்கிறது\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_2",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is safety? / பாதுகாப்பு என்றால் என்ன?\na. To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க\nb. Getting injury / காயம் அடைதல்\nc. Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்\nd. Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள் ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல் ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_3",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is HSEE? / HSEE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering / உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_4",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? / 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_5",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "d. Standardize / நிலையாக்கு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_6",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? / 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?\na. Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்\nb. Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்\nc. Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்\nd. Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_7",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? / 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_8",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which measuring equipment used to measure the heel strip length? / ஹில் ஸ்ட்ரிப் நீளத்தை அளவிட எந்த அளவீட்டு கருவி பயன்படுத்தப்படுகிறது?\na. Depth gauge / டெப்த் கேஜ்\nb. Steel scale / ஸ்டீல் ஸ்கேல்\nc. Vernier caliber / வெர்னியர் காலிபர்\nd. Measurement tape / மெஷர்மென்ட் டேப்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Dial gauge / டயல் கேஜ்"
+        },
+        {
+          "key": "B",
+          "text": "Visual Check / விசுவல் செக்"
+        },
+        {
+          "key": "C",
+          "text": "Guide light / கைடு லைட்"
+        },
+        {
+          "key": "D",
+          "text": "Measurement tape / மெஷர்மென்ட் டேப்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_9",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is the temperature level maintained in 300T Press? / 300T பிரஸில் பராமரிக்கப்படும் வெப்பநிலை நிலை என்ன?\na. 100°C\nb. 120°C\nc. 143°C\nd. 160°C",
+      "options": [
+        {
+          "key": "A",
+          "text": "50°C , 50°C, 50°C"
+        },
+        {
+          "key": "B",
+          "text": "55°C , 60°C , 45°C"
+        },
+        {
+          "key": "C",
+          "text": "30°C , 45°C , 50°C"
+        },
+        {
+          "key": "D",
+          "text": "40°C , 40°C , 40°C"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_10",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which tread compound used for LIFTER size? / லிப்ட்டர் சைஸ் க்கு பயன்படுத்தப்படும் ட்ரெட் காம்பௌண்ட் எது?\na. FB 1891\nb. FB170\nc. FB178\nd. FB114",
+      "options": [
+        {
+          "key": "A",
+          "text": "FB850"
+        },
+        {
+          "key": "B",
+          "text": "FB1711"
+        },
+        {
+          "key": "C",
+          "text": "FB173"
+        },
+        {
+          "key": "D",
+          "text": "FB1891"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_11",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What are the incoming materials in Tire building? / டயர் பில்டிங் பணியில் உள்வரும் பொருட்கள் என்ன?\na. FB850\nb. Reclaim rubber / மீண்டும் பயன்படுத்தப்படும் ரப்பர்\nc. FB1777\nd. FB1891",
+      "options": [
+        {
+          "key": "A",
+          "text": "Revision number & date / திருத்த எண் மற்றும் தேதி"
+        },
+        {
+          "key": "B",
+          "text": "Catalogue & date / கேட்டலாக் மற்றும் தேதி"
+        },
+        {
+          "key": "C",
+          "text": "GT code & catalogue / GT குறியீடு மற்றும் கேட்டலாக்"
+        },
+        {
+          "key": "D",
+          "text": "GT code & date / GT குறியீடு மற்றும் தேதி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Solid_Tire_QA_12",
+      "level": "L",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What information's are available in Unique Serial Plate? / யூனிக் சீரியல் பிளேட்டில் என்ன தகவல்கள் உள்ளன?\na. Month & Year / மாதம் மற்றும் வருடம்\nb. Day & Month / நாள் மற்றும் மாதம்\nc. Week & Month / வாரம் மற்றும் மாதம்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Inner liner / இன்னர் லைனர்"
+        },
+        {
+          "key": "B",
+          "text": "Side wall / சைடு வால்"
+        },
+        {
+          "key": "C",
+          "text": "Heel strip / ஹீல் ஸ்ட்ரிப்"
+        },
+        {
+          "key": "D",
+          "text": "Bead / பீடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_1",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is unsafe act? / பாதுகாப்பற்ற செயல் என்றால் என்ன?\na. Using PPE / PPE ஐப் பயன்படுத்துதல்\nb. Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை\nc. Floor is clean / தரை சுத்தமாக இருக்கிறது\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_2",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is safety? / பாதுகாப்பு என்றால் என்ன?\na. To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க\nb. Getting injury / காயம் அடைதல்\nc. Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்\nd. Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள் ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல் ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_3",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is BBS? / பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர் பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_4",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval?\n5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?\na. Sort / வகைபடுத்து\nb. Set in Order / ஒழுங்காக அமைக்க\nc. Shine / தூய்மைப்படுத்த\nd. Standardize / நிலையாக்கு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_5",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to?\n5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?\na. Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்\nb. Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்\nc. Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்\nd. Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_6",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which step of 5S?\n5S இன் எந்தப் படியில் ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_7",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What are we verifying in FTC?\nFTC இல் நாமே சரிபார்க்கின்றோம்?\na. To verify the Drum, BPR, Machine & Components parameters against specification. / டிரம், BPR, மெஷின் மற்றும் கூறுகளின் பரிமாணங்களை குறிப்பிட்ட விவரங்களுடன் சரிபார்க்க.\nb. To verify stitcher tools dimensions and pressure against specification. / ஸ்டிட்சர் கருவிகளின் பரிமாணங்களை மற்றும் அழுத்தத்தை குறிப்பிட்ட விவரங்களுடன் சரிபார்க்க.\nc. To consume the size-out materials. / அளவு வெளியே உள்ள பொருட்களை பயன்படுத்த.\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Radial size / ரேடியல் அளவு"
+        },
+        {
+          "key": "B",
+          "text": "Bias size / பைஸ் அளவு"
+        },
+        {
+          "key": "C",
+          "text": "Different construction size / வேறுபட்ட கட்டமைப்பின் அளவு"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_8",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "Back stitcher apply for?\nபின்வரிசைச் ஸ்டிட்சர் எதற்காக பயன்படும்?\na. Bead / Turn up Stitching / பீட் / திரும்பிய ஸ்டிட்சிங்\nb. Sidewall stitching / பக்கவட்டு ஸ்டிட்சிங்\nc. Tread Stitching / டிரெட் ஸ்டிட்சிங்\nd. Both A & C / A மற்றும் C இரண்டும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "5 sec ±3 sec / 5 வினாடிகள் ±3 வினாடிகள்"
+        },
+        {
+          "key": "B",
+          "text": "5 sec ±1 sec / 5 வினாடிகள் ±1 வினாடி"
+        },
+        {
+          "key": "C",
+          "text": "5 sec ±2 sec / 5 வினாடிகள் ±2 வினாடிகள்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_9",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "How many beads are used in double bead construction sizes?\nடபுள் பீட் கட்டுமான அளவுகளில் எத்தனை பீட்கள் பயன்படுத்தப்படுகின்றன?\na. 4 Beads / 4 பீட்கள்\nb. 6 Beads / 6 பீட்கள்\nc. 8 Beads / 8 பீட்கள்\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "7 ±3 mm / 7±3 மி.மி."
+        },
+        {
+          "key": "B",
+          "text": "7 (+3/-0) mm / 7 (+3/-0) மி.மி."
+        },
+        {
+          "key": "C",
+          "text": "7 (+3/-2) mm / 7(+3/-2) மி.மி."
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Building_QA_10",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What are the materials received from Extruder to Tire Building?\nஎக்ஸ்ட்ரூடரிலிருந்து டயர் கட்டுமானத்திற்கு கிடைக்கும் பொருட்கள் எவை?\na. Ply, Band / பிளை, பாண்ட்\nb. Inner, Fabric / இன்டர், பருத்தி\nc. Sidewall, Tread / பக்கவட்டு, டிரெட்\nd. Bead, Wound bead / பீட், சூழப்பட்ட பீட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "GT produced with all correct components but wrong drum set / அனைத்து சரியான கூறுகளுடன் GT தயாரிக்கப்பட்டுள்ளது ஆனால் தவறான டிரம் செட்"
+        },
+        {
+          "key": "B",
+          "text": "GT produced with drum and BPR correct, sidewall wrong / டிரம் மற்றும் BPR சரியானது, பக்கவட்டு தவறானது"
+        },
+        {
+          "key": "C",
+          "text": "GT produced with material direction against specification / குறிப்பிட்ட விவரங்களை மீறி பொருள் திசையில் GT தயாரிக்கப்பட்டது"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னது அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Tire_Building_QA_11",
+      "level": "L",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "Which type of trolley is used for above 150kg weight?\n150 கிலோகிராம் எடைக்கு மேல் எங்கு பயன்படுத்தப்படும் வண்டி வகை எது?\na. 8 Pin Trolley / 8 பின் வண்டி\nb. Saddle Trolley / சடில் வண்டி\nc. C Type Trolley / C வகை வண்டி\nd. Single Pin Trolley / ஒற்றை பின் வண்டி",
+      "options": [
+        {
+          "key": "A",
+          "text": "If we identify any machine abnormality / எதுவேனும் இயந்திர அசாதாரணத்தை கண்டறிந்தால்"
+        },
+        {
+          "key": "B",
+          "text": "Carcass or GT with major defect / முக்கிய குறைபாடுடன் கார்கஸ் அல்லது GT"
+        },
+        {
+          "key": "C",
+          "text": "Component not meeting the specification / கூறு குறிப்பிட்ட விவரத்துடன் சந்திக்கவில்லை"
+        },
+        {
+          "key": "D",
+          "text": "c & d / c மற்றும் d"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_1",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is safety bar and its use in Curing Press? / சேப்டி பார் என்றால் என்ன மற்றும் க்யூரிங் பிரஸ்ஸில் அதன் பயன்பாடு?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To stop the curing press closing during emergency situation/அவசரகால சூழ்நிலையில் க்யூரிங் பிரஸ் மூடுவதை நிறுத்த"
+        },
+        {
+          "key": "B",
+          "text": "To close the curing press during emergency sitatuion/அவசரகால சூழ்நிலையில் க்யூரிங் பிரஸ் மூடுவதற்கு"
+        },
+        {
+          "key": "C",
+          "text": "To ensure GT centering/ஜிடி செண்ட்டரிங் உறுதி செய்ய"
+        },
+        {
+          "key": "D",
+          "text": "To identify defects in cured tire/க்யூர் செய்த டயரில் உள்ள குறைபாடுகளை அடையாளம் காண"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_2",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? / பாதுகாப்பற்ற செயல் என்றால் என்ன??",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Tire_Curing_QA_3",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? / பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_4",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is ISO 45001 ? / ஐஎஸ்ஓ 45001 என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதாரம் மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "L_Tire_Curing_QA_5",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is LOTO ? / லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Tire_Curing_QA_6",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? / 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_7",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_8",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_9",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_10",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_11",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "11.  How to check the Route Card vs Specification? / ரூட் கார்டை விவரக்குறிப்புடன் எவ்வாறு சரிபார்க்கலாம்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Revision number & date / திருத்த எண் மற்றும் தேதி"
+        },
+        {
+          "key": "B",
+          "text": "Catalogue & date / கேட்டலாக் மற்றும் தேதி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_12",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "13. What information is available on the Unique Serial Plate? / யுனிக் சீரியல் பிளேட்டில் என்ன தகவல் இருக்கும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதமும் ஆண்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / நாளும் மாதமும்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரமும் மாதமும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_13",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "14. Why is GT Poking required? / GT போக்கிங் ஏன் செய்யப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To identify loading point / ஏற்றுமதி இடத்தை அடையாளம் காண"
+        },
+        {
+          "key": "B",
+          "text": "To release air entrapped in GT / GT-இல் சிக்கிய காற்றை வெளியேற்ற"
+        },
+        {
+          "key": "C",
+          "text": "To prevent defects in GT / GT இல் குறைகளைத் தடுக்கும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_14",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "15. How many times should Nerve Breaking be done for a new bladder? / புதிய பிளாடருக்கு நர்வ் பிரேக்கிங் எத்தனை முறை செய்ய வேண்டும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "9 / 9 முறை"
+        },
+        {
+          "key": "B",
+          "text": "10+ / 10க்கும் மேல்"
+        },
+        {
+          "key": "C",
+          "text": "8 / 8 முறை"
+        },
+        {
+          "key": "D",
+          "text": "7 / 7 முறை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_15",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "16. What is meant by Poke Yoke? / போக் யோக் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Error proofing / தவறுகளை தடுக்கும் முறை"
+        },
+        {
+          "key": "B",
+          "text": "Early warning / முன்னறிவிப்பு எச்சரிக்கை"
+        },
+        {
+          "key": "C",
+          "text": "Alarming / அலாரம்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_16",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "17. What is the effect of Poor Warm Up? / மோசமான வார்ம்அப்பின் விளைவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cured tire with under cure / குறைவான கியூருடன் டயர்"
+        },
+        {
+          "key": "B",
+          "text": "Cured tire with Bent Bead defect / வளைந்த பிடி குறைபாடு"
+        },
+        {
+          "key": "C",
+          "text": "Cured tire with Narrow Bead defect / குறுகிய பிடி குறைபாடு"
+        },
+        {
+          "key": "D",
+          "text": "Cured tire with OCL defect / OCL குறைபாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_17",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "18. What is meant by Troubleshooting? / டிரபிள்ஷூட்டிங் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Problem solving / பிரச்சனை தீர்வு"
+        },
+        {
+          "key": "B",
+          "text": "Methodology / முறையியல்"
+        },
+        {
+          "key": "C",
+          "text": "Defect tracking / குறைபாடு கண்காணிப்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_18",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "19. What is the purpose of Q-Alert in Tire Curing? / டயர் கியூரிங்கில் Q-அலர்ட் ஏன் எடுக்கப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "For Non-conformance materials / நான்-கான்ஃபார்மன்ஸ் பொருட்கள்"
+        },
+        {
+          "key": "B",
+          "text": "For Non-conformance GTs / நான்-கான்ஃபார்மன்ஸ் GT கள்"
+        },
+        {
+          "key": "C",
+          "text": "For repeated defect and corrective action / மீண்டும் குறை மற்றும் திருத்த நடவடிக்கைக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Both a & b / இரண்டும் a & b"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Tire_Curing_QA_19",
+      "level": "L",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "20. Bladder ring no 2 & 3 how to identify? / பிளாடர் ரிங் எண் 2 மற்றும் 3 எவ்வாறு அடையாளம் காணப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "K & E / K மற்றும் E"
+        },
+        {
+          "key": "B",
+          "text": "T & E / T மற்றும் E"
+        },
+        {
+          "key": "C",
+          "text": "A & B / A மற்றும் B"
+        },
+        {
+          "key": "D",
+          "text": "T & K / T மற்றும் K"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_1",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?\na. Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்\nb. People Performance Equipment / பீப்பிள் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்\nc. Personal Process Equipment / பீப்பிள் ப்ரோஸஸ் எகுய்ப்மெண்ட்\nd. Personal Protective Equipment / பர்சனல் ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட் கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_2",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is unsafe condition? பாதுகாப்பற்ற நிலை என்றால் என்ன?\na. No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை\nb. Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு\nc. Floor is clean / தரை சுத்தமாக இருக்கிறது\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_3",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Warehouse_QA_4",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?\na. Sort / வகைபடுத்து\nb. Set in Order / ஒழுங்காக அமைக்க\nc. Shine / தூய்மைப்படுத்த\nd. Standardize / நிலையாக்கு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_5",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?\na. Set in Order / ஒழுங்காக அமைக்க\nb. Sort / வகைபடுத்து\nc. Standardize / நிலையாக்கு\nd. Sustain / தக்கவைத்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Quality & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "L_Warehouse_QA_6",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_7",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரை பழுதுபார்த்துப் பழுது சரிப்பார்ப்பது ஏன்?\na. To eliminate the defect / குறைபாட்டை நீக்க\nb. To improve tire aesthetic / டயரின் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்னவுட் சரிபார்க்க\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load scanning, QA inspection, Container inspection, Tire cleaning, Stuffing / லோடு ஸ்கேனிங், QA இன்ஸ்பெக்‌ஷன், கண்டெய்னர் இன்ஸ்பெக்‌ஷன், டயர் கிளீனிங், ஸ்டஃபிங்"
+        },
+        {
+          "key": "B",
+          "text": "Tire stuffing, QA inspection, Cleaning, Container inspection, Load scanning / டயர் ஸ்டஃபிங், QA இன்ஸ்பெக்‌ஷன், கிளீனிங், கண்டெய்னர் இன்ஸ்பெக்‌ஷன், லோடு ஸ்கேனிங்"
+        },
+        {
+          "key": "C",
+          "text": "Tire cleaning, QA inspection, Container inspection, Load scanning, Stuffing / டயர் கிளீனிங், QA இன்ஸ்பெக்‌ஷன், கண்டெய்னர் இன்ஸ்பெக்‌ஷன், லோடு ஸ்கேனிங், ஸ்டஃபிங்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_8",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Where to apply inspection stamp after Inspection of tire? / டயர் இன்ஸ்பெக்‌ஷன் ஆன பிறகு ஸ்டாம்ப் எங்கு வைக்க வேண்டும்?\na. Near Week code in sidewall / சைடு வாலில் விக்ஸ் கோட் அருகே\nb. Anywhere in sidewall / சைடு வாலில் எங்கே வேண்டுமானாலும்\nc. Near bead area / பீட் பகுதியில் அருகே\nd. At tread area / டிரெட் பகுதியில்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Find air leakage / காற்று கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "B",
+          "text": "Find flow crack / பிளவு குறைபாடுகளை கண்டறிதல்"
+        },
+        {
+          "key": "C",
+          "text": "Find Blister defect / பிளிஸ்டர் குறைபாடுகள்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_9",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "When the cured tire strapping carried out? / கியூர்டு டயருக்கு ஸ்டிராப்பிங் எப்போது செய்யப்படுகிறது?\na. After Pre dispatch inspection / PDI முடிந்த பிறகு\nb. Before Pre dispatch inspection / PDI க்கு முந்தையது\nc. Before offering to PDI / PDI க்கு கொடுப்பதற்கு முன்\nd. Location itself / தளத்திலேயே",
+      "options": [
+        {
+          "key": "A",
+          "text": "Not meeting specification requirements / ஸ்பெசிபிகேஷன் தேவைகள் பூர்த்தி ஆகாதது"
+        },
+        {
+          "key": "B",
+          "text": "Not meeting SOP requirements / SOP தேவைகள் பூர்த்தி ஆகாதது"
+        },
+        {
+          "key": "C",
+          "text": "Not meeting appearance requirements / தோற்ற தேவைகள் பூர்த்தி ஆகாதது"
+        },
+        {
+          "key": "D",
+          "text": "All of the above / மேலே சொன்னவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "L_Warehouse_QA_10",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Choose the correct option? E marking engraving available in / E மார்க்கிங் எங்கே கிடைக்கும்?\na. Top side of tire only / டயரின் மேல் பக்கத்தில் மட்டும்\nb. Bottom side of tire only / டயரின் கீழ்பக்கத்தில் மட்டும்\nc. Both side of tire / டயரின் இருபுறமும்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொஸிஜூர்"
+        },
+        {
+          "key": "B",
+          "text": "Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் பிராசஸ்"
+        },
+        {
+          "key": "C",
+          "text": "System Organization Process / ஸ்டாண்டர்ட் ஆர்கனைசேஷன் பிராசஸ்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "L_Warehouse_QA_11",
+      "level": "L",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What information's are available in Unique Serial Plate? / யூனிக் சீரியல் பிளேட்டில் என்ன தகவல்கள் உள்ளன?\na. Month & Year / மாதம் மற்றும் வருடம்\nb. Day & Month / நாள் மற்றும் மாதம்\nc. Week & Month / வாரம் மற்றும் மாதம்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் காற்று கசியும்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் அதிருப்தி"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியும்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே கூறிய அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    }
+  ],
+  "U": [
+    {
+      "id": "U_FID_Inspector_QA_1",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is PPE?/ PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_FID_Inspector_QA_2",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? /பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_FID_Inspector_QA_3",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? /பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_4",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What are fire  Classes?/ தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_FID_Inspector_QA_5",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is BBS? /பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_6",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency?/ அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_FID_Inspector_QA_7",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing?/ RRO/RRM ஃபிளாஞ்ச் மாற்றும் போது பயன்படுத்த வேண்டிய பாதுகாப்பு உபகரணங்கள் (PPE) என்னென்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton golves and Safety shoe / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_8",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_9",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to?/ 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_10",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ?/ 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_11",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "QCC stands for / QCCக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Quality Control Certificate"
+        },
+        {
+          "key": "B",
+          "text": "Quality Control Circle"
+        },
+        {
+          "key": "C",
+          "text": "Quality Concern Certificate"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_12",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ?/ TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "U_FID_Inspector_QA_13",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_14",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "B",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        },
+        {
+          "key": "C",
+          "text": "Hot Repair / ஹாட் ரிப்பேர்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_15",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரை பழுதுபார்த்து சரி செய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறைபாடுகளை நீக்க\nb. To improve tire aesthetic / டயரின் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்அவுட் சோதனை செய்ய\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் வெட்டும் மற்றும் பீட் வென்ட் டிரிம்மிங், ஆய்வு, கையிருப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் டிரிம்மிங் மற்றும் பீட் வென்ட் டிரிம்மிங், கையிருப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் டிரிம்மிங் மற்றும் பீட் வென்ட் டிரிம்மிங், கையிருப்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_16",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "How to identify OK tires in RRO testing? / RRO சோதனையில் சரியான டயர்களை எப்படித் தெரிந்துகொள்வது?\na. Full Red Dot / முழு சிவப்பு புள்ளி\nb. Full/Hollow Yellow Dot / முழு/வெற்று மஞ்சள் புள்ளி\nc. Hollow Red Dot / வெற்று சிவப்பு புள்ளி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Find air leakage / காற்று கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "B",
+          "text": "Find flow crack / பிளவு மற்றும் கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "C",
+          "text": "Find Blister defect / பிளிஸ்டர் குறைபாடு கண்டறிதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_17",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What Is Traceability /  Traceability என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is process of maintain 5s / இது 5S ஐ பராமரிக்கும் செயல்முறையாகும்"
+        },
+        {
+          "key": "B",
+          "text": "Traceability is the capability to trace something / ட்ரேசிபிலிட்டி என்பது எதையாவது கண்டுபிடிக்கும் திறன்"
+        },
+        {
+          "key": "C",
+          "text": "Traceability is the ability to verify the history, location, or application of an item by means of documented recorded identification / ட்ரேசபிலிட்டி என்பது ஆவணப்படுத்தப்பட்ட பதிவு செய்யப்பட்ட அடையாளத்தின் மூலம் ஒரு பொருளின் வரலாறு, இருப்பிடம் அல்லது பயன்பாடு ஆகியவற்றைச் சரிபார்க்கும் திறன் ஆகும்."
+        },
+        {
+          "key": "D",
+          "text": "Traceability is the process of maintenance / டிரேசபிலிட்டி என்பது பராமரிப்பு செயல்முறை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_18",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Write the Manitou customer sizes and specific requirement? / Manitou வாடிக்கையாளர் அளவுகள் மற்றும் சிறப்பு தேவைகள் என்ன?\na. 11.00-20 Smooth compactor & 23.1-26 331 – Tube inspection, OD checking / 11.00-20 ஸ்மூத் கம்பாக்டர் & 23.1-26 331 – குழாய் ஆய்வு, OD செக்கிங்\nb. 11.00-20 Smooth compactor & 23.1-26 331 – Tube inspection, RRO checking, Safety pictogram / 11.00-20 ஸ்மூத் கம்பாக்டர் & 23.1-26 331 – குழாய் ஆய்வு, RRO சோதனை, பாதுகாப்பு குறி\nc. 11.00-20 Smooth compactor & 23.1-26 331 – Tube inspection, Inflated condition crack checking and applying centre strap / 11.00-20 ஸ்மூத் கம்பாக்டர் & 23.1-26 331 – குழாய் ஆய்வு, காற்றடிக்கப்பட்ட நிலையில் குமிழி சோதனை மற்றும் மைய ஸ்டிராப் பொருத்தல்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Immediately after tire curing / டயர் கியூரிங்குக்குப் பிறகு உடனடியாக"
+        },
+        {
+          "key": "B",
+          "text": "After cured tire flash cutting / கியூர் டயர் ஃபிளாஷ் வெட்டலுக்குப் பிறகு"
+        },
+        {
+          "key": "C",
+          "text": "After online inspection / ஆன்லைன் ஆய்வுக்குப் பிறகு"
+        },
+        {
+          "key": "D",
+          "text": "After final inspection / இறுதி ஆய்வுக்குப் பிறகு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_19",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "100% ALT checking is followed for which customer dispatch? / எந்த வாடிக்கையாளர் அனுப்புதலுக்கு 100% ALT சோதனை மேற்கொள்ளப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "JCB & Claas / ஜேசிபி மற்றும் கிளாஸ்"
+        },
+        {
+          "key": "B",
+          "text": "John Deere & YRC / ஜான் டியர் மற்றும் YRC"
+        },
+        {
+          "key": "C",
+          "text": "YRC & CNH / YRC மற்றும் CNH"
+        },
+        {
+          "key": "D",
+          "text": "Kubota & ITL / குபோட்டா மற்றும் ITL"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_20",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "a.Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Top side of tire only / டயரின் மேல் பக்கம் மட்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Bottom side of tire only / டயரின் கீழ் பக்கம் மட்டும்"
+        },
+        {
+          "key": "C",
+          "text": "Both sides of tire / டயரின் இருபுறங்களிலும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_21",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is SOP? /SOP என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொஸிஜூர்"
+        },
+        {
+          "key": "B",
+          "text": "Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் பிராசஸ்"
+        },
+        {
+          "key": "C",
+          "text": "System Organization Process / ஸ்டாண்டர்ட் ஆர்கனைசேஷன்  பிராசஸ்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_22",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Importance of Calibration / கலிப்ரேஷனின் முக்கியத்துவம் என்ன?\na. Providing accurate readings / துல்லியமான மதிப்பீடுகளை வழங்குதல்\nb. Instruments are working properly / கருவிகள் சரியாக செயல்படுவதை உறுதிப்படுத்துதல்\nc. Ready for use / பயன்படுத்த தயாராக இருக்குதல்\nd. Both a & b / a மற்றும் b இரண்டும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Thermometer / வெப்பநிலை அளவுகோல்"
+        },
+        {
+          "key": "B",
+          "text": "Shore A Durometer / ஷோர் A டியூரோமீட்டர்"
+        },
+        {
+          "key": "C",
+          "text": "Vernier Caliper / வர்னியர் காலிப்பர்"
+        },
+        {
+          "key": "D",
+          "text": "Shore B Durometer / ஷோர் B டியூரோமீட்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_23",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What information is available on the Unique Serial Plate? / யூனிக் சீரியல் ப்ளேட்டில் உள்ள தகவல்கள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதம் மற்றும் ஆண்டு"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / தேதி மற்றும் மாதம்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரம் மற்றும் மாதம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_24",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Indicates ? / குறி காட்டுவது என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Direction of rotation / சுழற்சி திசை"
+        },
+        {
+          "key": "B",
+          "text": "Brand emblem / பிராண்ட் சின்னம்"
+        },
+        {
+          "key": "C",
+          "text": "Safety pictogram / பாதுகாப்பு குறிச்சொல்"
+        },
+        {
+          "key": "D",
+          "text": "TWI (Tread Wear Indicator) / டிரெட் வீர் இன்டிகேட்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_FID_Inspector_QA_25",
+      "level": "U",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is the effect of poking in a cured tire? / கியூர் செய்யப்பட்ட டயரில் துளையிடுவதால் ஏற்படும் விளைவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரிலிருந்து காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் அதிருப்தி"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All of the above / மேலே உள்ள அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Final_Finish_QA_1",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Final_Finish_QA_2",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Final_Finish_QA_3",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_4",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Final_Finish_QA_5",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_6",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Final_Finish_QA_7",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing??",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton golves and Safety shoe / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_8",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_9",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_10",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_11",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "QCC stands for / QCCக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Quality Control Certificate"
+        },
+        {
+          "key": "B",
+          "text": "Quality Control Circle"
+        },
+        {
+          "key": "C",
+          "text": "Quality Concern Certificate"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_12",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "U_Final_Finish_QA_13",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_14",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "B",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        },
+        {
+          "key": "C",
+          "text": "Hot Repair / ஹாட் ரிப்பேர்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_15",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரைக் பழுது பார்த்து சரி செய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறையை நீக்க\nb. To improve tire aesthetic / டயர் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்அவுட் சரிபார்க்க\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் கட் மற்றும் பிட் வென்ட் குறைத்தல், ஆய்வு, கிடங்கு"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் குறைத்தல் மற்றும் பிட் வென்ட் குறைத்தல், கிடங்கு"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் குறைத்தல் மற்றும் பிட் வென்ட் குறைத்தல், கிடங்கு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_16",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "How to identify OK tires in RRO testing? / RRO சோதனையில் சரியான டயர்களை எப்படிச் சுட்டிக்காட்டுவது?\na. Full Red Dot / முழு சிவப்பு புள்ளி\nb. Full/Hollow Yellow Dot / முழு/காற்றற்ற மஞ்சள் புள்ளி\nc. Hollow Red Dot / காற்றற்ற சிவப்பு புள்ளி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Find air leakage / காற்று கசியலை கண்டறிதல்"
+        },
+        {
+          "key": "B",
+          "text": "Find flow crack / பிளவு குறையை கண்டறிதல்"
+        },
+        {
+          "key": "C",
+          "text": "Find blister defect / புளிகும் குறையை கண்டறிதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_17",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the finish tire paint code? / தயாரான டயரின் பேயிண்ட் குறியீடு என்ன?\na. FB 61\nb. FB 65\nc. FB 54\nd. FB 50",
+      "options": [
+        {
+          "key": "A",
+          "text": "Radial / ரேடியல்"
+        },
+        {
+          "key": "B",
+          "text": "Bias / பயாஸ்"
+        },
+        {
+          "key": "C",
+          "text": "Floatation / ஃப்ளோட்டேஷன்"
+        },
+        {
+          "key": "D",
+          "text": "OTR / ஓ.டி.ஆர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_18",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "When is the cured tire RRO testing carried out? / கியூர் செய்யப்பட்ட டயரின் RRO சோதனை எப்போது செய்யப்படுகிறது?\na. Immediately after tire curing / டயர் கியூரிங் முடிந்தவுடன்\nb. After cured tire flash cutting / கியூரிங் செய்யப்பட்ட டயரின் ஃபிளாஷ் கட் செய்த பிறகு\nc. After online inspection / ஆன்லைன் ஆய்வுக்குப் பிறகு\nd. After final inspection / இறுதி ஆய்வுக்குப் பிறகு",
+      "options": [
+        {
+          "key": "A",
+          "text": "JCB & Claas"
+        },
+        {
+          "key": "B",
+          "text": "John Deere & YRC"
+        },
+        {
+          "key": "C",
+          "text": "YRC & CNH"
+        },
+        {
+          "key": "D",
+          "text": "Kubota & ITL"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_19",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the defect? / குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யவில்லை\nb. Not meeting SOP requirements / SOP (நிலையான செயல்முறை) தேவைகளை பூர்த்தி செய்யவில்லை\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யவில்லை\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Top side of tire only / டயரின் மேல் பக்கத்தில் மட்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Bottom side of tire only / டயரின் கீழ் பக்கத்தில் மட்டும்"
+        },
+        {
+          "key": "C",
+          "text": "Both side of tire / டயரின் இரு பக்கங்களிலும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_20",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the compound code of repair compound and negative compound? / பழுது சரிசெய்யும் மற்றும் நெகட்டிவ் காம்பவுண்டின் குறியீடு என்ன?\na. FB811 / FB899\nb. FB799 / FB810\nc. FB801 / FB809\nd. FB810 / FB899",
+      "options": [
+        {
+          "key": "A",
+          "text": "Providing accurate readings / துல்லியமான மதிப்பீடுகளை வழங்கும்"
+        },
+        {
+          "key": "B",
+          "text": "Instruments are working properly / கருவிகள் சரியாக செயல்படுகிறதா என்பதை உறுதி செய்யும்"
+        },
+        {
+          "key": "C",
+          "text": "Ready for use / பயன்பாட்டுக்கு தயாராக்கும்"
+        },
+        {
+          "key": "D",
+          "text": "Both a & b / a மற்றும் b இரண்டும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_21",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "How to identify OK tires in RRO testing? / RRO சோதனையில் சரியான டயர்களை எப்படிச் சுட்டிக்காட்டுவது?\na. Full Red Dot / முழு சிவப்பு புள்ளி\nb. Full/Hollow Yellow Dot / முழு அல்லது காற்றில்லாத மஞ்சள் புள்ளி\nc. Hollow Red Dot / காற்றில்லாத சிவப்பு புள்ளி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதம் மற்றும் வருடம்"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / தேதி மற்றும் மாதம்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரம் மற்றும் மாதம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_QA_22",
+      "level": "U",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "Indicates? / இது எதை குறிக்கிறது?\na. Direction of rotation / சுழற்சி திசையை\nb. Brand emblem / பிராண்ட் சின்னத்தை\nc. Safety pictogram / பாதுகாப்பு சின்னத்தை\nd. TWI (Tread Wear Indicator) / TWI (டிரெட் வெர் இண்டிகேட்டர்)",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் திருப்தியின்மை"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது டயரில் காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_1",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_2",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_3",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_4",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_5",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_6",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_7",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing??",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton golves and Safety shoe / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_8",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_9",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_10",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_11",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "QCC stands for / QCCக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Quality Control Certificate"
+        },
+        {
+          "key": "B",
+          "text": "Quality Control Circle"
+        },
+        {
+          "key": "C",
+          "text": "Quality Concern Certificate"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_12",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_13",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_14",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "CI & TPM",
+      "question": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "B",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        },
+        {
+          "key": "C",
+          "text": "Hot Repair / ஹாட் ரிப்பேர்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_15",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரை பழுது பார்க்கும் நோக்கம் என்ன?\na. To eliminate the defect / குறைபாட்டை நீக்க\nb. To improve tire aesthetic / டயர் அழகை மேம்படுத்த\nc. To check the runout / ரன் அவுட் பரிசோதனை செய்ய\nd. None of the above / மேலே சொன்னது எதுவும் இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் குத்துதல் மற்றும் பீட் வென்ட் திரிம்மிங், ஆய்வு, களஞ்சியம்"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் திரிம்மிங் மற்றும் பீட் வென்ட் திரிம்மிங், களஞ்சியம்"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் திரிம்மிங் மற்றும் பீட் வென்ட் திரிம்மிங், களஞ்சியம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_16",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "How to identify OK tires in RRO testing? / RRO பரிசோதனையில் சரியான டயரை எப்படி அடையாளம் காணலாம்?\na. Full Red Dot / முழுமையான சிவப்பு புள்ளி\nb. Full/Hollow Yellow Dot / முழுமையான/குழியு மஞ்சள் புள்ளி\nc. Hollow Red Dot / குழிய சிகப்பு புள்ளி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Immediately after tire curing / டயர் கியூரிங் முடிந்த உடனே"
+        },
+        {
+          "key": "B",
+          "text": "After cured tire flash cutting / கட்டிய டயர் ஃபிளாஷ் குத்துதல் பிறகு"
+        },
+        {
+          "key": "C",
+          "text": "After online inspection / ஆன்லைன் ஆய்வு பிறகு"
+        },
+        {
+          "key": "D",
+          "text": "After final inspection / இறுதி ஆய்வு பிறகு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_17",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "100% ALT checking followed for which customer dispatch? / 100% ALT சரிபார்ப்பு எந்த வாடிக்கையாளர் அனுப்பலுக்கு பின்பற்றப்படுகிறது?\na. JCB & Claas / JCB மற்றும் கிளாஸ்\nb. John Deere & YRC / ஜான் டியர் மற்றும் YRC\nc. YRC & CNH / YRC மற்றும் CNH\nd. Kubota & ITL / குபோட்டா மற்றும் ITL",
+      "options": [
+        {
+          "key": "A",
+          "text": "9 / 9"
+        },
+        {
+          "key": "B",
+          "text": "12 / 12"
+        },
+        {
+          "key": "C",
+          "text": "8 / 8"
+        },
+        {
+          "key": "D",
+          "text": "4 / 4"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_18",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the RRO machine marking unit temperature specification? / RRO இயந்திரத்தின் மார்க்கிங் யூனிட் வெப்பநிலை விவரக்குறிப்பு என்ன?\na. 125 ℃ / 125 ℃\nb. 135 ℃ / 135 ℃\nc. 145 ℃ / 145 ℃\nd. 150 ℃ / 150 ℃",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tire loaded after cleaning with naphtha / நாப்தா கொண்டு சுத்தம் செய்த பிறகு டயர் ஏற்றும்"
+        },
+        {
+          "key": "B",
+          "text": "Directly tire can be loaded / நேரடியாக டயர் ஏற்றலாம்"
+        },
+        {
+          "key": "C",
+          "text": "Double side bead lubricated then loading / இரு பக்க பீடுகள் எண்ணெய் தடவப்பட்டு ஏற்றுதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_19",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the defect? / குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்ற தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Narrow bead / குறுகிய பீட்"
+        },
+        {
+          "key": "B",
+          "text": "Inner liner blister / உள்ளே லைனர் புண்"
+        },
+        {
+          "key": "C",
+          "text": "Parallel belt / ஒத்த செருப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Damage / சேதம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_20",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "For which tires NE stamp to be applied? / எந்த டயர்களுக்கு NE முத்திரை பயன்படுத்தப்பட வேண்டும்?\na. Below 4 mm runout / 4 மிமீக்கு கீழ் ரன்அவுட்\nb. Below 4 to 6 mm runout / 4 முதல் 6 மிமீ ரன்அவுட் வரை\nc. 6 to 8 mm runout without RRM rim Sizes / RRM ரிம் அளவுகளில்லாமல் 6 முதல் 8 மிமீ ரன்அவுட்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Full Red Dot / முழு சிவப்பு புள்ளி"
+        },
+        {
+          "key": "B",
+          "text": "Full/Hollow Yellow Dot / முழு/குழியு மஞ்சள் புள்ளி"
+        },
+        {
+          "key": "C",
+          "text": "Hollow Red Dot / குழிய சிவப்பு புள்ளி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_21",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "How to verify OD measurement in RRO machine? / RRO இயந்திரத்தில் OD அளவீட்டை எப்படி சரிபார்க்க வேண்டும்?\na. Comparing Machine OD value Vs Spec OD value / இயந்திர OD மதிப்பை விவரக்குறிப்பு OD மதிப்புடன் ஒப்பிடுதல்\nb. Comparing Spec OD value Vs Manual OD / விவரக்குறிப்பு OD மதிப்பை கைமுறை OD உடன் ஒப்பிடுதல்\nc. Comparing Machine OD value Vs Manual OD value / இயந்திர OD மதிப்பை கைமுறை OD மதிப்புடன் ஒப்பிடுதல்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Once in Every month / ஒவ்வொரு மாதமும் ஒருமுறை"
+        },
+        {
+          "key": "B",
+          "text": "Once in Every Week / ஒவ்வொரு வாரமும் ஒருமுறை"
+        },
+        {
+          "key": "C",
+          "text": "Once in Every day / ஒவ்வொரு நாளும் ஒருமுறை"
+        },
+        {
+          "key": "D",
+          "text": "Once in Every shift / ஒவ்வொரு شف்ட்டிலும் ஒருமுறை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Final_Finish_RRo_&_ALT_QA_22",
+      "level": "U",
+      "section": "Final Finish RRo & ALT QA",
+      "category": "QA & Process",
+      "question": "Frequency of RRO machine Master tire verification / RRO இயந்திரத்தின் மாஸ்டர் டயர் சரிபார்ப்பின் இடைவெளி\na. Once in Every month / ஒவ்வொரு மாதமும் ஒருமுறை\nb. Once in Every Week / ஒவ்வொரு வாரமும் ஒருமுறை\nc. Once in Every day / ஒவ்வொரு நாளும் ஒருமுறை\nd. Once in Every shift / ஒவ்வொரு شف்ட்டிலும் ஒருமுறை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் காற்று விடுதல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் திருப்தியில்லாதல்"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது டயர் காற்று விடுதல்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்ன அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Preparatory_QA_1",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Preparatory_QA_2",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை /"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Preparatory_QA_3",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க"
+        },
+        {
+          "key": "B",
+          "text": "Getting injury / காயம் அடைதல்"
+        },
+        {
+          "key": "C",
+          "text": "Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_4",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Preparatory_QA_5",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_6",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Preparatory_QA_7",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Preparatory_QA_8",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_9",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_10",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_11",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_12",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_13",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_14",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "U_Preparatory_QA_15",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_16",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How much band ply stitcher pressure for servicer type? / சர்வீசர் வகைக்கு எவ்வளவு பாண்டு பிளை ஸ்டிட்சர் அழுத்தம்?\na. 3.5±0.5 kg/cm² / 3.5±0.5 கி.கி./சமீ\nb. 4.0±0.5 kg/cm² / 4.0±0.5 கி.கி./சமீ\nc. 5.0±0.5 kg/cm² / 5.0±0.5 கி.கி./சமீ\nd. 4.5±0.5 kg/cm² / 4.5±0.5 கி.கி./சமீ",
+      "options": [
+        {
+          "key": "A",
+          "text": "6.0 to 7.0 / 6.0 முதல் 7.0 வரை"
+        },
+        {
+          "key": "B",
+          "text": "6.2 to 6.8 / 6.2 முதல் 6.8 வரை"
+        },
+        {
+          "key": "C",
+          "text": "6.4 to 6.8 / 6.4 முதல் 6.8 வரை"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_17",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Bead WBP tolerance? / பீட் WBP டோலரன்ஸ் என்ன?\na. +2, -0 mm / +2, -0 மிமீ\nb. -2, +0 mm / -2, +0 மிமீ\nc. ±2 mm / ±2 மிமீ\nd. +2 mm, -1 mm / +2 மிமீ, -1 மிமீ",
+      "options": [
+        {
+          "key": "A",
+          "text": "9 mm / 9 மிமீ"
+        },
+        {
+          "key": "B",
+          "text": "8 mm / 8 மிமீ"
+        },
+        {
+          "key": "C",
+          "text": "5 mm / 5 மிமீ"
+        },
+        {
+          "key": "D",
+          "text": "10 mm / 10 மிமீ"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_18",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Calculate 3% of 4.210 kg bead weight for minimum and maximum? / 4.210 கிலோ பீட் எடையின் 3% ஐ கணக்கிடுங்கள்.\na. Mini-4.500 kg, Max-4.210 kg / குறைந்தது 4.500 கிலோ, அதிகபட்சம் 4.210 கிலோ\nb. Mini-4.436 kg, Max-4.183 kg / குறைந்தது 4.436 கிலோ, அதிகபட்சம் 4.183 கிலோ\nc. Mini-4.083 kg, Max-4.336 kg / குறைந்தது 4.083 கிலோ, அதிகபட்சம் 4.336 கிலோ\nd. Mini-4.336 kg, Max-4.083 kg / குறைந்தது 4.336 கிலோ, அதிகபட்சம் 4.083 கிலோ",
+      "options": [
+        {
+          "key": "A",
+          "text": "1179 mm / 1179 மிமீ"
+        },
+        {
+          "key": "B",
+          "text": "1180 mm / 1180 மிமீ"
+        },
+        {
+          "key": "C",
+          "text": "1183 mm / 1183 மிமீ"
+        },
+        {
+          "key": "D",
+          "text": "1176 mm / 1176 மிமீ"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_19",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What is range formula? / ரேஞ்ச் ஃபார்முலா என்ன?\na. Minimum / Maximum / குறைந்தது / அதிகபட்சம்\nb. Maximum / Minimum / அதிகபட்சம் / குறைந்தது\nc. Mini - Max / மினி - மேக்ஸ்\nd. Max - Min / மேக்ஸ் - மின்",
+      "options": [
+        {
+          "key": "A",
+          "text": "3 days / 3 நாட்கள்"
+        },
+        {
+          "key": "B",
+          "text": "7 days / 7 நாட்கள்"
+        },
+        {
+          "key": "C",
+          "text": "10 days / 10 நாட்கள்"
+        },
+        {
+          "key": "D",
+          "text": "5 days / 5 நாட்கள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_20",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Band perimeter tolerance? / பாண்ட் பரிமீட்டர் டோலரன்ஸ் என்ன?\na. ±10 mm / ±10 மிமீ\nb. +10 mm, -0 mm / +10 மிமீ, -0 மிமீ\nc. -10 mm, +Canvas Perimeter / -10 மிமீ, +கேன்வாஸ் பரிமீட்டர்\nd. +10 mm, -Canvas Perimeter / +10 மிமீ, -கேன்வாஸ் பரிமீட்டர்",
+      "options": [
+        {
+          "key": "A",
+          "text": "First Right First Out / ஃபர்ஸ்ட் ரைட் ஃபர்ஸ்ட் அவுட்"
+        },
+        {
+          "key": "B",
+          "text": "First Out First In / ஃபர்ஸ்ட் அவுட் ஃபர்ஸ்ட் இன்"
+        },
+        {
+          "key": "C",
+          "text": "First In First Out / ஃபர்ஸ்ட் இன் ஃபர்ஸ்ட் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "First Inner First Outer / ஃபர்ஸ்ட் இந்நர் ஃபர்ஸ்ட் அவுட்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_21",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How much per day tank temperature? / எண்ணெய் நாள் தொட்டி வெப்பநிலை எவ்வளவு?\na. 65±5 / 65±5\nb. 60±5 / 60±5\nc. 66±5 / 66±5\nd. 63±5 / 63±5",
+      "options": [
+        {
+          "key": "A",
+          "text": "140±5 / 140±5"
+        },
+        {
+          "key": "B",
+          "text": "100±5 / 100±5"
+        },
+        {
+          "key": "C",
+          "text": "140±5 / 140±5"
+        },
+        {
+          "key": "D",
+          "text": "100±5 / 100±5"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_22",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Difference between Master vs Final? / மாஸ்டர் மற்றும் ஃபைனல் இடையிலான வேறுபாடு?\na. Master – Unfinished compound, Final – Ready to use / மாஸ்டர் – अधूरான கலவை, ஃபைனல் – பயன்படுத்த தயாரான கலவை\nb. Master – Before quality check, Final – After quality check / மாஸ்டர் – குவாலிட்டி செக்குக்கு முன், ஃபைனல் – குவாலிட்டி செக்குக்குப் பின்\nc. Master – Base material, Final – End product / மாஸ்டர் – அடிப்படை மெட்டீரியல், ஃபைனல் – இறுதித் தயாரிப்பு\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "10±2 / 10±2"
+        },
+        {
+          "key": "B",
+          "text": "8±3 / 8±3"
+        },
+        {
+          "key": "C",
+          "text": "8±2 / 8±2"
+        },
+        {
+          "key": "D",
+          "text": "8+2 / 8+2"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Preparatory_QA_23",
+      "level": "U",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How much should be feed mill NIP gap (compound thickness)? / ஃபீட் மில் நிப் கேப் (கலவை தடிமன்) எவ்வளவு இருக்க வேண்டும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "800/700±50 / 800/700±50"
+        },
+        {
+          "key": "B",
+          "text": "780/700± / 780/700±"
+        },
+        {
+          "key": "C",
+          "text": "700/700±50 / 700/700±50"
+        },
+        {
+          "key": "D",
+          "text": "700/800±50 / 700/800±50"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_1",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is unsafe act? பாதுகாப்பற்ற செயல் என்றால் என்ன?\na. Using PPE / PPE ஐப் பயன்படுத்துதல் \nb. Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை \nc. Floor is clean / தரை சுத்தமாக இருக்கிறது \nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_2",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன? \na. To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க \nb. Getting injury / காயம் அடைதல் \nc. Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல் \nd. Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள் ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல் ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_3",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is HSEE? HSEE என்றால் என்ன \na. Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல் \nb. Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல் \nc. Health, Safety, Environment and Engineering / உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல் \nd. Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர் பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_4",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Solid_Tire_QA_5",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?\na. Sort / வகைபடுத்து \nb. Set in Order / ஒழுங்காக அமைக்க \nc. Shine / தூய்மைப்படுத்த \nd. Standardize / நிலையாக்கு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_6",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது? \na. Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல் \nb. Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல் \nc. Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல் \nd. Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_7",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?\na. Set in Order / ஒழுங்காக அமைக்க \nb. Sort / வகைபடுத்து \nc. Standardize / நிலையாக்கு \nd. Sustain / தக்கவைத்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_8",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Quality & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை /"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "U_Solid_Tire_QA_9",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which measuring equipment used to measure the heel strip length? ஹில் ஸ்ட்ரிப் நீளத்தை அளவிட எந்த அளவீட்டு கருவி பயன்படுத்தப்படுகிறது?\na. Depth gauge / டெப்த் கேஜ் \nb. Steel scale / ஸ்டீல் ஸ்கேல் \nc. Vernier caliber / வெர்னியர் காலிபர் \nd. Measurement tape / மெஷர்மென்ட் டேப்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Spec±2 degree / ஸ்பெசிபிகேஷன்±2 டிகிரி"
+        },
+        {
+          "key": "B",
+          "text": "Spec±5 degree / ஸ்பெசிபிகேஷன்±5 டிகிரி"
+        },
+        {
+          "key": "C",
+          "text": "Spec±3 degree / ஸ்பெசிபிகேஷன்±3 டிகிரி"
+        },
+        {
+          "key": "D",
+          "text": "Spec±10 degree / ஸ்பெசிபிகேஷன்±10 டிகிரி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_10",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is meant by poke yoke? / போக் யோக்கே என்பது என்ன? \na. Error proofing / பிழை நிராகரிப்பு \nb. Early warning / முன் எச்சரிக்கை \nc. Alarming / எச்சரிக்கை \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Providing accurate readings / துல்லியமான வாசகங்களை வழங்குதல்"
+        },
+        {
+          "key": "B",
+          "text": "Instruments are working properly / கருவிகள் சரியாக வேலை செய்கின்றன"
+        },
+        {
+          "key": "C",
+          "text": "Ready for use / பயன்பாட்டிற்கு தயார்"
+        },
+        {
+          "key": "D",
+          "text": "Both a & b / அஞ்சலும் பி என்றும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_11",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of V-guide? / V-கைடின் நோக்கம் என்ன? \na. To check matching of Top mould / மேல் மொல்டின் பொருந்துதலை சரிபார்க்க \nb. To check matching of Bottom mould / கீழ் மொல்டின் பொருந்துதலை சரிபார்க்க \nc. To check matching top & bottom mould / மேல் மற்றும் கீழ் மொல்ட்களின் பொருந்துதலை சரிபார்க்க \nd. To check mould clamping in press / பிரெசில் மொல்டு கிளாம்பிங் சரிபார்க்க",
+      "options": [
+        {
+          "key": "A",
+          "text": "60 to 70 / 60 முதல் 70"
+        },
+        {
+          "key": "B",
+          "text": "70 to 80 / 70 முதல் 80"
+        },
+        {
+          "key": "C",
+          "text": "50 to 60 / 50 முதல் 60"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_12",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is pressure to be maintained in Mould release agent spray gun? / மௌல்ட் ரிலீஸ் ஏஜென்ட் ஸ்ப்ரே கன்-ல் என்ன அழுத்தம் இருக்க வேண்டும்?\na. 2 Kg/cm² / 2 Kg/cm² \nb. 3 Kg/cm² / 3 Kg/cm² \nc. 4 Kg/cm² / 4 Kg/cm² \nd. 1.5 Kg/cm² / 1.5 Kg/cm²",
+      "options": [
+        {
+          "key": "A",
+          "text": "Proper centering loading / சரியான மையமிடல் லோடிங்"
+        },
+        {
+          "key": "B",
+          "text": "Operator fatigue avoiding / ஆபரேட்டர் சோர்வு தவிர்க்க"
+        },
+        {
+          "key": "C",
+          "text": "Avoiding cured tire scrap / கியூரிங் செய்யப்பட்ட டயர் அம்பலம் தவிர்க்க"
+        },
+        {
+          "key": "D",
+          "text": "Above A & C / A மற்றும் C மேலே"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_13",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is meant by trouble shooting? / டிரபிள் ஷூட்டிங் என்பதில் என்ன அர்த்தம்? \na. Problem solving / பிரச்சனை தீர்த்தல் \nb. Methodology / முறைமைகள் \nc. Defect tracking / குறைபாடு கண்காணிப்பு \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "1 Hrs / 1 மணி நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "2 Hrs / 2 மணி நேரம்"
+        },
+        {
+          "key": "C",
+          "text": "2.30 Hrs / 2.30 மணி நேரம்"
+        },
+        {
+          "key": "D",
+          "text": "60 mins / 60 நிமிடங்கள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_14",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is the Green tire temperature for Tire building area? / டயர் கட்டுமான பகுதியில் பச்சை டயர் வெப்பநிலை என்ன? \na. 60 to 70 / 60 முதல் 70 \nb. 70 to 80 / 70 முதல் 80 \nc. 50 to 60 / 50 முதல் 60 \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air releasing from mould to green tire / மொல்டில் இருந்து பச்சை டயருக்கு காற்று வெளியேற்றுதல்"
+        },
+        {
+          "key": "B",
+          "text": "Avoiding the defect / குறைபாடு தவிர்க்க"
+        },
+        {
+          "key": "C",
+          "text": "Avoiding Bead wire visible defect / பீட் வயர் தெளிவான குறைபாடு தவிர்க்க"
+        },
+        {
+          "key": "D",
+          "text": "Above A and B / A மற்றும் B மேலே"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_15",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "What is the tolerance for Hydraulic pressure? / ஹைட்ராலிக் அழுத்தத்திற்கு என்ன பொறுப்பு இருக்க வேண்டும்? \na. Spec±12 degree / ஸ்பெசிபிகேஷன்±12 டிகிரி \nb. Spec±15 degree / ஸ்பெசிபிகேஷன்±15 டிகிரி \nc. Spec±13 degree / ஸ்பெசிபிகேஷன்±13 டிகிரி \nd. Spec±10 degree / ஸ்பெசிபிகேஷன்±10 டிகிரி",
+      "options": [
+        {
+          "key": "A",
+          "text": "Lifter, Beefy Baby / லிப்டர், பீபி பேபி"
+        },
+        {
+          "key": "B",
+          "text": "Yardmaster, Hulk / யார்ட்மாஸ்டர், ஹல்க்"
+        },
+        {
+          "key": "C",
+          "text": "Super smooth, LHD500 / சூப்பர் ஸ்மூத், LHD500"
+        },
+        {
+          "key": "D",
+          "text": "Above all / மேலே கூறிய அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Solid_Tire_QA_16",
+      "level": "U",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "How many stages are there in tire building for Yardmaster segment? யார்ட்மாஸ்டர் பிரிவுக்கான டயர் கட்டிடத்தில் எத்தனை நிலைகள் உள்ளன? \na. 1 stage / ஸ்டேஜ் \nb. 2 stages / ஸ்டேஜ்\nc. 3 stages / ஸ்டேஜ் \nd. 4 stages / ஸ்டேஜ்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bead wire visible / பீடு வயர் விசிபிள்"
+        },
+        {
+          "key": "B",
+          "text": "Core ring lightness / கோர் ரிங் லைட்னஸ्"
+        },
+        {
+          "key": "C",
+          "text": "Open mould defect / ஓபன் மோல்ட் டிபெக்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Shoulder lightness / ஷோல்டர் லைட்னஸ்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_1",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Tire_Building_QA_2",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "U_Tire_Building_QA_3",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க"
+        },
+        {
+          "key": "B",
+          "text": "Getting injury / காயம் அடைதல்"
+        },
+        {
+          "key": "C",
+          "text": "Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_4",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Tire_Building_QA_5",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_6",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Tire_Building_QA_7",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Tire_Building_QA_8",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_9",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_10",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_11",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_12",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_13",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_14",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above /  மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "U_Tire_Building_QA_15",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்,"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_16",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What we verifying in FTC? / FTC இல் நாமே சரிபார்க்கின்றோம்?\na. To Verify the Drum, BPR, Machine & Components parameters against specification. / டிரம், BPR, மெஷின் மற்றும் கூறுகளின் பரிமாணங்களை குறிப்பிட்ட விவரங்களுடன் சரிபார்க்க. \nb. To verify stitcher Tools dimensions and pressure against specification. / ஸ்டிட்சர் கருவிகளின் பரிமாணங்களை மற்றும் அழுத்தத்தை குறிப்பிட்ட விவரங்களுடன் சரிபார்க்க. \nc. To consume the Size out materials. / அளவு வெளியே உள்ள பொருட்களை பயன்படுத்த. \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Radial size / ரேடியல் அளவு"
+        },
+        {
+          "key": "B",
+          "text": "Bias size / பைஸ் அளவு"
+        },
+        {
+          "key": "C",
+          "text": "Different construction size / வேறுபட்ட கட்டமைப்பின் அளவு"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_17",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the meaning of parallel ply/Breaker/belt? / பரலல் பிளை/பிரேக்கர்/பேல்ட் என்பதன் பொருள் என்ன? \na. More than two ply/Breaker/belt not applied in same direction / இரண்டு பிளை/பிரேக்கர்/பேல்ட் ஒரு வழியில் பயன்படுத்தப்படவில்லை \nb. More than two ply/Breaker/Belt applied in same direction / இரண்டு பிளை/பிரேக்கர்/பேல்ட் ஒரே வழியில் பயன்படுத்தப்படுகிறது \nc. Both A & B / இரண்டு A மற்றும் B \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bead / Turn up Stitching / பீட் / திரும்பிய ஸ்டிட்சிங்"
+        },
+        {
+          "key": "B",
+          "text": "Sidewall stitching / பக்கவட்டு ஸ்டிட்சிங்"
+        },
+        {
+          "key": "C",
+          "text": "Tread Stitching / டிரெட் ஸ்டிட்சிங்"
+        },
+        {
+          "key": "D",
+          "text": "Both A & C / A மற்றும் C இரண்டும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_18",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the time spec and tolerance for bottom stitcher centre delay? / பின்வரிசைச் ஸ்டிட்சரின் மைய தாமதத்திற்கு நேர விபரம் மற்றும் பொறுமை என்ன? \na. 5sec±3sec / 5 வினாடிகள் ±3 வினாடிகள் \nb. 5sec±1sec / 5 வினாடிகள் ±1 வினாடி \nc. 5sec±2sec / 5 வினாடிகள் ±2 வினாடிகள் \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "4 Beads / 4 பீட்கள்"
+        },
+        {
+          "key": "B",
+          "text": "6 Beads / 6 பீட்கள்"
+        },
+        {
+          "key": "C",
+          "text": "8 Beads / 8 பீட்கள்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_19",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the tolerance of ply splicing for width? / அகலத்திற்கு பிளை ஸ்பிளைசிங்கின் பொறுமை என்ன? \na. 7±3 mm / 7±3 மி.மி. \nb. 7 (+3/-0) mm / 7 (+3/-0) மி.மி. \nc. 7(+3/-2) mm / 7(+3/-2) மி.மி.  \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ply, Band / பிளை, பாண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "Inner, Fabric / இன்டர், பருத்தி"
+        },
+        {
+          "key": "C",
+          "text": "Sidewall, Tread / பக்கவட்டு, டிரெட்"
+        },
+        {
+          "key": "D",
+          "text": "Bead, wound bead / பீட், சூழப்பட்ட பீட்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_20",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "If ply heavy splicing in Tire building what impact in cure tyre? / டயர் கட்டுமானத்தில் பிளை அதிக சிக்சிங் இருந்தால், அதன் தாக்கம் கியூர் டயரில் என்ன?\na. Impact in RRO / RRO இல் தாக்கம் \nb. Impact Sidewall lightness Defect / பக்கவட்டு இளமை குறைபாடு தாக்கம் \nc. Impact Narrow bead scrap / குறுகிய பீட் குப்பை தாக்கம்  \nd. Impact Separation scrap / பிரிப்பு குப்பை தாக்கம்",
+      "options": [
+        {
+          "key": "A",
+          "text": "GT produced with all correct Component but wrong Drum set / அனைத்து சரியான கூறுகளுடன் GT தயாரிக்கப்பட்டுள்ளது ஆனால் தவறான டிரம் செட்"
+        },
+        {
+          "key": "B",
+          "text": "GT produced with Drum and BPR correct, sidewall wrong / டிரம் மற்றும் BPR சரியானது, பக்கவட்டு தவறானது"
+        },
+        {
+          "key": "C",
+          "text": "GT produced with material direction against specification / குறிப்பிட்ட விவரங்களை மீறி பொருள் திசையில் GT தயாரிக்கப்பட்டது"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னது அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Tire_Building_QA_21",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "Which type trolley is used for above 150kg weight? / 150 கிலோகிராம் எடை மேலான பொருட்கள் எங்கு பயன்படுத்தப்படும் வண்டி வகை எது? \na. 8 Pin Trolley / 8 பின் வண்டி \nb. Saddle trolley / சடில் வண்டி \nc. C type trolley / C வகை வண்டி \nd. Single pin trolley / ஒற்றை பின் வண்டி",
+      "options": [
+        {
+          "key": "A",
+          "text": "Identify Size out material / அளவு வெளியே உள்ள பொருளை அடையாளம் காண்க"
+        },
+        {
+          "key": "B",
+          "text": "Identify compound in tag FM / டேக் FM இல் கூறை அடையாளம் காண்க"
+        },
+        {
+          "key": "C",
+          "text": "Identify Iron/steel FM / இரும்பு/இரும்பு FM ஐ அடையாளம் காண்க"
+        },
+        {
+          "key": "D",
+          "text": "Identify wrong direction ply applied / தவறான திசையில் பிளை பயன்படுத்தப்பட்டுள்ளது என அடையாளம் காண்க"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_22",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "When Non Conformation Note required? / எந்த சம்மந்தமற்ற குறிப்பு தேவை?\na. If we identified any Machine abnormality / எதுவேனும் இயந்திர அசாதாரணத்தை கண்டறிந்தால் \nb. Carcass or GT with major defect / முக்கிய குறைபாடுடன் கார்கஸ் அல்லது GT \nc. Component not met the specification / கூறு குறிப்பிட்ட விவரத்துடன் சந்திக்கவில்லை \nd. c & d. / c மற்றும் d.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Material get aged more than specified time limit. / பொருள் குறிப்பிட்ட நேர எல்லையை மீறி பழுதடையுதல்."
+        },
+        {
+          "key": "B",
+          "text": "Material get aged less than specified time limit. / பொருள் குறிப்பிட்ட நேர எல்லையை விட குறைந்த நேரத்திற்கு பழுதடையுதல்."
+        },
+        {
+          "key": "C",
+          "text": "Material over weight noticed. / பொருள் எடை அதிகமாக இருக்கின்றது."
+        },
+        {
+          "key": "D",
+          "text": "Material stored in overhanging condition. / பொருள் மேல் தொங்கும் நிலைமையில் காப்புறுத்தப்பட்டது."
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Building_QA_23",
+      "level": "U",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "Strip width & Tolerance in Marangoni-5? / மராங்கோனி-5 இல் ஸ்டிரிப் அகலம் மற்றும் பொறுமை என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "65±2mm / 65±2 மி.மி."
+        },
+        {
+          "key": "B",
+          "text": "65±3mm / 65±3 மி.மி."
+        },
+        {
+          "key": "C",
+          "text": "66±3mm / 66±3 மி.மி."
+        },
+        {
+          "key": "D",
+          "text": "66±2mm / 66±2 மி.மி."
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_1",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is safety bar and its use in Curing Press? / சேப்டி பார் என்றால் என்ன மற்றும் க்யூரிங் பிரஸ்ஸில் அதன் பயன்பாடு?\na. To stop the curing press closing during emergency situation / அவசரகால சூழ்நிலையில் க்யூரிங் பிரஸ் மூடுவதை நிறுத்த\nb. To close the curing press during emergency situation / அவசர சூழ்நிலையில் க்யூரிங் பிரஸ் மூட\nc. To ensure GT centering / GT சென்டரிங் உறுதி செய்ய\nd. To identify defects in cured tire / க்யூர் செய்யப்பட்ட டயரில் உள்ள குறைகளை கண்டறிய",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்தாமல் இருத்தல்"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட் கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_2",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is unsafe condition? / பாதுகாப்பற்ற நிலை என்றால் என்ன?\na. No leakage in the curing pit / க்யூரிங் குழியில் கசிவு இல்லை\nb. Heavy steam leakage in the Press / பிரஸ்ஸில் கனமான நீராவி கசிவு\nc. Floor is clean / தரை சுத்தமாக இருக்கிறது\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதார மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_3",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is LOTO? / LOTO என்றால் என்ன?\na. Load On Tag On / லோடு ஆன் டேக் ஆன்\nb. Load Off Tag Off / லோடு ஆஃப் டேக் ஆஃப்\nc. Load Out Tag Out / லோடு அவுட் டேக் அவுட்\nd. Lock Out Tag Out / லாக் அவுட் டேக் அவுட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / தனிப்பட்ட செயல்திறன் உபகரணம்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / மக்கள் செயல்திறன் உபகரணம்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / தனிப்பட்ட செயல்முறை உபகரணம்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / தனிப்பட்ட பாதுகாப்பு உபகரணம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_4",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is HSEE? / HSEE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர், பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineering and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering / சுகாதாரம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_5",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? / 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?\na. Sort / வகைபடுத்து\nb. Set in Order / ஒழுங்காக அமைக்க\nc. Shine / தூய்மைப்படுத்த\nd. Standardize / நிலையாக்கு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிடம் பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_6",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? / 5S சூழலில் \"Set in Order\" என்பது எதைக் குறிக்கிறது?\na. Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் அமைத்தல்\nb. Removing unnecessary items from the workplace / தேவையற்ற பொருட்களை அகற்றுதல்\nc. Conducting regular audits to maintain cleanliness / தூய்மை பராமரிக்க தணிக்கைகள் நடத்தல்\nd. Training employees on 5S principles / பணியாளர்களுக்கு 5S பயிற்சி அளித்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_7",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which step of 5S? / 5S முறையில் எந்த படியில் Red Tags பயன்படுத்தப்படுகின்றன?\na. Set in Order / ஒழுங்காக அமைக்க\nb. Sort / வகைபடுத்து\nc. Standardize / நிலையாக்கு\nd. Sustain / தக்கவைத்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_8",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM? / TPM இன் நோக்கம் என்ன?\na. Zero Production, Zero Quality, Zero Safety / பூஜ்ஜிய உற்பத்தி, தரம், பாதுகாப்பு\nb. Zero Defect, Zero Breakdown, Zero Accident / பூஜ்ஜிய குறைபாடு, பிரேக்டௌன், விபத்து\nc. All of the above / மேலே கூறப்பட்ட அனைத்தும்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_9",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "How to check the Route Card vs Specification? / ரூட் கார்டை விவரக்குறிப்புடன் எவ்வாறு சரிபார்க்கலாம்?\na. Revision number & date / திருத்த எண் மற்றும் தேதி\nb. Catalogue & date / கேட்டலாக் மற்றும் தேதி\nc. GT code & catalogue / GT குறியீடு மற்றும் கேட்டலாக்\nd. GT code & date / GT குறியீடு மற்றும் தேதி",
+      "options": [
+        {
+          "key": "A",
+          "text": "To ensure zero defect / பூஜ்ய குறைபாடுகளை உறுதி செய்ய"
+        },
+        {
+          "key": "B",
+          "text": "To avoid splice open defect / ஸ்பிளைஸ் திறப்பு குறையைத் தவிர்க்க"
+        },
+        {
+          "key": "C",
+          "text": "To prevent shaping cut defect / வடிவ வெட்டு குறையைத் தடுக்கும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_10",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What information is available on the Unique Serial Plate? / யுனிக் சீரியல் பிளேட்டில் என்ன தகவல் இருக்கும்?\na. Month & Year / மாதமும் ஆண்டும்\nb. Day & Month / நாளும் மாதமும்\nc. Week & Month / வாரமும் மாதமும்\nd. None of the above / மேலே எதுவும் இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "To identify loading point / ஏற்றுமதி இடத்தை அடையாளம் காண"
+        },
+        {
+          "key": "B",
+          "text": "To release air entrapped in GT / GT-இல் சிக்கிய காற்றை வெளியேற்ற"
+        },
+        {
+          "key": "C",
+          "text": "To prevent defects in GT / GT இல் குறைகளைத் தடுக்கும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_11",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "How many times should Nerve Breaking be done for a new bladder? / புதிய பிளாடருக்கு நர்வ் பிரேக்கிங் எத்தனை முறை செய்ய வேண்டும்?\na. 9 / 9 முறை\nb. 10+ / 10க்கும் மேல்\nc. 8 / 8 முறை\nd. 7 / 7 முறை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Error proofing / தவறுகளை தடுக்கும் முறை"
+        },
+        {
+          "key": "B",
+          "text": "Early warning / முன்னறிவிப்பு எச்சரிக்கை"
+        },
+        {
+          "key": "C",
+          "text": "Alarming / அலாரம்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_12",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the effect of Poor Warm Up? / மோசமான வார்ம்அப்பின் விளைவு என்ன?\na. Cured tire with under cure / குறைவான கியூருடன் டயர்\nb. Cured tire with Bent Bead defect / வளைந்த பிடி குறைபாடு\nc. Cured tire with Narrow Bead defect / குறுகிய பிடி குறைபாடு\nd. Cured tire with OCL defect / OCL குறைபாடு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Problem solving / பிரச்சனை தீர்வு"
+        },
+        {
+          "key": "B",
+          "text": "Methodology / முறையியல்"
+        },
+        {
+          "key": "C",
+          "text": "Defect tracking / குறைபாடு கண்காணிப்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_13",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of Q-Alert in Tire Curing? / டயர் கியூரிங்கில் Q-அலர்ட் ஏன் எடுக்கப்படுகிறது?\na. For Non-conformance materials / நான்-கான்ஃபார்மன்ஸ் பொருட்கள்\nb. For Non-conformance GTs / நான்-கான்ஃபார்மன்ஸ் GT கள்\nc. For repeated defect and corrective action / மீண்டும் குறை மற்றும் திருத்த நடவடிக்கைக்கு\nd. Both a & b / இரண்டும் a & b",
+      "options": [
+        {
+          "key": "A",
+          "text": "K & E / K மற்றும் E"
+        },
+        {
+          "key": "B",
+          "text": "T & E / T மற்றும் E"
+        },
+        {
+          "key": "C",
+          "text": "A & B / A மற்றும் B"
+        },
+        {
+          "key": "D",
+          "text": "T & K / T மற்றும் K"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_14",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the warm-up time for dome press after mould change? / மோல்ட் மாற்றத்திற்கு பின் டோம் ப்ரெஸ்ஸின் வார்ம்அப் நேரம் என்ன?\na. 30 mins / 30 நிமிடங்கள்\nb. 40 mins / 40 நிமிடங்கள்\nc. 50 mins / 50 நிமிடங்கள்\nd. 60 mins / 60 நிமிடங்கள்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mica FM, External damage, Shaping cut, wrong bladder / மைக்கா FM, வெளிப்புற சேதம், வடிவ வெட்டு, தவறான பிளாடர்"
+        },
+        {
+          "key": "B",
+          "text": "Mica FM, External damage, Cured rubber, Wet loading / மைக்கா FM, வெளிப்புற சேதம், கியூர்டு ரப்பர், ஈர ஏற்றம்"
+        },
+        {
+          "key": "C",
+          "text": "Lightness, Tread lightness, Bead lightness, Shoulder lightness / லைட்ட்னஸ், ட்ரெட் லைட்ட்னஸ், பிட் லைட்ட்னஸ், ஷோல்டர் லைட்ட்னஸ்"
+        },
+        {
+          "key": "D",
+          "text": "Blister, Tread blister, Inner blister, Shoulder blister / பிளிஸ்டர், டிரெட் பிளிஸ்டர், உள்ள பிளிஸ்டர், ஷோல்டர் பிளிஸ்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_15",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the importance of Calibration? / அளவீட்டின் முக்கியத்துவம் என்ன?\na. Providing accurate readings / துல்லியமான அளவுகளை வழங்குதல்\nb. Ensuring instruments work properly / கருவிகள் நன்றாக செயல்படுவதை உறுதி செய்தல்\nc. Ready for use / பயன்படுத்த தயார்\nd. Both a & b / இரண்டும் a & b",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tire marked and sent to FID / டயர் குறிக்கப்பட்டு FID க்கு அனுப்பப்படுகிறது"
+        },
+        {
+          "key": "B",
+          "text": "Air release by needle / பிடியின் மூலம் காற்றை வெளியேற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "To Check bladder condition / பிளாடர் நிலையைச் சரிபார்க்கவும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Tire_Curing_QA_16",
+      "level": "U",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the effect of poking in cured tire? / கியூரிங் டயரில் போக்கிங் செய்வதால் என்ன விளைவு?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரிலிருந்து காற்று வெளியேறும்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் திருப்தி குறைவு"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது டயர் காற்று லீக் ஆகும்"
+        },
+        {
+          "key": "D",
+          "text": "All of the above / எல்லாம் மேலே"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Warehouse_QA_1",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?\na. Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்\nb. People Performance Equipment / பீப்பிள் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்\nc. Personal Process Equipment / பர்சனல் ப்ரோஸஸ் எகுய்ப்மெண்ட்\nd. Personal Protective Equipment / பர்சனல் ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட் கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_2",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is unsafe condition? பாதுகாப்பற்ற நிலை என்றால் என்ன?\na. No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை\nb. Heavy steam leakage in the Press / கியூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு\nc. Floor is clean / தரை சுத்தமாக இருக்கிறது\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_3",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is BBS? BBS என்றால் என்ன?\na. Better Based Safety / பெட்டர் பேஸ்டு சேப்டி\nb. Behaviour Better Safety / பிஹேவியர் பெட்டர் சேப்டி\nc. Behaviour Based Safety / பிஹேவியர் பேஸ்டு சேப்டி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_4",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton gloves and Safety shoe / முகக்கவசம், பருத்தி கையுறைகள் மற்றும் பாதுகாப்பு காலணிகள்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / ஹெல்மெட், பருத்தி கையுறைகள், பாதுகாப்பு காலணிகள்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / முகக்கவசம், பாதுகாப்பு காலணிகள், தாக்க எதிர்ப்பு கையுறைகள்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / ஹெல்மெட், பாதுகாப்பு காலணிகள், தாக்க எதிர்ப்பு கையுறைகள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_5",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? 5S இன் சூழலில் \"கெய்சன்\" என்றால் என்ன?\na. Continuous improvement / தொடர்ச்சியான முன்னேற்றம்\nb. Workplace safety / பணியிட பாதுகாப்பு\nc. Employee training / பணியாளர் பயிற்சி\nd. Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items neatly / பொருட்களை ஒழுங்காக அமைத்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unwanted items / தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting cleanliness audits / தூய்மை தணிக்கைகள்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S / 5S பயிற்சி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_6",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which step of 5S? 5S இன் எந்த படியில் ரெட் டேக் பயன்படுத்தப்படும்?\na. Set in Order / ஒழுங்கு அமைத்தல்\nb. Sort / வகைப்படுத்துதல்\nc. Standardize / தரநிலையாக்கம்\nd. Sustain / நிலைத்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Quality Control Certificate / தர கட்டுப்பாட்டு சான்றிதழ்"
+        },
+        {
+          "key": "B",
+          "text": "Quality Control Circle / தரக் கட்டுப்பாட்டு வட்டம்"
+        },
+        {
+          "key": "C",
+          "text": "Quality Concern Certificate / தரக் கவலை சான்றிதழ்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_7",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM? TPM இன் நோக்கம் என்ன?\na. Zero Production, Zero Quality & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு\nb. Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பழுதடைதல், பூஜ்ஜிய விபத்து\nc. All of the above / மேலே கூறிய அனைத்தும்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைத்தல், உயவூட்டல், ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவூட்டல், ஆய்வு, இறுக்குதல்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்குதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_8",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "Find the abnormality (Fuguai): பின்வருவனவற்றில் அசாதாரணம் எது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Major Flaw / பெரும் குறை"
+        },
+        {
+          "key": "B",
+          "text": "Minor Flaw / சிறிய குறை"
+        },
+        {
+          "key": "C",
+          "text": "Hot Repair / சூடான பழுது சரிசெய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_9",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? ஒரு டயரை பழுதுபார்க்கும் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To eliminate the defect / குறையை நீக்க"
+        },
+        {
+          "key": "B",
+          "text": "To improve appearance / தோற்றத்தை மேம்படுத்த"
+        },
+        {
+          "key": "C",
+          "text": "To check the runout / ரன் அவுட் பார்வை"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_10",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Sequence of activities at PDI? PDI-ல் செயல்முறைகள் வரிசை:\na Load scanning, QA inspection, Container inspection, Tire cleaning, Stuffing / லோடு ஸ்கேனிங், QA இன்ஸ்பெக்‌ஷன், கண்டெய்னர் இன்ஸ்பெக்‌ஷன், டயர் கிளீனிங், ஸ்டஃபிங்\nb. Tire stuffing, QA inspection, Cleaning, Container inspection, Load scanning / டயர் ஸ்டஃபிங், QA இன்ஸ்பெக்‌ஷன், கிளீனிங், கண்டெய்னர் இன்ஸ்பெக்‌ஷன், லோடு ஸ்கேனிங்\nc. Tire cleaning, QA inspection, Container inspection, Load scanning, Stuffing / டயர் கிளீனிங், QA இன்ஸ்பெக்‌ஷன், கண்டெய்னர் இன்ஸ்பெக்‌ஷன், லோடு ஸ்கேனிங், ஸ்டஃபிங்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Full Red Dot / முழு சிவப்பு புள்ளி"
+        },
+        {
+          "key": "B",
+          "text": "Full/Hollow Yellow Dot / முழு/கொழிந்த மஞ்சள் புள்ளி"
+        },
+        {
+          "key": "C",
+          "text": "Hollow Red Dot / கொழிந்த சிவப்பு புள்ளி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_11",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Purpose of tube inflated tire inspection? வளர்த்த டயர் ஆய்வின் நோக்கம்:\na. Air leakage / காற்று கசியல்\nb. Flow crack / பிளவு\nc. Blister defect / புண் குறை\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "12.4-20 Marathoner 10TL"
+        },
+        {
+          "key": "B",
+          "text": "10.00-20 NHS GX RML 18PR TT"
+        },
+        {
+          "key": "C",
+          "text": "19.5L24 EZR 10TL"
+        },
+        {
+          "key": "D",
+          "text": "A and B are correct / A மற்றும் B சரி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_12",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Requirement for domestic customers? உள்நாட்டு வாடிக்கையாளர்களுக்கான தேவைகள்:\na. 12 months produced tires can be sent without SCM approval / 12 மாதங்கள் பழைய டயர்களை SCM அங்கீகாரம் இல்லாமல் அனுப்பலாம்\nb. 6 months produced tires can be sent / 6 மாதங்கள் பழைய டயர்களை அனுப்பலாம்\nc. 18 months produced tires can be sent / 18 மாதங்கள் பழைய டயர்களை அனுப்பலாம்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "After Pre-dispatch inspection / அனுப்புவதற்கு முன் ஆய்வுக்குப் பிறகு"
+        },
+        {
+          "key": "B",
+          "text": "Before Pre-dispatch inspection / அனுப்புவதற்கு முன் ஆய்வுக்கு முன்"
+        },
+        {
+          "key": "C",
+          "text": "Before offering to PDI / PDI க்கு முன்"
+        },
+        {
+          "key": "D",
+          "text": "At the location itself / இடத்திலேயே"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_13",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "100% ALT checking is followed for which customer dispatch? ALT சோதனை 100% எவ்வகை வாடிக்கையாளருக்குப் பயன்படுத்தப்படுகிறது?\na. JCB & Claas\nb. John Deere & YRC\nc. YRC & CNH\nd. Kubota & ITL",
+      "options": [
+        {
+          "key": "A",
+          "text": "Not meeting specification requirements / விவரக்குறிப்புகள் பூர்த்தியில்லை"
+        },
+        {
+          "key": "B",
+          "text": "Not meeting SOP requirements / SOP பூர்த்தியில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Not meeting appearance requirements / தோற்றம் பூர்த்தியில்லை"
+        },
+        {
+          "key": "D",
+          "text": "All of the above / மேலே அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "U_Warehouse_QA_14",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "E-marking engraving is available in? E-மார்க்கிங் எங்கே உள்ளது?\na. Top side of tire only / டயர் மேல் பக்கம்\nb. Bottom side only / கீழ்பக்கம்\nc. Both sides / இருபக்கமும்\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொசீஜர்"
+        },
+        {
+          "key": "B",
+          "text": "Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேஷனல் ப்ராசஸ்"
+        },
+        {
+          "key": "C",
+          "text": "System Organization Process / சிஸ்டம் ஆர்கனைசேஷன் ப்ராசஸ்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_15",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Importance of Calibration?/ கலிப்ரேஷன் முக்கியத்துவம்?\na. Providing accurate readings / துல்லியமான மதிப்பீடு\nb. Instruments are working properly / கருவிகள் சரியாக வேலை செய்கின்றன\nc. Ready for use / பயன்படுத்த தயாராக உள்ளது\nd. Both a & b / a மற்றும் b இரண்டும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Thermometer / வெப்பமானி"
+        },
+        {
+          "key": "B",
+          "text": "Shore A Durometer / ஷோர் A ட்யூரோமீட்டர்"
+        },
+        {
+          "key": "C",
+          "text": "Vernier caliper / வர்னியர் காலிபர்"
+        },
+        {
+          "key": "D",
+          "text": "Shore B Durometer / ஷோர் B ட்யூரோமீட்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_16",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Information in Unique Serial Plate?/ யூனிக் சீரியல் பிளேட்டில் உள்ள தகவல் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதம் மற்றும் வருடம்"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / நாள் மற்றும் மாதம்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரம் மற்றும் மாதம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_17",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What does this symbol indicate?/ டயரின் சைடு வாலில் என்ன காணப்படலாம்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Direction of rotation / சுழற்சி திசை"
+        },
+        {
+          "key": "B",
+          "text": "Brand emblem / பிராண்ட் சின்னம்"
+        },
+        {
+          "key": "C",
+          "text": "Safety pictogram / பாதுகாப்பு குறியீடு"
+        },
+        {
+          "key": "D",
+          "text": "TWI / TWI"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "U_Warehouse_QA_18",
+      "level": "U",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is Effect of poking in cured tire? கியூர்ட் டயரில் புகுத்தும் செயல் ஏற்படுத்தும் விளைவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dis satisfaction / வாடிக்கையாளர் மனஅமைதியின்மை"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    }
+  ],
+  "O": [
+    {
+      "id": "O_FID_Inspector_QA_1",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is PPE?/ PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_FID_Inspector_QA_2",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is unsafe act ?/ பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_FID_Inspector_QA_3",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ?/ பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_4",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is ISO 45001 ?/ ஐஎஸ்ஓ 45001 என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு  \t/ paryaavaran prabandhan pranaalee"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதாரம் மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_FID_Inspector_QA_5",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is LOTO ?/ லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_FID_Inspector_QA_6",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is HSEE ?/ HSEE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_7",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What are fire  Classes?/ தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_FID_Inspector_QA_8",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What is BBS?/ பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_9",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency?/ அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_FID_Inspector_QA_10",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing?/ RRO/RRM ஃபிளாஞ்ச் மாற்றும் போது பயன்படுத்த வேண்டிய பாதுகாப்பு உபகரணங்கள் (PPE) என்னென்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton golves and Safety shoe / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_11",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval?/ 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_12",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_13",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to?/ 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_14",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place?/ 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_15",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ?/ 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_16",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following,/ பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_17",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? /TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_FID_Inspector_QA_18",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_19",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? /எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_20",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரை பழுதுபார்த்து சரி செய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறைபாடுகளை நீக்க\nb. To improve tire aesthetic / டயரின் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்அவுட் சோதனை செய்ய\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் வெட்டும் மற்றும் பீட் வென்ட் டிரிம்மிங், ஆய்வு, கையிருப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் டிரிம்மிங் மற்றும் பீட் வென்ட் டிரிம்மிங், கையிருப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் டிரிம்மிங் மற்றும் பீட் வென்ட் டிரிம்மிங், கையிருப்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_21",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Where to apply inspection stamp after inspection of tire? / டயர் ஆய்வுக்குப் பிறகு ஸ்டாம்ப் எங்கு வைக்கப்படுகிறது?\na. Bottom side near week code and top side near vulcanized bar code in sidewall / கீழ்ப்புறம் வீக் கோடின் அருகிலும் மேல்புறம் வெல்கனைஸ் பார்கோடின் அருகிலும்\nb. Anywhere in sidewall / சைட்வாலில் எங்கும்\nc. Near bead area / பீட் பகுதியில்\nd. At tread area / டிரெட் பகுதியில்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Full Red Dot / முழு சிவப்பு புள்ளி"
+        },
+        {
+          "key": "B",
+          "text": "Full/Hollow Yellow Dot / முழு/வெற்று மஞ்சள் புள்ளி"
+        },
+        {
+          "key": "C",
+          "text": "Hollow Red Dot / வெற்று சிவப்பு புள்ளி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_22",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "a.Free rolling / சுதந்திரமாக சுற்றும்\nb. Drive wheel / ஓட்டும் சக்கரம்\nc. Safety pictogram / பாதுகாப்பு குறிச்சொல்\nd. TWI (Tread Wear Indicator) / டிரெட் வீர் இன்டிகேட்டர்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mica FM, External damage, Shaping cut, Wrong bladder / மைகா FM, வெளியுறுப்பு சேதம், வடிவ வெட்டல், தவறான பிளாட்டர்"
+        },
+        {
+          "key": "B",
+          "text": "Mica FM, External damage, Cured rubber, Wet loading / மைகா FM, வெளியுறுப்பு சேதம், கியூர் செய்யப்பட்ட ரப்பர், ஈரப்பதம் உள்ள ஏற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Lightness, Tread lightness, Bead lightness, Shoulder lightness / இலகுவாக இருப்பது, டிரெட் இலகுவாக இருப்பது, பீட், ஷோல்டர்"
+        },
+        {
+          "key": "D",
+          "text": "Blister, Tread blister, Inner blister, Shoulder blister / பிளிஸ்டர், டிரெட் பிளிஸ்டர், உள்ளே பிளிஸ்டர், ஷோல்டர் பிளிஸ்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_23",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "From which sizes is RRO checking done? / எந்த அளவிலிருந்து RRO சோதனை செய்யப்படுகிறது?\na. Below 15\" / 15 அங்குலத்துக்கு கீழ்\nb. Above 10\" / 10 அங்குலத்துக்கு மேல்\nc. Above 15\" / 15 அங்குலத்துக்கு மேல்\nd. Above 54\" / 54 அங்குலத்துக்கு மேல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "JCB & Claas / ஜேசிபி மற்றும் கிளாஸ்"
+        },
+        {
+          "key": "B",
+          "text": "John Deere & YRC / ஜான் டியர் மற்றும் YRC"
+        },
+        {
+          "key": "C",
+          "text": "YRC & CNH / YRC மற்றும் CNH"
+        },
+        {
+          "key": "D",
+          "text": "Kubota & ITL / குபோட்டா மற்றும் ITL"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_24",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is the lux level to be maintained at FID inspection area? / FID ஆய்வு பகுதியில் பராமரிக்க வேண்டிய லக்ஸ் அளவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "1000"
+        },
+        {
+          "key": "B",
+          "text": "800"
+        },
+        {
+          "key": "C",
+          "text": "1200"
+        },
+        {
+          "key": "D",
+          "text": "1500\ne. All the above is correct / மேலே உள்ள அனைத்தும் சரியானவை"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_FID_Inspector_QA_25",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "a.Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Top side of tire only / டயரின் மேல் பக்கம் மட்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Bottom side of tire only / டயரின் கீழ் பக்கம் மட்டும்"
+        },
+        {
+          "key": "C",
+          "text": "Both sides of tire / டயரின் இருபுறங்களிலும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_26",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is SOP? /SOP என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Standard Operating Procedure / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் ப்ரொஸிஜூர்"
+        },
+        {
+          "key": "B",
+          "text": "Standard Operational Process / ஸ்டாண்டர்ட் ஆப்பரேட்டிங் பிராசஸ்"
+        },
+        {
+          "key": "C",
+          "text": "System Organization Process / ஸ்டாண்டர்ட் ஆர்கனைசேஷன்  பிராசஸ்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_27",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What Is Traceability /  Traceability என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "It is process of maintain 5s / இது 5S ஐ பராமரிக்கும் செயல்முறையாகும்"
+        },
+        {
+          "key": "B",
+          "text": "Traceability is the capability to trace something / ட்ரேசிபிலிட்டி என்பது எதையாவது கண்டுபிடிக்கும் திறன்"
+        },
+        {
+          "key": "C",
+          "text": "Traceability is the ability to verify the history, location, or application of an item by means of documented recorded identification / ட்ரேசபிலிட்டி என்பது ஆவணப்படுத்தப்பட்ட பதிவு செய்யப்பட்ட அடையாளத்தின் மூலம் ஒரு பொருளின் வரலாறு, இருப்பிடம் அல்லது பயன்பாடு ஆகியவற்றைச் சரிபார்க்கும் திறன் ஆகும்."
+        },
+        {
+          "key": "D",
+          "text": "Traceability is the process of maintenance / டிரேசபிலிட்டி என்பது பராமரிப்பு செயல்முறை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_28",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Which instrument is used to measure the tire hardness? / டயர் கடினத்தை அளவிட எந்த கருவி பயன்படுத்தப்படுகிறது?\na. Thermometer / வெப்பநிலை அளவுகோல்\nb. Shore A Durometer / ஷோர் A டியூரோமீட்டர்\nc. Vernier Caliper / வர்னியர் காலிப்பர்\nd. Shore B Durometer / ஷோர் B டியூரோமீட்டர்",
+      "options": [
+        {
+          "key": "A",
+          "text": "8 Hrs / 8 மணி நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "10 Hrs / 10 மணி நேரம்"
+        },
+        {
+          "key": "C",
+          "text": "16 Hrs / 16 மணி நேரம்"
+        },
+        {
+          "key": "D",
+          "text": "48 Hrs / 48 மணி நேரம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_29",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What information is available on the Unique Serial Plate? / யூனிக் சீரியல் ப்ளேட்டில் உள்ள தகவல்கள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதம் மற்றும் ஆண்டு"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / தேதி மற்றும் மாதம்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரம் மற்றும் மாதம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_30",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "Indicates ? / குறி காட்டுவது என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Direction of rotation / சுழற்சி திசை"
+        },
+        {
+          "key": "B",
+          "text": "Brand emblem / பிராண்ட் சின்னம்"
+        },
+        {
+          "key": "C",
+          "text": "Safety pictogram / பாதுகாப்பு குறிச்சொல்"
+        },
+        {
+          "key": "D",
+          "text": "TWI (Tread Wear Indicator) / டிரெட் வீர் இன்டிகேட்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_FID_Inspector_QA_31",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "QA & Process",
+      "question": "What is meant by Poka-yoke? / Poka-yoke என்பதன் அர்த்தம் என்ன?\na. Error proofing / பிழை தவிர்ப்பு\nb. Early warning / முன்னறிவிப்பு\nc. Alarming / அலாரம் எழுப்புதல்\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரிலிருந்து காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் அதிருப்தி"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All of the above / மேலே உள்ள அனைத்தும"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_QA_1",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_QA_2",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Final_Finish_QA_3",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_4",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is ISO 45001 ? ஐஎஸ்ஓ 45001 என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு  \t/ paryaavaran prabandhan pranaalee"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதாரம் மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Final_Finish_QA_5",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_QA_6",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is HSEE ? HSEE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_7",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Final_Finish_QA_8",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_9",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_QA_10",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing??",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton golves and Safety shoe / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_11",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_12",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_13",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_14",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_15",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_16",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_17",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_Final_Finish_QA_18",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_19",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_20",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / டயரைக் பழுது பார்த்து சரி செய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறையை நீக்க\nb. To improve tire aesthetic / டயர் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன்அவுட் சரிபார்க்க\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் கட் மற்றும் பிட் வென்ட் குறைத்தல், ஆய்வு, கிடங்கு"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் குறைத்தல் மற்றும் பிட் வென்ட் குறைத்தல், கிடங்கு"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் குறைத்தல் மற்றும் பிட் வென்ட் குறைத்தல், கிடங்கு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_21",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "Where to apply inspection stamp after Inspection of tire? / டயர் ஆய்வுக்குப் பிறகு ஆய்வு முத்திரையை எங்கு இட்டல் வேண்டும்?\na. Bottom side near Week code and top side near vulcanized bar code in sidewall / வார குறியீடு அருகில் கீழ் பக்கம் மற்றும் வல்கனைஸ் பார் கோடு அருகில் மேல் பக்கம்\nb. Anywhere in sidewall / சைட்வாலில் எங்கே வேண்டுமானாலும்\nc. Near bead area / பீட் பகுதியில்\nd. At tread area / டிரெட் பகுதியில்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Full Red Dot / முழு சிவப்பு புள்ளி"
+        },
+        {
+          "key": "B",
+          "text": "Full/Hollow Yellow Dot / முழு/காற்றில்லாத மஞ்சள் புள்ளி"
+        },
+        {
+          "key": "C",
+          "text": "Hollow Red Dot / காற்றில்லாத சிவப்பு புள்ளி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_22",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the Finish tire paint code? / தயாரான டயரின் பேயிண்ட் குறியீடு என்ன?\na. FB 61\nb. FB 65\nc. FB 54\nd. FB 50",
+      "options": [
+        {
+          "key": "A",
+          "text": "Radial / ரேடியல்"
+        },
+        {
+          "key": "B",
+          "text": "Bias / பயாஸ்"
+        },
+        {
+          "key": "C",
+          "text": "Floatation / ஃப்ளோட்டேஷன்"
+        },
+        {
+          "key": "D",
+          "text": "OTR / ஓ.டி.ஆர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_23",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "Spot Curing machine is used for? / ஸ்பாட் கியூரிங் மெஷின் எந்த பயன்பாட்டிற்காக பயன்படுத்தப்படுகிறது?\na. Tyre Re-lettering / டயர் எழுத்து திருத்தம்\nb. Tyre Re-curing at affected location / பாதிக்கப்பட்ட இடத்தில் மீண்டும் கியூரிங்\nc. a & b / மேல் இரண்டும்\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Below 15\" / 15 இன்சிற்கு கீழ்"
+        },
+        {
+          "key": "B",
+          "text": "Above 10\" / 10 இன்சிற்கு மேல்"
+        },
+        {
+          "key": "C",
+          "text": "Above 15\" / 15 இன்சிற்கு மேல்"
+        },
+        {
+          "key": "D",
+          "text": "Above 54\" / 54 இன்சிற்கு மேல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_24",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "100% ALT checking is followed for which customer dispatch? / எந்த வாடிக்கையாளர் அனுப்புதலுக்கு 100% ALT சோதனை செய்யப்படுகிறது?\na. JCB & Claas\nb. John Deere & YRC\nc. YRC & CNH\nd. Kubota & ITL",
+      "options": [
+        {
+          "key": "A",
+          "text": "Curing process for re-compounding and repairing / மறுசேர்க்கை மற்றும் பழுது சரிசெய்யும் கியூரிங் செயல்முறை"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning / சுத்தம்"
+        },
+        {
+          "key": "C",
+          "text": "Measuring / அளவீடு"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_25",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the defect? / குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / விவரக்குறிப்பு தேவைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தேவைகளை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "FB811 / FB899"
+        },
+        {
+          "key": "B",
+          "text": "FB799 / FB810"
+        },
+        {
+          "key": "C",
+          "text": "FB801 / FB809"
+        },
+        {
+          "key": "D",
+          "text": "FB810 / FB899"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_26",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the autoclave direct heating temperature and time? / ஆட்டோக்ளேவ் நேரடி வெப்பமூட்டம் மற்றும் நேரம் என்ன?\na. 105℃ & 40 Minutes / 105℃ மற்றும் 40 நிமிடங்கள்\nb. 135℃ & 50 Minutes / 135℃ மற்றும் 50 நிமிடங்கள்\nc. 125℃ & 50 Minutes / 125℃ மற்றும் 50 நிமிடங்கள்\nd. 130℃ & 40 Minutes / 130℃ மற்றும் 40 நிமிடங்கள்",
+      "options": [
+        {
+          "key": "A",
+          "text": "55 Minutes / 55 நிமிடங்கள்"
+        },
+        {
+          "key": "B",
+          "text": "40 Minutes / 40 நிமிடங்கள்"
+        },
+        {
+          "key": "C",
+          "text": "50 Minutes / 50 நிமிடங்கள்"
+        },
+        {
+          "key": "D",
+          "text": "30 Minutes / 30 நிமிடங்கள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_27",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "Which instrument is used to measure the tire hardness? / டயரின் கடினத்தன்மையை அளவிட எந்த கருவி பயன்படுத்தப்படுகிறது?\na. Thermometer / வெப்பமானி\nb. Shore A Durometer / ஷோர் ஏ டியூரோமீட்டர்\nc. Vernier caliper / வெர்னியர் காலிபர்\nd. Shore B Durometer / ஷோர் பி டியூரோமீட்டர்",
+      "options": [
+        {
+          "key": "A",
+          "text": "8 Hrs / 8 மணி நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "10 Hrs / 10 மணி நேரம்"
+        },
+        {
+          "key": "C",
+          "text": "16 Hrs / 16 மணி நேரம்"
+        },
+        {
+          "key": "D",
+          "text": "48 Hrs / 48 மணி நேரம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_28",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is the repair cement & self-cure paint code? / பழுது சரிசெய்யும் சிமெண்டும் சுய கியூர் பேயிண்ட் குறியீடும் என்ன?\na. CH135 & CH137\nb. CH135 & CH130\nc. CH140 & CH135\nd. CH135 & CH137",
+      "options": [
+        {
+          "key": "A",
+          "text": "120℃"
+        },
+        {
+          "key": "B",
+          "text": "150℃"
+        },
+        {
+          "key": "C",
+          "text": "160℃"
+        },
+        {
+          "key": "D",
+          "text": "125℃"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_QA_29",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "QA & Process",
+      "question": "What is meant by BSR? / BSR என்றால் என்ன?\na. Bonded Storage Room / பாண்ட் செய்யப்பட்ட சேமிப்பு அறை\nb. Bead Setting Ring / பீட் அமைப்புக்கான வளையம்\nc. Bonded Secured Room / பாதுகாக்கப்பட்ட பாண்ட் அறை\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரில் காற்று கசியல்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் திருப்தியின்மை"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது காற்று கசியல்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_1",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_2",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_3",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_4",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is ISO 45001 ? ஐஎஸ்ஓ 45001 என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு  \t/ paryaavaran prabandhan pranaalee"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதாரம் மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_5",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_6",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is HSEE ? HSEE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_7",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_8",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_9",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_10",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "Safety",
+      "question": "What are the safety PPE to be used during RRO/RRM flange changing??",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton golves and Safety shoe / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_11",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_12",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_13",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_14",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_15",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_16",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_17",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_18",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_19",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_20",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of repairing a tire? / ஒரு டயரை சரிசெய்வதற்கான நோக்கம் என்ன?\na. To eliminate the defect / குறைபாடுகளை நீக்க\nb. To improve tire aesthetic / டயரின் தோற்றத்தை மேம்படுத்த\nc. To check the runout / ரன் அவுட் சரிபார்க்க\nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Flash cutting & bead vent trimming, Inspection, Warehousing / ஃபிளாஷ் வெட்டும் & பீடு வென்ட் டிரிம்மிங், ஆய்வு, கிடங்கிடல்"
+        },
+        {
+          "key": "B",
+          "text": "Inspection, Flash trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் டிரிம்மிங் & பீடு வென்ட் டிரிம்மிங், கிடங்கிடல்"
+        },
+        {
+          "key": "C",
+          "text": "Inspection, Flash Trimming & bead vent trimming, Warehousing / ஆய்வு, ஃபிளாஷ் டிரிம்மிங் & பீடு வென்ட் டிரிம்மிங், கிடங்கிடல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_21",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "How to identify OK tires in RRO testing? / RRO சோதனையில் சரியான டயரை எவ்வாறு அடையாளம் காணலாம்?\na. Full Red Dot / முழுமையான சிவப்பு புள்ளி\nb. Full/Hollow Yellow Dot / முழு அல்லது காலியான மஞ்சள் புள்ளி\nc. Hollow Red Dot / காலியான சிவப்பு புள்ளி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Below 15\" / 15 இன்ச் கீழ்"
+        },
+        {
+          "key": "B",
+          "text": "Above 10\" / 10 இன்சிற்கு மேல்"
+        },
+        {
+          "key": "C",
+          "text": "Above 15\" / 15 இன்சிற்கு மேல்"
+        },
+        {
+          "key": "D",
+          "text": "Above 54\" / 54 இன்சிற்கு மேல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_22",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "100% ALT checking followed for which customer dispatch? / எந்த வாடிக்கையாளர் அனுப்பலில் 100% ALT சோதனை மேற்கொள்ளப்படுகிறது?\na. JCB & Claas\nb. John Deere & YRC\nc. YRC & CNH\nd. Kubota & ITL",
+      "options": [
+        {
+          "key": "A",
+          "text": "0 to 4 bar"
+        },
+        {
+          "key": "B",
+          "text": "0 to 6 bar"
+        },
+        {
+          "key": "C",
+          "text": "0 to 10 bar"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_23",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of RRO testing? / RRO சோதனையின் நோக்கம் என்ன?\na. For checking air leak from tire / டயரிலிருந்து காற்று கசியும் என்பதை பரிசோதிக்க\nb. For checking OD of tire / டயரின் வெளியுறையை பரிசோதிக்க\nc. For checking radial runout of tire / டயரின் ரேடியல் ரன் அவுட் பரிசோதிக்க\nd. For checking radial runout and OD of tire / டயரின் ரேடியல் ரன் அவுட் மற்றும் வெளியுறையை பரிசோதிக்க",
+      "options": [
+        {
+          "key": "A",
+          "text": "9"
+        },
+        {
+          "key": "B",
+          "text": "12"
+        },
+        {
+          "key": "C",
+          "text": "8"
+        },
+        {
+          "key": "D",
+          "text": "4"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_24",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the RRO machine marking unit temperature specification? / RRO மெஷின் மார்கிங் யூனிட்டின் வெப்பநிலை விவரக்குறிப்பு என்ன?\na. 125 ℃\nb. 135 ℃\nc. 145 ℃\nd. 150 ℃",
+      "options": [
+        {
+          "key": "A",
+          "text": "Release tire as direct OK / டயரை நேரடியாக OK என்று வெளியிடவும்"
+        },
+        {
+          "key": "B",
+          "text": "Release tire for Non OE / டயரை நான்-OE க்கு வெளியிடவும்"
+        },
+        {
+          "key": "C",
+          "text": "Hold the tire through NC / NC மூலம் டயரை ஹோல்ட் செய்யவும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_25",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "What is the defect? / குறைபாடு என்றால் என்ன?\na. Not meeting specification requirements / குறிப்பீட்டுத் தரநிலைகளை பூர்த்தி செய்யாதது\nb. Not meeting SOP requirements / SOP தேவைகளை பூர்த்தி செய்யாதது\nc. Not meeting appearance requirements / தோற்றத் தரத்தை பூர்த்தி செய்யாதது\nd. All of the above / மேலே சொன்னவை அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Narrow bead / குறுகிய பீடு"
+        },
+        {
+          "key": "B",
+          "text": "Inner liner blister / உள்ளமைச்சு பிளாஸ்டர்"
+        },
+        {
+          "key": "C",
+          "text": "Parallel belt / இணையான பெல்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Damage / சேதம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_26",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "How to identify OK tires in RRO testing? / RRO சோதனையில் சரியான டயர்களை எவ்வாறு அடையாளம் காணலாம்?\na. Full Red Dot / முழு சிவப்பு புள்ளி\nb. Full/Hollow Yellow Dot / முழு/வெற்று மஞ்சள் புள்ளி\nc. Hollow Red Dot / வெற்று சிவப்பு புள்ளி\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Below 4 mm runout / 4 மிமீ-ஐவிட குறைவான ரன் அவுட்"
+        },
+        {
+          "key": "B",
+          "text": "4 to 6 mm runout / 4 முதல் 6 மிமீ ரன் அவுட்"
+        },
+        {
+          "key": "C",
+          "text": "6 to 8 mm runout without RRM rim sizes / RRM ரிம் இல்லாமல் 6 முதல் 8 மிமீ ரன் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_27",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "How to verify OD measurement in RRO machine? / RRO மெஷினில் OD அளவீட்டை எவ்வாறு சரிபார்க்க வேண்டும்?\na. Comparing Machine OD value Vs Spec OD value / மெஷின் OD மதிப்பு மற்றும் குறிப்பீட்டு மதிப்பை ஒப்பிடுதல்\nb. Comparing Spec OD value Vs Manual OD / குறிப்பீட்டு மதிப்புடன் கைமுறை OD ஒப்பீடு\nc. Comparing Machine OD value Vs Manual OD value / மெஷின் மற்றும் கைமுறை OD மதிப்புகளை ஒப்பீடு\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Apply NE Stamp / NE முத்திரை பதிக்க"
+        },
+        {
+          "key": "B",
+          "text": "Hold for Technical / தொழில்நுட்ப பரிசீலனைக்காக ஹோல்ட் செய்ய"
+        },
+        {
+          "key": "C",
+          "text": "Direct OK / நேரடியாக OK ஆக வெளியிட"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_28",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "Frequency of RRO machine master tire verification / RRO மெஷின் மாஸ்டர் டயர் சரிபார்ப்பு அடிக்கடி எப்போது?\na. Once in every month / மாதத்தில் ஒரு முறை\nb. Once in every week / வாரத்தில் ஒரு முறை\nc. Once in every day / தினமும்\nd. Once in every shift / ஒவ்வொரு ஷிப்டிலும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Once in every month / மாதம் ஒருமுறை"
+        },
+        {
+          "key": "B",
+          "text": "Once in every week / வாரம் ஒருமுறை"
+        },
+        {
+          "key": "C",
+          "text": "Once in every day / தினமும்"
+        },
+        {
+          "key": "D",
+          "text": "Once in every shift / ஒவ்வொரு ஷிப்டிலும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_29",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "QA & Process",
+      "question": "How much OD value difference is allowed between machine and manual? / மெஷின் மற்றும் கைமுறை OD மதிப்புக்கிடையே ஏற்றக்கூடிய வித்தியாசம் என்ன?\na. 5 mm max / அதிகபட்சம் 5 மிமீ\nb. 10 mm max / அதிகபட்சம் 10 மிமீ\nc. 15 mm max / அதிகபட்சம் 15 மிமீ\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரிலிருந்து காற்று கசியும்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் அதிருப்தி"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும்போது காற்று கசியும்"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னவை அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Preparatory_QA_1",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Preparatory_QA_2",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை /"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Preparatory_QA_3",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க"
+        },
+        {
+          "key": "B",
+          "text": "Getting injury / காயம் அடைதல்"
+        },
+        {
+          "key": "C",
+          "text": "Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_4",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Preparatory_QA_5",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is HSEE ? HSEE என்றால் என்ன",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_6",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_7",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Preparatory_QA_8",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Preparatory_QA_9",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Preparatory_QA_10",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "Safety",
+      "question": "How many safe assemble point available in our company? எங்கள் நிறுவனத்தில் எத்தனை பாதுகாப்பான அசெம்பிளி பாய்ண்ட்கள் உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "2"
+        },
+        {
+          "key": "B",
+          "text": "4"
+        },
+        {
+          "key": "C",
+          "text": "3"
+        },
+        {
+          "key": "D",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_11",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_12",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_13",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_14",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_15",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_16",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_17",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_Preparatory_QA_18",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_19",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_20",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Master Chemical any five? / மாஸ்டர் கெமிகல் 5 வகைகள் கூறுக?",
+      "options": [
+        {
+          "key": "A",
+          "text": "0.01 kg / 0.01 கிலோ"
+        },
+        {
+          "key": "B",
+          "text": "0.02 kg / 0.02 கிலோ"
+        },
+        {
+          "key": "C",
+          "text": "0.002 kg / 0.002 கிலோ"
+        },
+        {
+          "key": "D",
+          "text": "0.001 kg / 0.001 கிலோ"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_21",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What bleeder splicing value? (4 Roll calendar) / பிளீடர் ஸ்ப்லைசிங் மதிப்பு என்ன? (4 ரோல் காலெண்டர்)\na. 10 mm ± 3 / 10 மிமீ ± 3\nb. 10 mm ± 2 / 10 மிமீ ± 2\nc. 10 mm ± 1 / 10 மிமீ ± 1\nd. 10 mm ± 0.1 / 10 மிமீ ± 0.1",
+      "options": [
+        {
+          "key": "A",
+          "text": "75/80/75 ± 5° / 75/80/75 ± 5°"
+        },
+        {
+          "key": "B",
+          "text": "75/75/75 ± 5° / 75/75/75 ± 5°"
+        },
+        {
+          "key": "C",
+          "text": "70/70/70 ± 5° / 70/70/70 ± 5°"
+        },
+        {
+          "key": "D",
+          "text": "75/75/75 ± 3° / 75/75/75 ± 3°"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_22",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How much Inner Width tolerance above 700 mm? / 700 மிமீக்கு மேலே உள்ள உள் அகலம் தூர்த்தல் எவ்வளவு?\na. ±7 mm / ±7 மிமீ\nb. ±5 mm / ±5 மிமீ\nc. ±7 mm / ±7 மிமீ\nd. ±5 mm / ±5 மிமீ",
+      "options": [
+        {
+          "key": "A",
+          "text": "1 hour / 1 மணி"
+        },
+        {
+          "key": "B",
+          "text": "2 hour / 2 மணி"
+        },
+        {
+          "key": "C",
+          "text": "24 hour / 24 மணி"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_23",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What Hot air temperature? / ஹாட் ஏர் வெப்பநிலை என்ன?\na. 120 ± 5° / 120 ± 5°\nb. 125 ± 5° / 125 ± 5°\nc. 110 ± 10° / 110 ± 10°\nd. 120 ± 10° / 120 ± 10°",
+      "options": [
+        {
+          "key": "A",
+          "text": "Poly / போலி"
+        },
+        {
+          "key": "B",
+          "text": "Baratex / பாராடெக்ஸ்"
+        },
+        {
+          "key": "C",
+          "text": "Cotton / பர Cotton்"
+        },
+        {
+          "key": "D",
+          "text": "Polypropylene / போலிப்புரோபைல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_24",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "FB571 + FB787 Double inner work away diluted which compound? / FB571 + FB787 டபிள் இன்னர் வேலைக்கு எது கருகியுள்ளது?\na. FB456 / FB456\nb. FB571 / FB571\nc. FB787 / FB787\nd. FB452 / FB452",
+      "options": [
+        {
+          "key": "A",
+          "text": "Max 30 mm / அதிகபட்சம் 30 மிமீ"
+        },
+        {
+          "key": "B",
+          "text": "Max 35 mm / அதிகபட்சம் 35 மிமீ"
+        },
+        {
+          "key": "C",
+          "text": "Max 40 mm / அதிகபட்சம் 40 மிமீ"
+        },
+        {
+          "key": "D",
+          "text": "Max 50 mm / அதிகபட்சம் 50 மிமீ"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_25",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Cooling drum surface temperature in bead building? / பீட் பில்டிங் பகுதியில் கூலிங் ட்ரம் மேற்பரப்பின் வெப்பநிலை என்ன?\na. 20 ± 5° / 20 ± 5°\nb. 20 ± 3° / 20 ± 3°\nc. 20 ± 2° / 20 ± 2°\nd. 25 ± 5° / 25 ± 5°",
+      "options": [
+        {
+          "key": "A",
+          "text": "60 ± 5° / 60 ± 5°"
+        },
+        {
+          "key": "B",
+          "text": "60 ± 10° / 60 ± 10°"
+        },
+        {
+          "key": "C",
+          "text": "55 ± 5° / 55 ± 5°"
+        },
+        {
+          "key": "D",
+          "text": "55 ± 10° / 55 ± 10°"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_26",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "Maximum number of layers of inner liner to achieve the thickness for green per band? / கிரீன் பிர் பாண்டிற்கான தேவையான தடிமனுக்கு இன்டர் லைனர் அதிகபட்ச எத்தனை அடுக்குகள்?\na. 1 / 1\nb. 2 / 2\nc. 3 / 3\nd. 4 / 4",
+      "options": [
+        {
+          "key": "A",
+          "text": "200 mm / 200 மிமீ"
+        },
+        {
+          "key": "B",
+          "text": "210 mm / 210 மிமீ"
+        },
+        {
+          "key": "C",
+          "text": "220 mm / 220 மிமீ"
+        },
+        {
+          "key": "D",
+          "text": "230 mm / 230 மிமீ"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_27",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What is the Auto blade sharpening frequency? / ஆட்டோ பிளேடு கூர்மையாக்கும் அதிர்வெண் எது?\na. 10 days / 10 நாட்கள்\nb. 20 days / 20 நாட்கள்\nc. 30 days / 30 நாட்கள்\nd. 40 days / 40 நாட்கள்",
+      "options": [
+        {
+          "key": "A",
+          "text": "2000 mm to 3000 mm / 2000 மிமீ முதல் 3000 மிமீ வரை"
+        },
+        {
+          "key": "B",
+          "text": "2120 mm to 3050 mm / 2120 மிமீ முதல் 3050 மிமீ வரை"
+        },
+        {
+          "key": "C",
+          "text": "2110 mm to 3030 mm / 2110 மிமீ முதல் 3030 மிமீ வரை"
+        },
+        {
+          "key": "D",
+          "text": "2150 mm to 3050 mm / 2150 மிமீ முதல் 3050 மிமீ வரை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_28",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How Much Bins after # 5 angle Range?/ #5 க்குப் பிறகு பின் கோண வரம்பு எவ்வளவு?",
+      "options": [
+        {
+          "key": "A",
+          "text": "45° to 90°"
+        },
+        {
+          "key": "B",
+          "text": "20° to 90°"
+        },
+        {
+          "key": "C",
+          "text": "30° to 90°"
+        },
+        {
+          "key": "D",
+          "text": "50° to 90°"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_29",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What is the tolerance for bead wire turns? / பீட் வயர் திருப்பங்களுக்கான தாங்கும் அளவு என்ன?\na. 2 / 2\nb. 1 / 1\nc. 0 / 0\nd. 1 / 1",
+      "options": [
+        {
+          "key": "A",
+          "text": "2 days / 2 நாள்"
+        },
+        {
+          "key": "B",
+          "text": "5 days / 5 நாள்"
+        },
+        {
+          "key": "C",
+          "text": "4 days / 4 நாள்"
+        },
+        {
+          "key": "D",
+          "text": "3 days / 3 நாள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_30",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "How many meters should be pushed out from the extruder mouth during compound changeover? / எக்ஸ்ட்ரூடரில் கலவை மாற்றத்தின் போது எத்தனை மீட்டர் வெளியே தள்ள வேண்டும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Min 5 mtr / குறைந்தபட்சம் 5 மீ"
+        },
+        {
+          "key": "B",
+          "text": "Min 3 mtr / குறைந்தபட்சம் 3 மீ"
+        },
+        {
+          "key": "C",
+          "text": "Min 1 mtr / குறைந்தபட்சம் 1 மீ"
+        },
+        {
+          "key": "D",
+          "text": "It's nothing like that / அப்படியெல்லாம் எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_1",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Solid_Tire_QA_2",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Solid_Tire_QA_3",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க"
+        },
+        {
+          "key": "B",
+          "text": "Getting injury / காயம் அடைதல்"
+        },
+        {
+          "key": "C",
+          "text": "Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_4",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Solid_Tire_QA_5",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is HSEE? HSEE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_6",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_7",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Solid_Tire_QA_8",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Solid_Tire_QA_9",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Solid_Tire_QA_10",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "Safety",
+      "question": "How many safe assemble point available in our company? எங்கள் நிறுவனத்தில் எத்தனை பாதுகாப்பான அசெம்பிளி பாய்ண்ட்கள் உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "2"
+        },
+        {
+          "key": "B",
+          "text": "4"
+        },
+        {
+          "key": "C",
+          "text": "3"
+        },
+        {
+          "key": "D",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_11",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_12",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_13",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_14",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_15",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S?5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_16",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_17",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_Solid_Tire_QA_18",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_19",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_20",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Dirty Mould Grading system / மாசான மொல்டு தரவரிசை அமைப்பு \na. Rating no 3 Immediately cleaning required / ரேட்டிங் எண் 3 உடனடி சுத்தம் தேவையானது \nb. Rating no 1 immediately cleaning required / ரேட்டிங் எண் 1 உடனடி சுத்தம் தேவையானது \nc. Rating no 2 immediately cleaning required / ரேட்டிங் எண் 2 உடனடி சுத்தம் தேவையானது \nd. Rating no 0 immediate cleaning action required / ரேட்டிங் எண் 0 உடனடி சுத்தம் செயல்பாட்டின் தேவையானது",
+      "options": [
+        {
+          "key": "A",
+          "text": "4 Kg/cm² / 4 Kg/cm²"
+        },
+        {
+          "key": "B",
+          "text": "7 Kg/cm² / 7 Kg/cm²"
+        },
+        {
+          "key": "C",
+          "text": "6 Kg/cm² / 6 Kg/cm²"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_21",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which type of mould using in 300 ton press? / 300 டன் பிரெஸ்சில் எத்தனை வகை மொல்டு பயன்படுத்தப்படுகிறது? \na. Segment mould / செக்மெண்ட் மொல்டு \nb. One pieces mould / ஒற்றை பீசு மொல்டு \nc. Two pieces mould / இரண்டு பீசுகள் மொல்டு \nd. Above A and C / A மற்றும் C மேலே",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cured tire free releasing / கியூரிங் செய்யப்பட்ட டயர் இலவசமாக வெளியேற்றுதல்"
+        },
+        {
+          "key": "B",
+          "text": "Avoiding tire struck up / டயர் தட்டுப்படுவதைத் தவிர்க்க"
+        },
+        {
+          "key": "C",
+          "text": "Avoiding Bead wire visible defect / பீட் வயர் தெளிவான குறைபாடு தவிர்க்க"
+        },
+        {
+          "key": "D",
+          "text": "A & B / A மற்றும் B"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_22",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "How to achieve green tire weight in Tire building? / டயர் கட்டுமானத்தில் பச்சை டயர் எடையை எப்படித் தேவைப்படும்? \na. Strip width / ஸ்டிரிப் அகலம் \nb. Strip length / ஸ்டிரிப் நீளம் \nc. Strip gauge / ஸ்டிரிப் கேஜ் \nd. Above A & B & C / A & B & C மேலே",
+      "options": [
+        {
+          "key": "A",
+          "text": "1:1 / 1:1 / 1:1"
+        },
+        {
+          "key": "B",
+          "text": "1:2 / 1:2 / 1:2"
+        },
+        {
+          "key": "C",
+          "text": "2:2 / 2:2 / 2:2"
+        },
+        {
+          "key": "D",
+          "text": "1:3 / 1:3 / 1:3"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_23",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which is considered as quality accident in the following items? / பின்வருவனவற்றில் எது தரமான விபத்தியாக கருதப்படுகிறது? \na. Without disposal material used / பயன்படுத்தாத பொருட்கள் பயன்பாட்டில் \nb. Operational defect / செயல்பாட்டு குறைபாடு \nc. Wrong GT loaded / தவறான GT ஏற்றப்பட்டு \nd. Above A and C / A மற்றும் C மேலே",
+      "options": [
+        {
+          "key": "A",
+          "text": "Segment mould / செக்மெண்ட் மொல்டு"
+        },
+        {
+          "key": "B",
+          "text": "Jacket mould / ஜாக்கெட் மொல்டு"
+        },
+        {
+          "key": "C",
+          "text": "Platen Steam mould / பிளேட்டன் ஸ்டீம் மொல்டு"
+        },
+        {
+          "key": "D",
+          "text": "Above B and C / B மற்றும் C மேலே"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_24",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which type of mold using in 300 Ton press? / 300 டன் பிரெஸ்ஸில் எந்த வகை மொல்டு பயன்படுத்தப்படுகிறது? \na. Segment mould / செக்மெண்ட் மொல்டு \nb. Jacket mould / ஜாக்கெட் மொல்டு \nc. Platen Steam mould / பிளேட்டன் ஸ்டீம் மொல்டு \nd. Above B and C / B மற்றும் C மேலே",
+      "options": [
+        {
+          "key": "A",
+          "text": "60 to 70°C / 60 முதல் 70°C"
+        },
+        {
+          "key": "B",
+          "text": "65 to 75°C / 65 முதல் 75°C"
+        },
+        {
+          "key": "C",
+          "text": "50 to 65° / 50 முதல் 65°C"
+        },
+        {
+          "key": "D",
+          "text": "70 to 80°C / 70 முதல் 80°C"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_25",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "How to ensure the cure cycle time in curing press? / கியூரிங் பிரெஸ்ஸில் கியூர்சைக்கிள் நேரத்தை எப்படி உறுதி செய்வது? \na. Specification Vs Route / ஸ்பெசிபிகேஷன் Vs ரூட் \nb. Specification Vs SCADA / ஸ்பெசிபிகேஷன் Vs SCADA \nc. Specification Vs HMI / ஸ்பெசிபிகேஷன் Vs HMI \nd. None of the Above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "IR Gun / IR கன்"
+        },
+        {
+          "key": "B",
+          "text": "Visual checking / கண்ணோட்ட சரிபார்ப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Thermometer / தாபநிலையோமி"
+        },
+        {
+          "key": "D",
+          "text": "Hand touching / கையால் தொடுதல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_26",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Please write the 300 Ton Press closing pumping numbers? / 300 டன் பிரெஸ் மூடல் பம்பிங் எண்களை எழுதவும் \na. 10 / 10 / 10\nb. 12 / 12 / 12\nc. 8 / 8 / 8\nd. 6 / 6 / 6",
+      "options": [
+        {
+          "key": "A",
+          "text": "4 Kg/cm² / 4 Kg/cm²"
+        },
+        {
+          "key": "B",
+          "text": "5 Kg/cm² / 5 Kg/cm²"
+        },
+        {
+          "key": "C",
+          "text": "6 Kg/cm² / 6 Kg/cm²"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_27",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Please write the Non marking Tread compound. / மாறுபட்ட மக்காத டிரெட் கம்பவுண்டை எழுதவும் \na. FB6731 / FB6731 / FB6731\nb. FB1693 / FB1693 / FB1693\nc. FB1747 / FB1747 / FB1747\nd. FB174 / FB174 / FB174",
+      "options": [
+        {
+          "key": "A",
+          "text": "2018 Year / 2018 ஆண்டு"
+        },
+        {
+          "key": "B",
+          "text": "2019 Year / 2019 ஆண்டு"
+        },
+        {
+          "key": "C",
+          "text": "2024 Year / 2024 ஆண்டு"
+        },
+        {
+          "key": "D",
+          "text": "2013 Year / 2013 ஆண்டு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_28",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "Which type of mold using in 550 Ton press? / 550 டன் பிரெஸ்ஸில் எந்த வகை மொல்டு பயன்படுத்தப்படுகிறது?\na. Segment mould / செக்மெண்ட் மொல்டு \nb. Jacket mould / ஜாக்கெட் மொல்டு \nc. Platen Steam mould / பிளேட்டன் ஸ்டீம் மொல்டு \nd. Above B and C / B மற்றும் C மேலே",
+      "options": [
+        {
+          "key": "A",
+          "text": "Segment mould / செக்மெண்ட் மொல்டு"
+        },
+        {
+          "key": "B",
+          "text": "Jacket mould / ஜாக்கெட் மொல்டு"
+        },
+        {
+          "key": "C",
+          "text": "Platen Steam mould / பிளேட்டன் ஸ்டீம் மொல்டு"
+        },
+        {
+          "key": "D",
+          "text": "Above B and C / B மற்றும் C மேலே"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Solid_Tire_QA_29",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "QA & Process",
+      "question": "How many types of mould available in solid curing press? / கம்பியான கியூரிங் பிரெஸ்ஸில் எத்தனை வகை மொல்டுகள் கிடைக்கும்?\na. Segment mould / செக்மெண்ட் மொல்டு \nb. One piece mould / ஒற்றை பீசு மொல்டு \nc. Two pieces mould / இரண்டு பீசுகள் மொல்டு \nd. Above A and C / A மற்றும் C மேலே",
+      "options": [
+        {
+          "key": "A",
+          "text": "Segment mould / செக்மெண்ட் மொல்டு"
+        },
+        {
+          "key": "B",
+          "text": "Jacket mould / ஜாக்கெட் மொல்டு"
+        },
+        {
+          "key": "C",
+          "text": "Platen Steam mould / பிளேட்டன் ஸ்டீம் மொல்டு"
+        },
+        {
+          "key": "D",
+          "text": "Above B and C / B மற்றும் C மேலே"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_1",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Tire_Building_QA_2",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leak in the steam hose / ஸ்டீம் குழாயில் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leak in the steam hose / ஸ்டீம் குழாயில் கடுமையான கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Tire_Building_QA_3",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is safety? பாதுகாப்பு என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To prevent injury and ill health / காயம் மற்றும் உடல்நலக்குறைவை தடுக்க"
+        },
+        {
+          "key": "B",
+          "text": "Getting injury / காயம் அடைதல்"
+        },
+        {
+          "key": "C",
+          "text": "Performing unsafe act / பாதுகாப்பற்ற செயலைச் செய்தல்"
+        },
+        {
+          "key": "D",
+          "text": "Exposure to unsafe condition / பாதுகாப்பற்ற நிலைக்கு வெளிப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_4",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Building_QA_5",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is HSEE ? HSEE என்றால் என்ன ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_6",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_7",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Building_QA_8",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Tire_Building_QA_9",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Building_QA_10",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "Safety",
+      "question": "How many safe assemble point available in our company? எங்கள் நிறுவனத்தில் எத்தனை பாதுகாப்பான அசெம்பிளி பாய்ண்ட்கள் உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "2"
+        },
+        {
+          "key": "B",
+          "text": "4"
+        },
+        {
+          "key": "C",
+          "text": "3"
+        },
+        {
+          "key": "D",
+          "text": "5"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_11",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப் ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_12",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_13",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_14",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_15",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_16",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_17",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_Tire_Building_QA_18",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்,"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_19",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_20",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What we verifying in FTC? / FTC இல் நாமே சரிபார்க்கின்றோம்? \na. To Verify the Drum, BPR, Machine & Components parameters against specification. / டிரம், BPR, மெஷின் மற்றும் கூறுகளின் பரிமாணங்களை குறிப்பிட்ட விவரங்களுடன் சரிபார்க்க. \nb. To verify stitcher Tools dimensions and pressure against specification. / ஸ்டிட்சர் கருவிகளின் பரிமாணங்களை மற்றும் அழுத்தத்தை குறிப்பிட்ட விவரங்களுடன் சரிபார்க்க. \nc. To consume the Size out materials. / அளவு வெளியே உள்ள பொருட்களை பயன்படுத்த. \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "1 hr below / 1 மணி நேரத்திற்கு குறைவாக"
+        },
+        {
+          "key": "B",
+          "text": "5 hr below / 5 மணி நேரத்திற்கு குறைவாக"
+        },
+        {
+          "key": "C",
+          "text": "4 hr below / 4 மணி நேரத்திற்கு குறைவாக"
+        },
+        {
+          "key": "D",
+          "text": "All the above / மேலே சொன்னது அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Building_QA_21",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is uncommon size? / எது விதிவிலக்கான அளவு? ?\na. Radial size / ரேடியல் அளவு \nb. Bias size / பைஸ் அளவு  \nc. Different construction size / வேறுபட்ட கட்டமைப்பின் அளவு \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "More than two ply/Breaker/belt not applied in same direction / இரண்டு பிளை/பிரேக்கர்/பேல்ட் ஒரு வழியில் பயன்படுத்தப்படவில்லை"
+        },
+        {
+          "key": "B",
+          "text": "More than two ply/Breaker/Belt applied in same direction / இரண்டு பிளை/பிரேக்கர்/பேல்ட் ஒரே வழியில் பயன்படுத்தப்படுகிறது"
+        },
+        {
+          "key": "C",
+          "text": "Both A & B / இரண்டு A மற்றும் B"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_22",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "When we are verifying the Drum? / நாமே எப்போது டிரம் சரிபார்க்கின்றோம்? \na. Actual drum set, drum dia and conditions with FTC sheet on FTC. / உண்மையான டிரம் செட், டிரம் விட்டம் மற்றும் FTC ஷீட்டுடன் FTC இல் நிலைமைகள். \nb. With Drum change note, verify the drum set, drum diameter and Drum condition before FTC. / டிரம் மாற்றக் குறிப்புடன், FTCக்கு முன் டிரம் செட், டிரம் விட்டம் மற்றும் டிரம் நிலையை சரிபார்க்கவும். \nc. Both A & B / இரண்டு A மற்றும் B \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bead / Turn up Stitching / பீட் / திரும்பிய ஸ்டிட்சிங்"
+        },
+        {
+          "key": "B",
+          "text": "Sidewall stitching / பக்கவட்டு ஸ்டிட்சிங்"
+        },
+        {
+          "key": "C",
+          "text": "Tread Stitching / டிரெட் ஸ்டிட்சிங்"
+        },
+        {
+          "key": "D",
+          "text": "Both A & C / A மற்றும் C இரண்டும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_23",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the time spec and tolerance for bottom stitcher centre delay? / பின்வரிசைச் ஸ்டிட்சரின் மைய தாமதத்திற்கு நேர விபரம் மற்றும் பொறுமை என்ன? \na. 5sec±3sec / 5 வினாடிகள் ±3 வினாடிகள் \nb. 5sec±1sec / 5 வினாடிகள் ±1 வினாடி \nc. 5sec±2sec / 5 வினாடிகள் ±2 வினாடிகள் \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "4 Beads / 4 பீட்கள்"
+        },
+        {
+          "key": "B",
+          "text": "6 Beads / 6 பீட்கள்"
+        },
+        {
+          "key": "C",
+          "text": "8 Beads / 8 பீட்கள்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_24",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the tolerance of ply splicing for width? / அகலத்திற்கு பிளை ஸ்பிளைசிங்கின் பொறுமை என்ன? \na. 7±3 mm / 7±3 மி.மி. \nb. 7 (+3/-0) mm / 7 (+3/-0) மி.மி. \nc. 7(+3/-2) mm / 7(+3/-2) மி.மி.  \nd. None of the above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Inflation pressure gauge. / இன்ஃபிளேஷன் அழுத்த அளவுகோல்."
+        },
+        {
+          "key": "B",
+          "text": "Zone Temperatures in display unit. / காட்சி அலகில் பகுதி வெப்பநிலை."
+        },
+        {
+          "key": "C",
+          "text": "Carcass OD Spec, mean and actual value. / கார்கஸ் OD விவரம், சராசரி மற்றும் உண்மையான மதிப்பு."
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_25",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What are the material received from Extruder to Tire building? / எத்தனை பொருட்கள் எக்ஸ்ட்ரூடரிலிருந்து டயர் கட்டுமானத்திற்கு கிடைக்கின்றன? \na. Ply, Band / பிளை, பாண்ட் \nb. Inner, Fabric / இன்டர், பருத்தி \nc. Sidewall, Tread / பக்கவட்டு, டிரெட் \nd. Bead, wound bead / பீட், சூழப்பட்ட பீட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Impact in RRO / RRO இல் தாக்கம்"
+        },
+        {
+          "key": "B",
+          "text": "Impact Sidewall lightness Defect / பக்கவட்டு இளமை குறைபாடு தாக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Impact Narrow bead scrap / குறுகிய பீட் குப்பை தாக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "Impact Separation scrap / பிரிப்பு குப்பை தாக்கம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_26",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is Quality Accident? / குவாலிட்டி ஆக்கிடெண்ட் என்ன? \na. GT produced with all correct Component but wrong Drum set / அனைத்து சரியான கூறுகளுடன் GT தயாரிக்கப்பட்டுள்ளது ஆனால் தவறான டிரம் செட் \nb. GT produced with Drum and BPR correct, sidewall wrong / டிரம் மற்றும் BPR சரியானது, பக்கவட்டு தவறானது \nc. GT produced with material direction against specification / குறிப்பிட்ட விவரங்களை மீறி பொருள் திசையில் GT தயாரிக்கப்பட்டது \nd. All the above / மேலே சொன்னது அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Yantai- 3 / யாண்டை-3"
+        },
+        {
+          "key": "B",
+          "text": "Radial Marangoni- 3 / ரேடியல் மாறாங்கோனி-3"
+        },
+        {
+          "key": "C",
+          "text": "Fine Mach (2046)- 1 / ஃபைன் மேச் (2046)-1 1"
+        },
+        {
+          "key": "D",
+          "text": "Bestry-3 / பஸ்ட்ரி-3"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_27",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of bladder in TBM? / TBM இல் பிளாடரின் நோக்கம் என்ன? \na. Ply turn up process / பிளை திரும்பும் செயலியல் \nb. Ply turn down process / பிளை கீழே திரும்பும் செயலியல் \nc. Ply angle change / பிளை கோண மாற்றம் \nd. Bead placed to drum / பீட் டிரம் மீது வைக்கப்படுகிறது",
+      "options": [
+        {
+          "key": "A",
+          "text": "Identify Size out material / அளவு வெளியே உள்ள பொருளை அடையாளம் காண்க"
+        },
+        {
+          "key": "B",
+          "text": "Identify compound in tag FM / டேக் FM இல் கூறை அடையாளம் காண்க"
+        },
+        {
+          "key": "C",
+          "text": "Identify Iron/steel FM / இரும்பு/இரும்பு FM ஐ அடையாளம் காண்க"
+        },
+        {
+          "key": "D",
+          "text": "Identify wrong direction ply applied / தவறான திசையில் பிளை பயன்படுத்தப்பட்டுள்ளது என அடையாளம் காண்க"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Building_QA_28",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "When Non Conformation Note required? / எந்த சம்மந்தமற்ற குறிப்பு தேவை? \na. If we identified any Machine abnormality / எதுவேனும் இயந்திர அசாதாரணத்தை கண்டறிந்தால்  \nb. Carcass or GT with major defect / முக்கிய குறைபாடுடன் கார்கஸ் அல்லது GT  \nc. Component not met the specification / கூறு குறிப்பிட்ட விவரத்துடன் சந்திக்கவில்லை  \nd. c & d. / c மற்றும் d. .",
+      "options": [
+        {
+          "key": "A",
+          "text": "Eliminate chafer open / சாஃபர் திறக்கத் தவிர்க்க"
+        },
+        {
+          "key": "B",
+          "text": "Eliminate inner liner splice open / உள்ளுறை லைனரின் ஸ்பிளைசைக் கட்டுப்படுத்த"
+        },
+        {
+          "key": "C",
+          "text": "Eliminate the Tread splice open / டிரெட்டின் ஸ்பிளைசைக் கட்டுப்படுத்த /"
+        },
+        {
+          "key": "D",
+          "text": "ALL the above / மேலே சொன்னது அனைத்தும்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Building_QA_29",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "QA & Process",
+      "question": "What is the difference between hot & cold lamination? / சூடான மற்றும் குளிர்ந்த லாமினேஷன் இடையிலான வேறுபாடு என்ன? \na. Lamination strip is used for hot lamination method and Tread is used in cold lamination method. / லாமினேஷன் ஸ்டிரிப் சூடான லாமினேஷன் முறைக்கு பயன்படுத்தப்படுகிறது, டிரெட் குளிர்ந்த லாமினேஷன் முறைக்கு பயன்படுத்தப்படுகிறது.  \nb. In cold method lamination strip get cooled and hot lamination strip get applied in specified hot condition. / குளிர்ந்த முறையில் லாமினேஷன் ஸ்டிரிப் குளிர்ந்துவிடுகிறது, சூடான லாமினேஷன் ஸ்டிரிப் குறிப்பிட்ட சூடான நிலைமையில் பயன்படுத்தப்படுகிறது. \nc. Cold lamination completing in 1st stage machine and hot lamination in 2nd stage. / குளிர்ந்த லாமினேஷன் முதல் கட்ட இயந்திரத்தில் முடிகிறது, சூடான லாமினேஷன் இரண்டாம் கட்டத்தில். \nd. All the above / மேலே சொன்னது அனைத்தும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "65±2mm / 65±2 மி.மி."
+        },
+        {
+          "key": "B",
+          "text": "65±3mm / 65±3 மி.மி."
+        },
+        {
+          "key": "C",
+          "text": "66±3mm / 66±3 மி.மி."
+        },
+        {
+          "key": "D",
+          "text": "66±2mm / 66±2 மி.மி."
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_1",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is safety bar and its use in Curing Press? சேப்டி பார் என்றால் என்ன மற்றும் க்யூரிங் பிரஸ்ஸில் அதன் பயன்பாடு?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To stop the curing press closing during emergency situation அவசரகால சூழ்நிலையில் க்யூரிங் பிரஸ் மூடுவதை நிறுத்த"
+        },
+        {
+          "key": "B",
+          "text": "To close the curing press during emergency sitatuion அவசரகால சூழ்நிலையில் க்யூரிங் பிரஸ் மூடுவதற்கு"
+        },
+        {
+          "key": "C",
+          "text": "To ensure GT centering ஜிடி செண்ட்டரிங் உறுதி செய்ய"
+        },
+        {
+          "key": "D",
+          "text": "To identify defects in cured tire க்யூர் செய்த டயரில் உள்ள குறைபாடுகளை அடையாளம் காண"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_2",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட்  கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Tire_Curing_QA_3",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை"
+        },
+        {
+          "key": "B",
+          "text": "Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு"
+        },
+        {
+          "key": "C",
+          "text": "Floor is clean / தரை சுத்தமாக இருக்கிறது"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_4",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is ISO 45001 ? ஐஎஸ்ஓ 45001 என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு  \t/ paryaavaran prabandhan pranaalee"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதாரம் மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Tire_Curing_QA_5",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Load On Tag On / லோடு ஆன் டேக் ஆன்"
+        },
+        {
+          "key": "B",
+          "text": "Load Off Tag Off / லோடு ஆஃப்   டேக் ஆஃப்"
+        },
+        {
+          "key": "C",
+          "text": "Load Out Tag Out / லோடு அவுட்  டேக் அவுட்"
+        },
+        {
+          "key": "D",
+          "text": "Lock Out Tag Out / லாக் அவுட் டேக் அவுட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Curing_QA_6",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "B",
+          "text": "People Performance Equipment / பீப்பிள்  பர்பார்மன்ஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "C",
+          "text": "Personal Process Equipment / பீப்பிள்  ப்ரோஸஸ் எகுய்ப்மெண்ட்"
+        },
+        {
+          "key": "D",
+          "text": "Personal Protective Equipment / பர்சனல்  ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Curing_QA_7",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is HSEE ? HSEE என்றால் என்ன ?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering /  உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_8",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What are fire  Classes? தீ வகைகள் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "I, II, III"
+        },
+        {
+          "key": "B",
+          "text": "A, B, C"
+        },
+        {
+          "key": "C",
+          "text": "X, Y, Z"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Tire_Curing_QA_9",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety  / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர்  பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர்  பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_10",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Time Office / டைம் ஆபீஸ்"
+        },
+        {
+          "key": "B",
+          "text": "Canteen / உணவகத்தில்"
+        },
+        {
+          "key": "C",
+          "text": "Factory Office / தொழிற்சாலை அலுவலகம்"
+        },
+        {
+          "key": "D",
+          "text": "Emergency Assembly Point / அவசர நிலை கூடும் இடம்"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Curing_QA_11",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_12",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_13",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது??",
+      "options": [
+        {
+          "key": "A",
+          "text": "Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Removing unnecessary items from the workplace / பணியிடத்திலிருந்து தேவையற்ற பொருட்களை அகற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "Conducting regular audits to maintain cleanliness / தூய்மையை பராமரிக்க வழக்கமான தணிக்கைகளை நடத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Training employees on 5S principles / 5S கொள்கைகளில் பணியாளர்களுக்கு பயிற்சி அளித்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_14",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves cleaning and maintaining the work place? 5S முறையின் எந்தப் படியானது பணியிடத்தை சுத்தம் செய்து பராமரிப்பதை உள்ளடக்கியது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_15",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "B",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "C",
+          "text": "Standardize / நிலையாக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Sustain / தக்கவைத்தல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_16",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "Find out the TPM Pillar name in the following, பின்வருவனவற்றில் TPM பில்லர் பெயரைக் கண்டறியவும்.",
+      "options": [
+        {
+          "key": "A",
+          "text": "JH"
+        },
+        {
+          "key": "B",
+          "text": "PP"
+        },
+        {
+          "key": "C",
+          "text": "QQ"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_17",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zero Production, Zero Qualty & Zero Safety / பூஜ்ஜிய உற்பத்தி, பூஜ்ஜிய தரம், பூஜ்ஜிய பாதுகாப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Zero Defect, Zero Breakdown & Zero Accident / பூஜ்ஜிய குறைபாடு, பூஜ்ஜிய பிரேக்டௌன், பூஜ்ஜிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "All of the above / மேலே கூறப்பட்ட அனைத்தும்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "O_Tire_Curing_QA_18",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "CLIT stands for /  CLITக்கான விரிவாக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Clear, Lubrication, Inspection, Time / துடைக்க, உயவூட்டு, ஆய்வு, நேரம்"
+        },
+        {
+          "key": "B",
+          "text": "Cleaning, Lubrication, Inspection, Tightening / சுத்தம், உயவு, ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Clean, Lamination, Inspection, Tighten / சுத்தம், லேமினேஷன், ஆய்வு, இறுக்கம்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_19",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "How Many Types of Fuguai’s (abnormalities) are there? எத்தனை வகையான அசாதாரணங்கள் (ஃபுகுவாய்) உள்ளன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "7                    b.  5                    c.  6                          d.  2"
+        },
+        {
+          "key": "B",
+          "text": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்"
+        },
+        {
+          "key": "C",
+          "text": "Major Flaw / மேஜர் பிளா"
+        },
+        {
+          "key": "D",
+          "text": "Minor Flaw / மைனர்  பிளா"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_20",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "How to check the Route Card vs Specification? / ரூட் கார்டை விவரக்குறிப்புடன் எவ்வாறு சரிபார்க்கலாம்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Revision number & date / திருத்த எண் மற்றும் தேதி"
+        },
+        {
+          "key": "B",
+          "text": "Catalogue & date / கேட்டலாக் மற்றும் தேதி"
+        },
+        {
+          "key": "C",
+          "text": "GT code & catalogue / GT குறியீடு மற்றும் கேட்டலாக்"
+        },
+        {
+          "key": "D",
+          "text": "GT code & date / GT குறியீடு மற்றும் தேதி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_21",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "Why is Green Tire Jamming required? / கிரீன் டயர் ஜாம்மிங் ஏன் தேவை?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To ensure zero defect / பூஜ்ய குறைபாடுகளை உறுதி செய்ய"
+        },
+        {
+          "key": "B",
+          "text": "To avoid splice open defect / ஸ்பிளைஸ் திறப்பு குறையைத் தவிர்க்க"
+        },
+        {
+          "key": "C",
+          "text": "To prevent shaping cut defect / வடிவ வெட்டு குறையைத் தடுக்கும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_22",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What information is available on the Unique Serial Plate? / யுனிக் சீரியல் பிளேட்டில் என்ன தகவல் இருக்கும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Month & Year / மாதமும் ஆண்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Day & Month / நாளும் மாதமும்"
+        },
+        {
+          "key": "C",
+          "text": "Week & Month / வாரமும் மாதமும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_23",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "Why is GT Poking required? / GT போக்கிங் ஏன் செய்யப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To identify loading point / ஏற்றுமதி இடத்தை அடையாளம் காண"
+        },
+        {
+          "key": "B",
+          "text": "To release air entrapped in GT / GT-இல் சிக்கிய காற்றை வெளியேற்ற"
+        },
+        {
+          "key": "C",
+          "text": "To prevent defects in GT / GT இல் குறைகளைத் தடுக்கும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_24",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "How many times should Nerve Breaking be done for a new bladder? / புதிய பிளாடருக்கு நர்வ் பிரேக்கிங் எத்தனை முறை செய்ய வேண்டும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "9 / 9 முறை"
+        },
+        {
+          "key": "B",
+          "text": "10+ / 10க்கும் மேல்"
+        },
+        {
+          "key": "C",
+          "text": "8 / 8 முறை"
+        },
+        {
+          "key": "D",
+          "text": "7 / 7 முறை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_25",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is meant by Poke Yoke? / போக் யோக் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Error proofing / தவறுகளை தடுக்கும் முறை"
+        },
+        {
+          "key": "B",
+          "text": "Early warning / முன்னறிவிப்பு எச்சரிக்கை"
+        },
+        {
+          "key": "C",
+          "text": "Alarming / அலாரம்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_26",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the effect of Poor Warm Up? / மோசமான வார்ம்அப்பின் விளைவு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cured tire with under cure / குறைவான கியூருடன் டயர்"
+        },
+        {
+          "key": "B",
+          "text": "Cured tire with Bent Bead defect / வளைந்த பிடி குறைபாடு"
+        },
+        {
+          "key": "C",
+          "text": "Cured tire with Narrow Bead defect / குறுகிய பிடி குறைபாடு"
+        },
+        {
+          "key": "D",
+          "text": "Cured tire with OCL defect / OCL குறைபாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_27",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is meant by Troubleshooting? / டிரபிள்ஷூட்டிங் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Problem solving / பிரச்சனை தீர்வு"
+        },
+        {
+          "key": "B",
+          "text": "Methodology / முறையியல்"
+        },
+        {
+          "key": "C",
+          "text": "Defect tracking / குறைபாடு கண்காணிப்பு"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_28",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of Q-Alert in Tire Curing? / டயர் கியூரிங்கில் Q-அலர்ட் ஏன் எடுக்கப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "For Non-conformance materials / நான்-கான்ஃபார்மன்ஸ் பொருட்கள்"
+        },
+        {
+          "key": "B",
+          "text": "For Non-conformance GTs / நான்-கான்ஃபார்மன்ஸ் GT கள்"
+        },
+        {
+          "key": "C",
+          "text": "For repeated defect and corrective action / மீண்டும் குறை மற்றும் திருத்த நடவடிக்கைக்கு"
+        },
+        {
+          "key": "D",
+          "text": "Both a & b / இரண்டும் a & b"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_29",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "Bladder ring no 2 & 3 how to identify? / பிளாடர் ரிங் எண் 2 மற்றும் 3 எவ்வாறு அடையாளம் காணப்படுகிறது?",
+      "options": [
+        {
+          "key": "A",
+          "text": "K & E / K மற்றும் E"
+        },
+        {
+          "key": "B",
+          "text": "T & E / T மற்றும் E"
+        },
+        {
+          "key": "C",
+          "text": "A & B / A மற்றும் B"
+        },
+        {
+          "key": "D",
+          "text": "T & K / T மற்றும் K"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_30",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the warm-up time for dome press after mould change? / மோல்ட் மாற்றத்திற்கு பின் டோம் ப்ரெஸ்ஸின் வார்ம்அப் நேரம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "30 mins / 30 நிமிடங்கள்"
+        },
+        {
+          "key": "B",
+          "text": "40 mins / 40 நிமிடங்கள்"
+        },
+        {
+          "key": "C",
+          "text": "50 mins / 50 நிமிடங்கள்"
+        },
+        {
+          "key": "D",
+          "text": "60 mins / 60 நிமிடங்கள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_31",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What are operational defects? / செயல்பாட்டு டிஃபெக்ட் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mica FM, External damage, Shaping cut, wrong bladder / மைக்கா FM, வெளிப்புற சேதம், வடிவ வெட்டு, தவறான பிளாடர்"
+        },
+        {
+          "key": "B",
+          "text": "Mica FM, External damage, Cured rubber, Wet loading / மைக்கா FM, வெளிப்புற சேதம், கியூர்டு ரப்பர், ஈர ஏற்றம்"
+        },
+        {
+          "key": "C",
+          "text": "Lightness, Tread lightness, Bead lightness, Shoulder lightness / லைட்ட்னஸ், ட்ரெட் லைட்ட்னஸ், பிட் லைட்ட்னஸ், ஷோல்டர் லைட்ட்னஸ்"
+        },
+        {
+          "key": "D",
+          "text": "Blister, Tread blister, Inner blister, Shoulder blister / பிளிஸ்டர், டிரெட் பிளிஸ்டர், உள்ள பிளிஸ்டர், ஷோல்டர் பிளிஸ்டர்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_32",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the importance of Calibration? / அளவீட்டின் முக்கியத்துவம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Providing accurate readings / துல்லியமான அளவுகளை வழங்குதல்"
+        },
+        {
+          "key": "B",
+          "text": "Ensuring instruments work properly / கருவிகள் நன்றாக செயல்படுவதை உறுதி செய்தல்"
+        },
+        {
+          "key": "C",
+          "text": "Ready for use / பயன்படுத்த தயார்"
+        },
+        {
+          "key": "D",
+          "text": "Both a & b / இரண்டும் a & b"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_33",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "Inner / Outer blister defect in cured tire? What need to do? / கியூரிங் டயரில் உள்ள / வெளிப்புற பிளிஸ்டர் குறைபாடு? என்ன செய்ய வேண்டும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tire marked and sent to FID / டயர் குறிக்கப்பட்டு FID க்கு அனுப்பப்படுகிறது"
+        },
+        {
+          "key": "B",
+          "text": "Air release by needle / பிடியின் மூலம் காற்றை வெளியேற்றுதல்"
+        },
+        {
+          "key": "C",
+          "text": "To Check bladder condition / பிளாடர் நிலையைச் சரிபார்க்கவும்"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_34",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "What is the effect of poking in cured tire? / கியூரிங் டயரில் போக்கிங் செய்வதால் என்ன விளைவு?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Air leak from tire / டயரிலிருந்து காற்று ஒழுங்காக வெளியேறும்"
+        },
+        {
+          "key": "B",
+          "text": "Customer dissatisfaction / வாடிக்கையாளர் திருப்தி குறைவு"
+        },
+        {
+          "key": "C",
+          "text": "Tire air leak during fitment / பொருத்தும் போது டயர் காற்று லீக் ஆகும்"
+        },
+        {
+          "key": "D",
+          "text": "All of the above / எல்லாம் மேலே"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Curing_QA_35",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "How to identify Nitrogen drop in graph? / கிராஃபில் நைட்ரஜன் குறைவு எப்படிப் பரிசோதிக்கலாம்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Below Specification range from 28+2, -0.5 kg/cm² / 28+2, -0.5 kg/cm² என்ற விவரக்குறிப்பின் கீழ்"
+        },
+        {
+          "key": "B",
+          "text": "Below Specification range from 28 kg/cm² / 28 kg/cm² என்ற விவரக்குறிப்பின் கீழ்"
+        },
+        {
+          "key": "C",
+          "text": "Below Specification range from 28+2 kg/cm² / 28+2 kg/cm² என்ற விவரக்குறிப்பின் கீழ்"
+        },
+        {
+          "key": "D",
+          "text": "B & C / B மற்றும் C /"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_36",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "Dirty Mould Grading system / சுவாரஸ்யமான மொல்ட் கிரேடிங் முறை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Rating no. 3 immediately cleaning required / கிரேட்டிங் எண் 3 உடனடியாக சுத்தம் செய்யப்பட வேண்டும்"
+        },
+        {
+          "key": "B",
+          "text": "Rating no. 1 immediately cleaning required / கிரேட்டிங் எண் 1 உடனடியாக சுத்தம் செய்யப்பட வேண்டும்"
+        },
+        {
+          "key": "C",
+          "text": "Rating no. 2 immediately cleaning required / கிரேட்டிங் எண் 2 உடனடியாக சுத்தம் செய்யப்பட வேண்டும்"
+        },
+        {
+          "key": "D",
+          "text": "Rating no. 0 immediate cleaning action required / கிரேட்டிங் எண் 0 உடனடியாக சுத்தம் செய்யப்பட வேண்டும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_37",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "Purpose of V-Guide / V-கைடு நோக்கம் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To check matching of Top mould / மேல் மொல்ட்டின் பொருத்தத்தை சரிபார்க்க"
+        },
+        {
+          "key": "B",
+          "text": "To check matching of Bottom mould / கீழ் மொல்ட்டின் பொருத்தத்தை சரிபார்க்க"
+        },
+        {
+          "key": "C",
+          "text": "To check matching of Top & Bottom mould / மேல் மற்றும் கீழ் மொல்ட்டின் பொருத்தத்தை சரிபார்க்க"
+        },
+        {
+          "key": "D",
+          "text": "To check mould clamping in press / ப்ரெஸ்ஸில் மொல்ட்டின் கம்பிளாந்தை சரிபார்க்க"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_38",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "How to verify Bladder life? / பிளாடரின் ஆயுள் எவ்வாறு சரிபார்க்கலாம்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "To check specification Vs actual in route card / ரூட் கார்டில் விவரக்குறிப்புகள் Vs உண்மையில் சரிபார்க்க"
+        },
+        {
+          "key": "B",
+          "text": "To check HMI display / HMI திரையை சரிபார்க்க"
+        },
+        {
+          "key": "C",
+          "text": "To check in SCADA / SCADA இல் சரிபார்க்க"
+        },
+        {
+          "key": "D",
+          "text": "To check HMI display & FTC route card / HMI திரையையும் FTC ரூட் கார்டையும் சரிபார்க்க"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Tire_Curing_QA_39",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "QA & Process",
+      "question": "If there is a continuous defect in cured tire, what needs to be done? / கியூரிங் டயரில் தொடர்ச்சியான டிஃபெக்ட் இருப்பின் என்ன செய்ய வேண்டும்?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Immediately inform production supervisor / உடனடியாக தயாரிப்பு மேற்பார்வையாளரை தகவல் தெரிவிக்கவும்"
+        },
+        {
+          "key": "B",
+          "text": "Inform the operator / இயக்குனருக்கு தகவல் தெரிவிக்கவும்"
+        },
+        {
+          "key": "C",
+          "text": "Immediately stop the press / உடனடியாக ப்ரெஸ்ஸை நிறுத்தவும்"
+        },
+        {
+          "key": "D",
+          "text": "Both B & C / B மற்றும் C"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_1",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is PPE? PPE என்றால் என்ன?\na. Personal Performance Equipment / பர்சனல் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்\nb. People Performance Equipment / பீப்பிள் பர்பார்மன்ஸ் எகுய்ப்மெண்ட்\nc. Personal Process Equipment / பீப்பிள் ப்ரோஸஸ் எகுய்ப்மெண்ட்\nd. Personal Protective Equipment / பர்சனல் ப்ரொடெக்ட்டிவ் எகுய்ப்மெண்ட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Using PPE / PPE ஐப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "B",
+          "text": "Not using PPE / PPE ஐப் பயன்படுத்துவதில்லை"
+        },
+        {
+          "key": "C",
+          "text": "Using the RIGHT latch for the lifting hook / ஹாய்ஸ்ட் கொக்கிக்கு சரியான தாழ்ப்பாளைப் பயன்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_2",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?\na. No leakage in the curing pit / கியூரிங் பிட் ல் கசிவு இல்லை\nb. Heavy steam leakage in the Press / க்யூரிங் பிரஸ் ல் கடுமையான நீராவி கசிவு\nc. Floor is clean / தரை சுத்தமாக இருக்கிறது\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Environment Management System / சுற்றுச்சூழல் மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "B",
+          "text": "Occupational Health and Safety Management System / தொழில்சார் சுகாதாரம் மற்றும் பாதுகாப்பு மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Quality Management System / தர மேலாண்மை அமைப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Integrated Management System / ஒருங்கிணைந்த மேலாண்மை அமைப்பு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_3",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What is LOTO ? லோட்டோ என்றால் என்ன?\na. Load On Tag On / லோடு ஆன் டேக் ஆன்\nb. Load Off Tag Off / லோடு ஆஃப் டேக் ஆஃப்\nc. Load Out Tag Out / லோடு அவுட் டேக் அவுட்\nd. Lock Out Tag Out / லாக் அவுட் டேக் அவுட்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Health, Safety, Employee, Engineering / சுகாதாரம், பாதுகாப்பு, பணியாளர் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "B",
+          "text": "Home, Safety, Engineeirng and Environment / வீடு, பாதுகாப்பு, பொறியியல் மற்றும் சுற்றுச்சூழல்"
+        },
+        {
+          "key": "C",
+          "text": "Health, Safety, Environment and Engineering / உடல்நலம், பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        },
+        {
+          "key": "D",
+          "text": "Home, Safety, Environment and Engineering / வீடு, பாதுகாப்பு, சுற்றுச்சூழல் மற்றும் பொறியியல்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_4",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "What are fire Classes? தீ வகைகள் என்ன?\na. I, II, III\nb. A, B, C\nc. X, Y, Z\nd. None of above / மேலே சொன்னது எதுவுமே இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Better Based Safety / பெட்டர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "B",
+          "text": "Behaviour Better Safety / பிஹேவியர் பெட்டர் சேப்டி"
+        },
+        {
+          "key": "C",
+          "text": "Behaviour Based Safety / பிஹேவியர் பேஸ்டு சேப்டி"
+        },
+        {
+          "key": "D",
+          "text": "None of above / மேலே சொன்னது எதுவுமே இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_5",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "Safety",
+      "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?\na. Time Office / டைம் ஆபீஸ்\nb. Canteen / உணவகத்தில்\nc. Factory Office / தொழிற்சாலை அலுவலகம்\nd. Emergency Assembly Point / அவசர நிலை கூடும் இடம்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Face shield, Cotton gloves and Safety shoe / முக காத்தான், பட்டுடன் கைவெட்டு மற்றும் பாதுகாப்பு காலணிகள்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet, Cotton gloves, Safety Shoe / ஹெல்மெட், பட்டுடன் கைவெட்டு, பாதுகாப்பு காலணிகள்"
+        },
+        {
+          "key": "C",
+          "text": "Face mask, Safety shoe, Impact resistance gloves / முகமூடி, பாதுகாப்பு காலணிகள், தாக்கு எதிர்ப்பு கைவெட்டு"
+        },
+        {
+          "key": "D",
+          "text": "Helmet, Safety shoe, Impact resistance gloves / ஹெல்மெட், பாதுகாப்பு காலணிகள், தாக்கு எதிர்ப்பு கைவெட்டு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_6",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "Which step of the 5S methodology involves identifying and labeling items to ensure easy retrieval? 5S முறையின் எளிதாகப் பொருட்களைக் கண்டறிந்து பெறுவதை உறுதிசெய்ய எந்த ஸ்டெப்?\na. Sort / வகைபடுத்து\nb. Set in Order / ஒழுங்காக அமைக்க\nc. Shine / தூய்மைப்படுத்த\nd. Standardize / நிலையாக்கு",
+      "options": [
+        {
+          "key": "A",
+          "text": "Continuous improvement / தொடர்ச்சியான முன்னேற்றம்"
+        },
+        {
+          "key": "B",
+          "text": "Workplace safety / பணியிட பாதுகாப்பு"
+        },
+        {
+          "key": "C",
+          "text": "Employee training / பணியாளர் பயிற்சி"
+        },
+        {
+          "key": "D",
+          "text": "Product quality control / தயாரிப்பு தரக் கட்டுப்பாடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_7",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?\na. Arranging items in a neat and orderly manner / பொருட்களை நேர்த்தியாகவும் ஒழுங்காகவும் ஏற்பாடு செய்தல்\nb. Removing unnecessary items from the workplace / தேவையற்ற பொருட்களை அகற்றுதல்\nc. Conducting regular audits / வழக்கமான தணிக்கை\nd. Training employees / பணியாளர்களுக்கு பயிற்சி",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sort / வகைபடுத்து"
+        },
+        {
+          "key": "B",
+          "text": "Set in Order / ஒழுங்காக அமைக்க"
+        },
+        {
+          "key": "C",
+          "text": "Shine / தூய்மைப்படுத்த"
+        },
+        {
+          "key": "D",
+          "text": "Standardize / நிலையாக்கு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_8",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?\na. Set in Order / ஒழுங்காக அமைக்க\nb. Sort / வகைபடுத்து\nc. Standardize / நிலையாக்கு\nd. Sustain / தக்கவைத்தல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cleaning / சுத்தம் செய்தல்"
+        },
+        {
+          "key": "B",
+          "text": "Discipline to maintain 5S / 5S ஐ நிலைநிறுத்த ஒழுக்கம்"
+        },
+        {
+          "key": "C",
+          "text": "Sorting tools / கருவிகளை வகைப்படுத்துதல்"
+        },
+        {
+          "key": "D",
+          "text": "Workplace layout / பணியிட அமைப்பு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_9",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "What does “Safety Pyramid” indicate? “பாதுகாப்பு பிரமிடு” என்னைக் குறிக்கிறது?\na. Number of safety posters / பாதுகாப்பு போஸ்டர்களின் எண்ணிக்கை\nb. Accident ratios and types / விபத்து விகிதங்கள் மற்றும் வகைகள்\nc. PPE types / பாதுகாப்பு உபகரண வகைகள்\nd. Fire extinguisher types / தீ அணைக்கும் கருவி வகைகள்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Minor injury / சிறிய காயம்"
+        },
+        {
+          "key": "B",
+          "text": "Major accident / பெரிய விபத்து"
+        },
+        {
+          "key": "C",
+          "text": "Incident that could have caused an accident / விபத்தை ஏற்படுத்தும் வாய்ப்புள்ள சம்பவம்"
+        },
+        {
+          "key": "D",
+          "text": "No incident / எந்த சம்பவமும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_10",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "CI & TPM",
+      "question": "What color is used for identifying Safety signs? பாதுகாப்பு குறியீடுகளைக் காண்பிக்க எந்த நிறம் பயன்படுத்தப்படுகிறது?\na. Red / சிவப்பு\nb. Yellow / மஞ்சள்\nc. Green / பச்சை\nd. Blue / நீலம்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Safety Officer / பாதுகாப்பு அலுவலர்"
+        },
+        {
+          "key": "B",
+          "text": "Supervisor / மேற்பார்வையாளர்"
+        },
+        {
+          "key": "C",
+          "text": "Each and every one / ஒவ்வொருவரும்"
+        },
+        {
+          "key": "D",
+          "text": "Management / நிர்வாகம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_11",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What does SOP stand for? SOP என்பதன் விரிவாக்கம் என்ன?\na. Standard Operating Practice / நிலையான செயல்முறை நடைமுறை\nb. Safety Operation Plan / பாதுகாப்பு செயல்பாட்டு திட்டம்\nc. Standard Operating Procedure / நிலையான செயல்முறை நடைமுறை\nd. Standard Organization Practice / நிலையான நிறுவன நடைமுறை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Blue / நீலம்"
+        },
+        {
+          "key": "B",
+          "text": "Green / பச்சை"
+        },
+        {
+          "key": "C",
+          "text": "Red / சிவப்பு"
+        },
+        {
+          "key": "D",
+          "text": "Yellow / மஞ்சள்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_12",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "How frequently should emergency mock drills be conducted? அவசர நிலை முறைக் கன்வாசங்கள் எவ்வளவு அடிக்கடி நடத்த வேண்டும்?\na. Monthly / மாதந்தோறும்\nb. Quarterly / மூன்றுமாதத்திற்கு ஒருமுறை\nc. Half-yearly / ஆறுமாதத்திற்கு ஒருமுறை\nd. Yearly / ஆண்டுதோறும்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Every week / வாரந்தோறும்"
+        },
+        {
+          "key": "B",
+          "text": "Every month / மாதந்தோறும்"
+        },
+        {
+          "key": "C",
+          "text": "Every 3 months / 3 மாதங்களுக்கு ஒருமுறை"
+        },
+        {
+          "key": "D",
+          "text": "Every year / ஆண்டுதோறும்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_13",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is the full form of ELCB? ELCB என்பதின் முழுபெயர் என்ன?\na. Electronic Load Circuit Breaker / எலக்ட்ரானிக் லோட் சர்க்யூட் பிரேக்கர்\nb. Earth Leakage Circuit Breaker / பூமி கசிவு சர்க்யூட் பிரேக்கர்\nc. Electric Line Cable Breaker / மின்கோடு கேபிள் பிரேக்கர்\nd. Emergency Load Control Breaker / அவசர லோட் கட்டுப்பாட்டு பிரேக்கர்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Wood, paper, cloth fire / மரம், காகிதம், துணி தீ"
+        },
+        {
+          "key": "B",
+          "text": "Oil fire / எண்ணெய் தீ"
+        },
+        {
+          "key": "C",
+          "text": "Electrical fire / மின்னியல் தீ"
+        },
+        {
+          "key": "D",
+          "text": "Metal fire / உலோக தீ"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_14",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "A yellow color tag usually indicates: மஞ்சள் நிற டேக் பொதுவாக குறிக்கிறது:\na. Danger / அபாயம்\nb. Warning / எச்சரிக்கை\nc. Caution / கவனம்\nd. Safe / பாதுகாப்பானது",
+      "options": [
+        {
+          "key": "A",
+          "text": "Helmet / ஹெல்மெட்"
+        },
+        {
+          "key": "B",
+          "text": "Face Shield / முகக்கவசம்"
+        },
+        {
+          "key": "C",
+          "text": "Safety goggles / பாதுகாப்பு கண்ணாடி"
+        },
+        {
+          "key": "D",
+          "text": "Ear plugs / காதுகளில் பொருத்தும் பிளக்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_15",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What should be used while working at heights? உயரத்தில் வேலை செய்யும்போது என்ன பயன்படுத்த வேண்டும்?\na. Helmet and gloves / ஹெல்மெட் மற்றும் கையுறைகள்\nb. Fall arrest system / விழும் தடுப்பு அமைப்பு\nc. Face mask / முக கவசம்\nd. None of the above / மேலே உள்ள எதுவும் இல்லை",
+      "options": [
+        {
+          "key": "A",
+          "text": "Fuel, oxygen, heat / எரிபொருள், ஆக்சிஜன், வெப்பம்"
+        },
+        {
+          "key": "B",
+          "text": "Water, air, fuel / தண்ணீர், காற்று, எரிபொருள்"
+        },
+        {
+          "key": "C",
+          "text": "Smoke, heat, air / புகை, வெப்பம், காற்று"
+        },
+        {
+          "key": "D",
+          "text": "None of the above / மேலே உள்ள எதுவும் இல்லை"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_16",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is used to stop electrical fires? மின்னியல் தீயை அணைக்க என்ன பயன்படுத்தப்படுகிறது?\na. Water / தண்ணீர்\nb. Foam / நுரை\nc. CO2 extinguisher / கார்பன் டை ஆக்சைடு அணைப்பி\nd. Sand / மணல்",
+      "options": [
+        {
+          "key": "A",
+          "text": "Pour water / தண்ணீர் ஊற்று"
+        },
+        {
+          "key": "B",
+          "text": "Switch off power / மின் உதிரியை அணை"
+        },
+        {
+          "key": "C",
+          "text": "Call fire department / தீ அணைப்பு குழுவை அழை"
+        },
+        {
+          "key": "D",
+          "text": "Cover with blanket / போர்வையால் மூடு"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_17",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is the purpose of risk assessment? அபாய மதிப்பீட்டின் நோக்கம் என்ன?\na. To eliminate all risks / அனைத்து அபாயங்களையும் நீக்க\nb. To increase production / உற்பத்தியை அதிகரிக்க\nc. To identify and control hazards / ஆபத்துகளை கண்டறிந்து கட்டுப்படுத்த\nd. To train workers / தொழிலாளர்களை பயிற்சி அளிக்க",
+      "options": [
+        {
+          "key": "A",
+          "text": "Circle / வட்டம்"
+        },
+        {
+          "key": "B",
+          "text": "Square / சதுரம்"
+        },
+        {
+          "key": "C",
+          "text": "Triangle / முக்கோணம்"
+        },
+        {
+          "key": "D",
+          "text": "Rectangle / செவ்வகம்"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_18",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What is the color code for danger? அபாயத்திற்கு நிற குறியீடு என்ன?\na. Yellow / மஞ்சள்\nb. Green / பச்சை\nc. Red / சிவப்பு\nd. Blue / நீலம்",
+      "options": [
+        {
+          "key": "A",
+          "text": "To distribute tools / கருவிகளை வழங்க"
+        },
+        {
+          "key": "B",
+          "text": "To clean workplace / பணியிடத்தை சுத்தம் செய்ய"
+        },
+        {
+          "key": "C",
+          "text": "To create awareness and prevent accidents / விழிப்புணர்வு ஏற்படுத்தி விபத்துகளை தடுப்பதற்காக"
+        },
+        {
+          "key": "D",
+          "text": "To promote products / பொருட்களை விளம்பரப்படுத்த"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_19",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "What type of hazard is noise? சத்தம் எந்த வகையான ஆபத்து?\na. Biological / உயிரியல்\nb. Ergonomic / உடலமைப்பியல்\nc. Chemical / இரசாயன\nd. Physical / பௌதீக",
+      "options": [
+        {
+          "key": "A",
+          "text": "Gloves / கையுறைகள்"
+        },
+        {
+          "key": "B",
+          "text": "Helmet / ஹெல்மெட்"
+        },
+        {
+          "key": "C",
+          "text": "Safety poster / பாதுகாப்பு போஸ்டர்"
+        },
+        {
+          "key": "D",
+          "text": "Goggles / கண்ணாடி"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "O_Warehouse_QA_20",
+      "level": "O",
+      "section": "Warehouse QA",
+      "category": "QA & Process",
+      "question": "Which of the following is used to measure noise level? சத்தம் அளவை பரிசோதிக்க எது பயன்படுகிறது?\na. Lux meter / லக்ஸ் மீட்டர்\nb. Noise dosimeter / ஒலி டோசிமீட்டர்\nc. Anemometer / காற்றின் வேகம் அளவீட்டுக் கருவி\nd. Hydrometer / நீரின் அடர்த்தி அளவீட்டுக் கருவி",
+      "options": [
+        {
+          "key": "A",
+          "text": "Study of machines / இயந்திரங்களைப் பற்றிய ஆய்வு"
+        },
+        {
+          "key": "B",
+          "text": "Study of chemicals / இரசாயன ஆய்வு"
+        },
+        {
+          "key": "C",
+          "text": "Fit between worker and job / பணியாளரும் பணியும் பொருந்தும் நிலை"
+        },
+        {
+          "key": "D",
+          "text": "Study of air / காற்று பற்றிய ஆய்வு"
+        }
+      ],
+      "correctAnswer": "A"
+    }
+  ]
+};
+
+const LEVEL_RULES = {
+  "I": { "nextLevel": "L", "numQuestions": 20, "passingPct": 50, "timeLimitMinutes": 45 },
+  "L": { "nextLevel": "U", "numQuestions": 20, "passingPct": 50, "timeLimitMinutes": 45 },
+  "U": { "nextLevel": "O", "numQuestions": 30, "passingPct": 50, "timeLimitMinutes": 45 },
+  "O": { "nextLevel": "O", "numQuestions": 40, "passingPct": 50, "timeLimitMinutes": 45 }
+};

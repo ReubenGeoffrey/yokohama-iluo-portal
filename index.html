@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yokohama ILUO Skill Assessment Portal | Tire Building QA</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=16.0">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="brand-section" style="cursor: pointer;" onclick="navigateTo('/')">
+      <div class="brand-logo">
+        <span>YOKOHAMA</span>
+        <span class="brand-badge">ILUO QA</span>
+      </div>
+      <div class="system-title" id="navbarSystemTitle">Tire Building QA Assessment Portal</div>
+    </div>
+
+    <div class="nav-actions">
+      <div class="user-badge" id="navUserBadge" style="display: none;">
+        <div class="user-avatar" id="navAvatar">E</div>
+        <span id="navUserName">Employee</span>
+      </div>
+      <button class="btn-nav" id="btnSwitchPortal" onclick="togglePortalMode()">Admin Portal</button>
+      <button class="btn-nav" id="btnLogout" style="display: none;" onclick="logout()">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- App Container -->
+  <main class="app-container">
+
+    <!-- VIEW 0: Public Website Landing Page (/) -->
+    <section class="view-section active" id="viewPublicLanding">
+      <div class="public-hero-card">
+        <div class="public-hero-badge">YOKOHAMA OFF-HIGHWAY TIRES</div>
+        <h1 class="public-hero-title">Tire Building QA Skill Assessment Portal</h1>
+        <p class="public-hero-sub">Official ILUO Quality Assurance skill assessment and analytics platform. Select a portal below to sign in.</p>
+
+        <div class="portal-cards-grid">
+          <!-- Employee Portal Card -->
+          <div class="portal-card emp-portal-card" onclick="navigateTo('/employee-portal')">
+            <div class="portal-card-icon" style="color: #005B9E;">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h3>Employee Portal</h3>
+            <p>Access assigned skill assessments, complete 45-min MCQ tests, and view your evaluation results.</p>
+            <div class="portal-card-link">Enter Employee Portal &raquo;</div>
+          </div>
+
+          <!-- Secure Control Admin Card -->
+          <div class="portal-card admin-portal-card" onclick="navigateTo('/secure-control')">
+            <div class="portal-card-icon" style="color: #E31B23;">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Secure Control Center</h3>
+            <p>Authorized Admin portal for real-time analytics, question bank manager, master results database &amp; Excel export.</p>
+            <div class="portal-card-link">Enter Secure Control &raquo;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 1: Employee Login (/employee-portal or /employee/login) -->
+    <section class="view-section" id="viewEmpLogin">
+      <div class="login-wrapper">
+        <div class="login-card">
+          <div class="login-header">
+            <h2>Employee Portal Login</h2>
+            <p>Enter your Employee ID to access your ILUO QA assessment</p>
+          </div>
+          <div class="login-body">
+            <form onsubmit="handleEmpLogin(event)">
+              <div class="form-group">
+                <label for="empIdInput">Employee ID / Code</label>
+                <input type="text" id="empIdInput" class="form-control" placeholder="e.g. 900262, 900445" required autofocus>
+              </div>
+              <button type="submit" class="btn-primary">Verify &amp; Sign In</button>
+            </form>
+            <div class="login-toggle-text">
+              Are you an Administrator? <span class="login-toggle-link" onclick="navigateTo('/secure-control')">Admin Secure Control</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: Admin Mail ID + OTP Login (/secure-control) -->
+    <section class="view-section" id="viewAdminLogin">
+      <div class="login-wrapper">
+        <div class="login-card" style="border: 2px solid #0F172A;">
+          <div class="login-header" style="background: linear-gradient(135deg, #0F172A 0%, #003D6B 100%);">
+            <div style="font-size: 0.75rem; background: var(--accent-red); color: white; display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; margin-bottom: 8px;">ADMIN CONTROL CENTER</div>
+            <h2>Admin Email OTP Sign In</h2>
+            <p>Enter your official Admin Email ID to receive a 6-digit OTP</p>
+          </div>
+
+          <div class="login-body">
+            <!-- Step 1: Send OTP Form -->
+            <form id="adminEmailForm" onsubmit="handleSendAdminOTP(event)">
+              <div class="form-group">
+                <label for="adminEmailInput">Official Admin Email ID</label>
+                <input type="email" id="adminEmailInput" class="form-control" value="reubengeoffrey16@gmail.com" placeholder="reubengeoffrey16@gmail.com" required autofocus>
+              </div>
+              <button type="submit" class="btn-primary" style="background: linear-gradient(135deg, #0F172A 0%, #003D6B 100%); font-weight: 700;">
+                Send One-Time Password (OTP)
+              </button>
+            </form>
+
+            <!-- Step 2: Verify OTP Form (Hidden by default) -->
+            <form id="adminOtpForm" onsubmit="handleVerifyAdminOTP(event)" style="display: none;">
+              <div class="rules-box" style="background: #E0F2FE; border-left-color: #0284C7; margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #0369A1;">
+                  <div>OTP sent to <strong id="otpTargetEmail">admin@yokohama.com</strong></div>
+                  <div style="background: #0284C7; color: white; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; display: flex; align-items: center; gap: 4px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span id="otpTimerDisplay">30s</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adminOtpInput">Enter 6-Digit OTP Code</label>
+                <input type="text" id="adminOtpInput" class="form-control" placeholder="Enter 6-digit OTP from Gmail" maxlength="6" required style="letter-spacing: 4px; font-size: 1.2rem; font-weight: 800; text-align: center;">
+              </div>
+
+              <button type="submit" class="btn-primary" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); font-weight: 700;">
+                Verify OTP &amp; Sign In
+              </button>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 0.82rem;">
+                <span class="login-toggle-link" onclick="resetAdminOtpForm()">Change Email</span>
+                <button type="button" id="btnResendOtp" class="btn-reset" style="padding: 4px 10px; font-size: 0.8rem;" onclick="resendAdminOTP()" disabled>
+                  Resend OTP in 30s
+                </button>
+              </div>
+            </form>
+
+            <div class="login-toggle-text">
+              Looking for Employee Portal? <span class="login-toggle-link" onclick="navigateTo('/employee-portal')">Switch to Employee Portal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: Employee Dashboard (/employee/dashboard) -->
+    <section class="view-section" id="viewEmpDashboard">
+      <div class="emp-subnav">
+        <a class="subnav-link active" onclick="navigateTo('/employee/dashboard')">Home Dashboard</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/exams')">Available Exams</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/results')">My Results</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/profile')">My Profile</a>
+      </div>
+
+      <div class="instruction-card">
+        <h2 style="font-size: 1.4rem; color: var(--primary-dark);">Employee Assessment Portal</h2>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="label">Employee ID</div>
+            <div class="value" id="infoEmpNo">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Employee Name</div>
+            <div class="value" id="infoEmpName">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Department / Section</div>
+            <div class="value" id="infoEmpDept">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Date of Joining (DOJ)</div>
+            <div class="value" id="infoEmpDoj">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Target Skill Assessment</div>
+            <div class="value" id="infoTargetLevel" style="color: var(--accent-red);">-</div>
+          </div>
+        </div>
+
+        <div class="rules-box">
+          <h4>Critical Exam Instructions &amp; Security Rules:</h4>
+          <ul>
+            <li><strong>Timer Limit:</strong> Exactly <strong>45 Minutes</strong> total allowed for this assessment.</li>
+            <li><strong>Single Attempt Rule:</strong> You are allowed <strong>ONE attempt only</strong>. Once submitted or time expires, you cannot retake the test.</li>
+            <li><strong>Strict Navigation Rule:</strong> <strong>NO PREVIOUS BUTTON - ONLY FORWARD NAVIGATION.</strong> You cannot return to previous questions after clicking "Next".</li>
+            <li><strong>Security &amp; Copy-Paste Prohibition:</strong> Copying, pasting, right-clicking, and text selection are strictly disabled during the assessment.</li>
+            <li><strong>Tab Switch Detection (Max 3 Allowed):</strong> Switching tabs or leaving the exam window is automatically monitored. <strong>Exceeding 3 tab switches will automatically terminate and submit your assessment!</strong></li>
+            <li><strong>Disconnection Resiliency:</strong> If your internet drops or browser closes, log back in with your Employee ID to <strong>resume from your exact question with remaining time intact</strong>.</li>
+          </ul>
+        </div>
+
+        <button class="btn-primary" style="padding: 16px; font-size: 1.1rem;" onclick="startOrResumeExam()">Start Assessment (45 Mins)</button>
+      </div>
+    </section>
+
+    <!-- VIEW 4: Employee Exams List (/employee/exams) -->
+    <section class="view-section" id="viewEmpExams">
+      <div class="emp-subnav">
+        <a class="subnav-link" onclick="navigateTo('/employee/dashboard')">Home Dashboard</a>
+        <a class="subnav-link active" onclick="navigateTo('/employee/exams')">Available Exams</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/results')">My Results</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/profile')">My Profile</a>
+      </div>
+
+      <div class="instruction-card">
+        <h2 style="font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 16px;">Assigned MCQ Skill Assessments</h2>
+        <div id="empExamListContainer">
+          <!-- Dynamic exam card -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 5: Active Quiz Assessment (/employee/exam/:id) -->
+    <section class="view-section" id="viewQuiz">
+      <!-- Quiz Header Bar -->
+      <div class="quiz-header-bar">
+        <div>
+          <div class="quiz-progress-text" id="quizProgressText">Question 1 of 30</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);" id="quizSubText">Target: U Level Assessment</div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <!-- Tab Warning Badge -->
+          <div class="security-badge" id="tabWarningBadgeContainer">
+            <span>Tab Switches:</span>
+            <strong id="tabSwitchCountDisplay">0 / 3</strong>
+          </div>
+
+          <div class="timer-badge">
+            <span class="timer-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <span id="timerDisplay">45:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="question-card no-select" id="questionCard">
+        <div class="q-category-tag" id="qCategoryTag">Safety</div>
+        <div class="q-title" id="qTitleText">Loading question text...</div>
+
+        <div class="options-list" id="optionsContainer">
+          <!-- Options rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="quiz-nav-footer">
+        <div class="notice-forward-only">
+          <span>Forward Only: You cannot go back to answered questions</span>
+        </div>
+        <button class="btn-next" id="btnNextQ" onclick="nextQuestion()" disabled>Next Question &raquo;</button>
+      </div>
+    </section>
+
+    <!-- VIEW 6: Assessment Results (/employee/results) -->
+    <section class="view-section" id="viewResult">
+      <div class="emp-subnav">
+        <a class="subnav-link" onclick="navigateTo('/employee/dashboard')">Home Dashboard</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/exams')">Available Exams</a>
+        <a class="subnav-link active" onclick="navigateTo('/employee/results')">My Results</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/profile')">My Profile</a>
+      </div>
+
+      <div class="instruction-card" style="text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 12px; color: var(--success-color);">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h2 style="color: var(--primary-dark); font-size: 1.6rem; margin-bottom: 8px;">Assessment Completed!</h2>
+        <p style="color: var(--text-muted); margin-bottom: 24px;">Thank you for completing your Tire Building QA ILUO Skill Assessment.</p>
+
+        <div class="info-grid" style="max-width: 500px; margin: 0 auto 28px auto;">
+          <div class="info-item">
+            <div class="label">Questions Attempted</div>
+            <div class="value" id="resAttempted">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Status</div>
+            <div class="value" id="resStatus">-</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Your marks and assessment evaluation have been logged for Admin review and Excel generation.</p>
+      </div>
+    </section>
+
+    <!-- VIEW 7: Employee Profile (/employee/profile) -->
+    <section class="view-section" id="viewEmpProfile">
+      <div class="emp-subnav">
+        <a class="subnav-link" onclick="navigateTo('/employee/dashboard')">Home Dashboard</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/exams')">Available Exams</a>
+        <a class="subnav-link" onclick="navigateTo('/employee/results')">My Results</a>
+        <a class="subnav-link active" onclick="navigateTo('/employee/profile')">My Profile</a>
+      </div>
+
+      <div class="instruction-card">
+        <h2 style="font-size: 1.3rem; color: var(--primary-dark); margin-bottom: 16px;">Employee Profile Details</h2>
+        <div class="info-grid" id="profInfoGrid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 8: CONTROL CENTER WRAPPER (/control-center/*) -->
+    <section class="view-section" id="viewControlCenterWrapper">
+      <div class="control-center-layout">
+
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+          <div class="sidebar-title">CONTROL CENTER</div>
+          <a class="sidebar-link" id="navCtrlDashboard" onclick="navigateTo('/control-center/dashboard')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </span> Dashboard
+          </a>
+          <a class="sidebar-link" id="navCtrlQuestions" onclick="navigateTo('/control-center/questions')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </span> Manage Questions
+          </a>
+          <a class="sidebar-link" id="navCtrlExams" onclick="navigateTo('/control-center/exams')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span> Manage Exams
+          </a>
+          <a class="sidebar-link" id="navCtrlEmployees" onclick="navigateTo('/control-center/employees')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M9 21v-2a4 4 0 0 1 3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+            </span> Employees Directory
+          </a>
+          <a class="sidebar-link" id="navCtrlResults" onclick="navigateTo('/control-center/results')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </span> Results Database
+          </a>
+          <a class="sidebar-link" id="navCtrlReports" onclick="navigateTo('/control-center/reports')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </span> Reports &amp; Excel
+          </a>
+          <a class="sidebar-link" id="navCtrlSettings" onclick="navigateTo('/control-center/settings')">
+            <span class="sidebar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span> Security Settings
+          </a>
+        </aside>
+
+        <!-- Dynamic Control Content Container -->
+        <div class="control-content">
+
+          <!-- SUB-VIEW A: Dashboard (/control-center/dashboard) -->
+          <div class="control-subview" id="ctrlSubDashboard" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Control Center Dashboard</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Real-time completion analytics for Yokohama Tire Building QA</div>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon blue">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M9 21v-2a4 4 0 0 1 3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <div class="stat-info">
+                  <div class="num" id="statTotalEmp">0</div>
+                  <div class="lbl">Total Employees</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon green">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="stat-info">
+                  <div class="num" id="statCompleted">0</div>
+                  <div class="lbl">Completed</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon yellow">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="stat-info">
+                  <div class="num" id="statInProgress">0</div>
+                  <div class="lbl">In Progress</div>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon red">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <div class="stat-info">
+                  <div class="num" id="statNotStarted">0</div>
+                  <div class="lbl">Not Attempted</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="charts-row">
+              <div class="chart-card">
+                <h3>Assessment Completion Status</h3>
+                <div class="chart-container">
+                  <canvas id="completionPieChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <h3>Skill Level Distribution</h3>
+                <div class="chart-container">
+                  <canvas id="levelBarChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW B: Manage Questions (/control-center/questions) -->
+          <div class="control-subview" id="ctrlSubQuestions" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Question Bank Manager</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Upload custom .docx files, manually add, edit, or delete questions</div>
+              </div>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="file" id="docxFileInput" accept=".docx" style="display: none;" onchange="handleDocxUpload(event)">
+                <button class="btn-primary" style="padding: 8px 16px; font-size: 0.9rem; background: #0284C7; border-color: #0284C7;" onclick="document.getElementById('docxFileInput').click()">
+                  📁 Upload .docx File
+                </button>
+                <button class="btn-primary" style="padding: 8px 16px; font-size: 0.9rem;" onclick="openAddQuestionModal()">
+                  ➕ Add Question
+                </button>
+                <button class="btn-secondary" style="padding: 8px 16px; font-size: 0.9rem; color: var(--accent-red); border-color: #FECDD3;" onclick="clearAllQuestions()">
+                  🗑️ Clear All Questions
+                </button>
+              </div>
+            </div>
+
+            <div class="table-card">
+              <div class="table-header-tools" style="flex-wrap: wrap; gap: 12px;">
+                <div class="search-box" style="flex: 1; min-width: 200px;">
+                  <input type="text" id="qSearchInput" class="form-control" placeholder="Search question text or category..." onkeyup="renderQuestionsManager()">
+                </div>
+                <select id="qLevelFilter" class="form-control" style="width: 140px;" onchange="renderQuestionsManager()">
+                  <option value="ALL">All Levels</option>
+                  <option value="L">L Level (20 Qs)</option>
+                  <option value="U">U Level (30 Qs)</option>
+                  <option value="O">O Level (40 Qs)</option>
+                </select>
+                <select id="qSectionFilter" class="form-control" style="width: 200px;" onchange="renderQuestionsManager()">
+                  <option value="ALL">All QC Sections</option>
+                  <option value="Final Finish QA">Final Finish QA</option>
+                  <option value="Tire Building QA">Tire Building QA</option>
+                  <option value="Tire Curing QA">Tire Curing QA</option>
+                  <option value="Solid Tire QA">Solid Tire QA</option>
+                  <option value="Preparatory QA">Preparatory QA</option>
+                  <option value="Warehouse QA">Warehouse QA</option>
+                  <option value="FID Inspector QA">FID Inspector QA</option>
+                  <option value="Final Finish RRO &amp; ALT QA">Final Finish RRO &amp; ALT QA</option>
+                </select>
+                <div style="font-size: 0.85rem; color: var(--text-muted); align-self: center;">
+                  Total <strong id="qCountText">0</strong> questions
+                </div>
+              </div>
+              <div id="questionsListContainer" style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW C: Manage Exams (/control-center/exams) -->
+          <div class="control-subview" id="ctrlSubExams" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Create &amp; Configure Exams</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Set exam timers, question counts, and pass percentages</div>
+              </div>
+            </div>
+
+            <div class="table-card">
+              <h3 style="margin-bottom: 16px;">Level Eligibility &amp; Test Matrix</h3>
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Target Level</th>
+                      <th>Eligible Experience</th>
+                      <th>No. of Questions</th>
+                      <th>Time Limit</th>
+                      <th>Passing %</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>L Level</strong></td>
+                      <td>7 - 90 Days</td>
+                      <td>20 Questions</td>
+                      <td>45 Minutes</td>
+                      <td>&gt; 50%</td>
+                    </tr>
+                    <tr>
+                      <td><strong>U Level</strong></td>
+                      <td>3M - 2 Years</td>
+                      <td>30 Questions</td>
+                      <td>45 Minutes</td>
+                      <td>&gt; 50%</td>
+                    </tr>
+                    <tr>
+                      <td><strong>O Level</strong></td>
+                      <td>&gt; 4 Years</td>
+                      <td>40 Questions</td>
+                      <td>45 Minutes</td>
+                      <td>&gt; 50%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW D: Employees Directory (/control-center/employees) -->
+          <div class="control-subview" id="ctrlSubEmployees" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Employees Directory</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Master list of 236 employees from ILUO SKILL.xlsx</div>
+              </div>
+            </div>
+
+            <div class="table-card">
+              <div class="table-header-tools">
+                <div class="search-box">
+                  <input type="text" id="empDirectorySearch" class="form-control" placeholder="Search employee..." onkeyup="renderEmployeeDirectory()">
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                  Total <strong id="empDirCountText">0</strong> employees
+                </div>
+              </div>
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Emp No</th>
+                      <th>Name</th>
+                      <th>Department</th>
+                      <th>Section</th>
+                      <th>DOJ</th>
+                      <th>Skill Level</th>
+                    </tr>
+                  </thead>
+                  <tbody id="empDirectoryTbody">
+                    <!-- Dynamic -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW E: Results Database (/control-center/results) -->
+          <div class="control-subview" id="ctrlSubResults" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Master Results Database</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Completed assessment scores and Admin Reset control</div>
+              </div>
+            </div>
+
+            <div class="table-card">
+              <div class="table-header-tools">
+                <div class="search-box">
+                  <input type="text" id="adminSearchInput" class="form-control" placeholder="Search by Employee No, Name, Dept..." onkeyup="filterAdminTable()">
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                  Showing <strong id="tableCountText">0</strong> records
+                </div>
+              </div>
+
+              <div class="data-table-wrapper">
+                <table class="data-table" id="adminTable">
+                  <thead>
+                    <tr>
+                      <th>Emp No</th>
+                      <th>Employee Name</th>
+                      <th>DOJ</th>
+                      <th>Department</th>
+                      <th>Section</th>
+                      <th>Level</th>
+                      <th>U Mark</th>
+                      <th>L Mark</th>
+                      <th>O Mark</th>
+                      <th>Total Mark</th>
+                      <th>Mark %</th>
+                      <th>Status</th>
+                      <th>Attempt Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminTableBody">
+                    <!-- Rows rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW F: Reports & Excel Export (/control-center/reports) -->
+          <div class="control-subview" id="ctrlSubReports" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Reports &amp; Excel Export</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Download official Excel reports for management review</div>
+              </div>
+            </div>
+
+            <div class="instruction-card" style="margin: 0;">
+              <h3>Admin Excel Generator</h3>
+              <p style="color: var(--text-muted); margin: 12px 0 24px 0;">Exports full .xlsx sheet formatted with Employee No, Name, DOJ, Department, Section, Skill Level, U mark, L mark, O mark, Total Mark, Percentage, Status, and Attempt Date.</p>
+
+              <button class="btn-excel" style="padding: 14px 28px; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px;" onclick="exportAdminExcel()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Download Full Excel Report (.xlsx)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- SUB-VIEW G: Security Settings (/control-center/settings) -->
+          <div class="control-subview" id="ctrlSubSettings" style="display: none;">
+            <div class="admin-header">
+              <div>
+                <div class="admin-title">Security &amp; System Settings</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Configure exam security policies and thresholds</div>
+              </div>
+            </div>
+
+            <div class="instruction-card" style="margin: 0;">
+              <h4 style="margin-bottom: 16px;">Security Rules &amp; Policy Enforcement</h4>
+              <div class="form-group">
+                <label>Maximum Tab Switch Warning Limit</label>
+                <input type="number" class="form-control" value="3" readonly style="background: #F1F5F9; font-weight: 700; color: var(--accent-red);">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Exceeding 3 tab switches automatically terminates the candidate's exam session.</span>
+              </div>
+              <div class="form-group">
+                <label>Assessment Timer Limit</label>
+                <input type="text" class="form-control" value="45 Minutes" readonly style="background: #F1F5F9; font-weight: 700;">
+              </div>
+              <div class="form-group">
+                <label>Copy-Paste &amp; Right Click Restriction</label>
+                <input type="text" class="form-control" value="ENABLED (Strict Prohibited)" readonly style="background: #D1FAE5; color: #065F46; font-weight: 700;">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Security Warning Modal -->
+  <div class="modal-overlay" id="securityWarningModal">
+    <div class="security-modal-box">
+      <div class="security-icon" style="color: var(--accent-red); display: flex; justify-content: center; margin-bottom: 12px;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="security-title" id="secModalTitle">SECURITY WARNING: TAB SWITCH DETECTED</div>
+      <div class="security-text" id="secModalBody">
+        You switched tabs or left the assessment window. Switching tabs is strictly monitored!
+        <br><br>
+        <strong>Warning <span id="secWarningNum">1</span> of 3</strong>
+        <br>
+        <span style="color: var(--accent-red); font-size: 0.88rem;">If you switch tabs more than 3 times, your exam will be automatically terminated and submitted!</span>
+      </div>
+      <button class="btn-primary" onclick="closeSecurityWarningModal()">I Understand &amp; Resume Exam</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <!-- Manual Question Add/Edit Modal -->
+  <div class="modal-overlay" id="modalAddEditQuestion" style="display: none;">
+    <div class="security-modal-box" style="max-width: 620px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px;">
+        <h3 id="modalQTitle" style="margin: 0; color: var(--primary-dark);">➕ Add New Question</h3>
+        <button onclick="closeQModal()" style="background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+      </div>
+
+      <form id="formAddEditQuestion" onsubmit="saveQuestionFromModal(event)">
+        <input type="hidden" id="qEditId" value="">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Skill Level</label>
+            <select id="modalQLevel" class="form-control" required>
+              <option value="L">L Level</option>
+              <option value="U">U Level</option>
+              <option value="O">O Level</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">QC Section</label>
+            <select id="modalQSection" class="form-control" required>
+              <option value="Final Finish QA">Final Finish QA</option>
+              <option value="Tire Building QA">Tire Building QA</option>
+              <option value="Tire Curing QA">Tire Curing QA</option>
+              <option value="Solid Tire QA">Solid Tire QA</option>
+              <option value="Preparatory QA">Preparatory QA</option>
+              <option value="Warehouse QA">Warehouse QA</option>
+              <option value="FID Inspector QA">FID Inspector QA</option>
+              <option value="Final Finish RRO &amp; ALT QA">Final Finish RRO &amp; ALT QA</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Category</label>
+            <select id="modalQCategory" class="form-control" required>
+              <option value="Safety">Safety</option>
+              <option value="CI &amp; TPM">CI &amp; TPM</option>
+              <option value="QA &amp; Process">QA &amp; Process</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Question Text (English / Tamil)</label>
+          <textarea id="modalQText" class="form-control" rows="3" placeholder="Enter full question text..." required></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <label style="font-weight: 600; font-size: 0.8rem; display: block; margin-bottom: 2px;">Option A</label>
+            <input type="text" id="modalOptA" class="form-control" placeholder="Option A text..." required>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.8rem; display: block; margin-bottom: 2px;">Option B</label>
+            <input type="text" id="modalOptB" class="form-control" placeholder="Option B text..." required>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.8rem; display: block; margin-bottom: 2px;">Option C</label>
+            <input type="text" id="modalOptC" class="form-control" placeholder="Option C text..." required>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.8rem; display: block; margin-bottom: 2px;">Option D</label>
+            <input type="text" id="modalOptD" class="form-control" placeholder="Option D text..." required>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Correct Answer Key</label>
+          <select id="modalQCorrect" class="form-control" style="width: 180px;" required>
+            <option value="A">Option A</option>
+            <option value="B">Option B</option>
+            <option value="C">Option C</option>
+            <option value="D">Option D</option>
+          </select>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn-secondary" onclick="closeQModal()" style="padding: 10px 20px;">Cancel</button>
+          <button type="submit" class="btn-primary" style="padding: 10px 24px;">Save Question 💾</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="toast">Message notification</div>
+
+  <!-- Data Script -->
+  <script src="data.js?v=16.0"></script>
+  <!-- Application Logic -->
+  <script src="app.js?v=16.0"></script>
+</body>
+</html>

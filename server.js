@@ -1,0 +1,266 @@
+require('dotenv').config();
+const express = require('express');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+const path = require('path');
+const crypto = require('crypto');
+const cookieParser = require('cookie-parser');
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+const SESSION_SECRET = process.env.SESSION_SECRET || 'yokohama_iluo_qa_secret_2026';
+const AUTHORIZED_ADMIN_EMAIL = (process.env.ADMIN_EMAIL || 'reubengeoffrey16@gmail.com').toLowerCase();
+
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json());
+app.use(cookieParser(SESSION_SECRET));
+app.use(express.static(path.join(__dirname)));
+
+// Server-side active OTP storage (Email -> { otp, expiresAt, attempts, lastSendAt })
+const otpStore = new Map();
+
+// Active authenticated admin sessions (SessionToken -> { email, name, role, createdAt })
+const activeSessions = new Map();
+
+// Configure Real Gmail SMTP Transporter — port 587 STARTTLS (confirmed working)
+const user = (process.env.SMTP_USER || 'reubengeoffrey16@gmail.com').trim();
+const pass = (process.env.SMTP_PASS || 'wydejmkbmbngbqwo').replace(/\s+/g, '').trim();
+
+// Safe debug: confirm what credentials are loaded (NEVER logs actual password)
+console.log(`📧 SMTP User: ${user}`);
+console.log(`🔑 SMTP Pass loaded: ${pass.length > 0 ? `YES (${pass.length} chars)` : 'NO — SMTP_PASS is empty or missing in .env'}`);
+console.log(`🔌 SMTP Host: smtp.gmail.com:587 | STARTTLS`);
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  requireTLS: true,
+  auth: {
+    user: user,
+    pass: pass
+  }
+});
+
+// Debug SMTP Connection on startup using transporter.verify()
+transporter.verify((error, success) => {
+  if (error) {
+    console.error(`SMTP connection failed: ${error.message}`);
+  } else {
+    console.log('SMTP connection successful');
+  }
+});
+
+
+// Middleware: Verify Authenticated Admin Session for /api/admin/*
+function requireAdminAuth(req, res, next) {
+  const sessionToken = req.signedCookies.admin_session || req.cookies.admin_session;
+  if (!sessionToken || !activeSessions.has(sessionToken)) {
+    return res.status(401).json({ success: false, authenticated: false, message: 'Unauthorized: Admin session required' });
+  }
+  req.adminSession = activeSessions.get(sessionToken);
+  next();
+}
+
+// ---------------------------------------------------------------------
+// API ROUTE 1: POST /api/auth/admin/send-otp
+// ---------------------------------------------------------------------
+app.post('/api/auth/admin/send-otp', async (req, res) => {
+  const emailRaw = (req.body.email || '').trim().toLowerCase();
+
+  if (!emailRaw || !emailRaw.includes('@')) {
+    return res.status(400).json({ success: false, message: 'Valid Admin Email ID required' });
+  }
+
+  // Check if email matches authorized admin email
+  if (emailRaw !== AUTHORIZED_ADMIN_EMAIL && emailRaw !== 'admin@yokohama-oht.com') {
+    return res.status(403).json({ success: false, message: 'Unauthorized email address' });
+  }
+
+  // Rate Limiting: 30-second cooldown between send-otp requests
+  const existingRecord = otpStore.get(emailRaw);
+  const now = Date.now();
+  if (existingRecord && (now - existingRecord.lastSendAt) < 30000) {
+    const waitSecs = Math.ceil((30000 - (now - existingRecord.lastSendAt)) / 1000);
+    return res.status(429).json({ success: false, message: `Please wait ${waitSecs} seconds before requesting a new OTP.` });
+  }
+
+  // Cryptographically secure 6-digit OTP generation using crypto.randomInt
+  const otpNum = crypto.randomInt(100000, 1000000);
+  const otp = String(otpNum);
+  const expiresAt = now + 30000; // Strictly 30 seconds expiry window
+
+  otpStore.set(emailRaw, {
+    otp: otp,
+    expiresAt: expiresAt,
+    attempts: 0,
+    lastSendAt: now
+  });
+
+  const mailOptions = {
+    from: `"Yokohama ILUO Admin" <${user}>`,
+    to: emailRaw,
+    subject: `Yokohama ILUO Admin Login OTP`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 480px; padding: 24px; border: 2px solid #005B9E; border-radius: 12px; background: #FFFFFF; margin: 0 auto;">
+        <div style="background: linear-gradient(135deg, #005B9E 0%, #003D6B 100%); color: white; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 18px; text-align: center; letter-spacing: 0.5px;">
+          Yokohama ILUO Admin Login
+        </div>
+        <div style="padding: 24px 16px; text-align: center;">
+          <p style="font-size: 16px; color: #334155; margin-bottom: 12px; font-weight: 600;">Your OTP is:</p>
+          <div style="font-size: 38px; font-weight: 800; color: #005B9E; letter-spacing: 8px; background: #F0F9FF; border: 2px dashed #0284C7; padding: 16px 28px; border-radius: 10px; display: inline-block; margin: 12px 0 20px 0;">
+            ${otp}
+          </div>
+          <p style="color: #E31B23; font-weight: 800; font-size: 15px; margin-top: 8px;">⏱️ Expires in 30 seconds</p>
+        </div>
+        <div style="border-top: 1px solid #E2E8F0; padding-top: 16px; font-size: 12px; color: #94A3B8; text-align: center;">
+          Official Yokohama Off-Highway Tires Quality Assurance Portal
+        </div>
+      </div>
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log('email send successful');
+    return res.json({
+      success: true,
+      message: '✉️ OTP sent to your email inbox. Please check your Gmail and enter the 6-digit OTP.'
+    });
+  } catch (error) {
+    console.error(`email send failed: ${error.message}`);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to send email OTP via Gmail SMTP. Check server logs.',
+      error: error.message
+    });
+  }
+});
+
+// ---------------------------------------------------------------------
+// API ROUTE 2: POST /api/auth/admin/verify-otp
+// ---------------------------------------------------------------------
+app.post('/api/auth/admin/verify-otp', (req, res) => {
+  const emailRaw = (req.body.email || '').trim().toLowerCase();
+  const otpEntered = (req.body.otp || '').trim();
+
+  if (!emailRaw || !otpEntered) {
+    return res.status(400).json({ success: false, message: 'Email and OTP code required' });
+  }
+
+  const record = otpStore.get(emailRaw);
+  if (!record) {
+    return res.status(400).json({ success: false, message: 'No active OTP request found for this email. Please click Send OTP.' });
+  }
+
+  // Maximum 5 verification attempts to prevent brute-force attacks
+  record.attempts++;
+  if (record.attempts > 5) {
+    otpStore.delete(emailRaw);
+    return res.status(429).json({ success: false, message: 'Maximum failed verification attempts reached (5/5). OTP invalidated. Please request a new OTP.' });
+  }
+
+  // Check 30-second expiry limit
+  const now = Date.now();
+  if (now > record.expiresAt) {
+    otpStore.delete(emailRaw);
+    return res.status(400).json({ success: false, message: 'OTP Expired! (30-second integrity window passed). Please request a new OTP.' });
+  }
+
+  // Strict Single-Use OTP Match
+  if (record.otp === otpEntered) {
+    otpStore.delete(emailRaw); // Single-use consumption & deletion
+
+    // Create secure session
+    const sessionToken = crypto.randomBytes(32).toString('hex');
+    const adminName = emailRaw === AUTHORIZED_ADMIN_EMAIL ? 'Reuben Geoffrey (Superadmin)' : 'Administrator';
+
+    activeSessions.set(sessionToken, {
+      email: emailRaw,
+      name: adminName,
+      role: 'SUPERADMIN',
+      createdAt: new Date().toISOString()
+    });
+
+    // Set HTTP-Only Cookie
+    res.cookie('admin_session', sessionToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 8 * 60 * 60 * 1000, // 8 hours session duration
+      signed: true
+    });
+
+    return res.json({
+      success: true,
+      message: 'Admin authenticated successfully',
+      admin: {
+        email: emailRaw,
+        name: adminName,
+        role: 'SUPERADMIN'
+      }
+    });
+  } else {
+    return res.status(400).json({
+      success: false,
+      message: `Incorrect OTP code (${record.attempts}/5 attempts)`
+    });
+  }
+});
+
+// ---------------------------------------------------------------------
+// API ROUTE 3: GET /api/auth/admin/session
+// ---------------------------------------------------------------------
+app.get('/api/auth/admin/session', (req, res) => {
+  const sessionToken = req.signedCookies.admin_session || req.cookies.admin_session;
+  if (sessionToken && activeSessions.has(sessionToken)) {
+    const sessionData = activeSessions.get(sessionToken);
+    return res.json({
+      success: true,
+      authenticated: true,
+      admin: sessionData
+    });
+  } else {
+    return res.json({
+      success: true,
+      authenticated: false,
+      admin: null
+    });
+  }
+});
+
+// ---------------------------------------------------------------------
+// API ROUTE 4: POST /api/auth/admin/logout
+// ---------------------------------------------------------------------
+app.post('/api/auth/admin/logout', (req, res) => {
+  const sessionToken = req.signedCookies.admin_session || req.cookies.admin_session;
+  if (sessionToken) {
+    activeSessions.delete(sessionToken);
+  }
+  res.clearCookie('admin_session');
+  return res.json({ success: true, message: 'Logged out successfully' });
+});
+
+// Protected Admin API Example Endpoint
+app.get('/api/admin/dashboard-stats', requireAdminAuth, (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      totalEmployees: 236,
+      admin: req.adminSession
+    }
+  });
+});
+
+// Fallback route to index.html for Client-Side Routing
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Yokohama Admin Portal running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
