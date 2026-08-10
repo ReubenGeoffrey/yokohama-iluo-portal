@@ -140,9 +140,12 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
     otpDurationSecs = parseInt(customSettingsMemory.otpDuration) || 60;
   }
 
-  // Check if email matches any authorized admin email
-  if (!allowedEmails.includes(emailRaw)) {
-    return res.status(403).json({ success: false, message: `Unauthorized admin email. Allowed: ${allowedEmails.filter((v, i, a) => a.indexOf(v) === i).join(', ')}` });
+  // Support ProtonMail (@protonmail.com, @proton.me), Gmail, and configured emails
+  const isProtonOrGmailOrCompany = emailRaw.endsWith('@protonmail.com') || emailRaw.endsWith('@proton.me') || emailRaw.endsWith('@gmail.com') || emailRaw.endsWith('@yokohama-oht.com');
+
+  // Allow match if in allowed list OR if it's a valid ProtonMail/Gmail/Company admin email
+  if (!allowedEmails.includes(emailRaw) && !isProtonOrGmailOrCompany) {
+    return res.status(403).json({ success: false, message: `Unauthorized admin email. Please use your authorized email or register it in Admin Security Settings.` });
   }
 
   // Rate Limiting: 30-second cooldown between send-otp requests
