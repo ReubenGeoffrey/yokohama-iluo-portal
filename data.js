@@ -8269,7 +8269,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_1",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "What is PPE? PPE என்றால் என்ன?",
       "options": [
@@ -8295,7 +8295,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_2",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "What is unsafe act ? பாதுகாப்பற்ற செயல் என்றால் என்ன?",
       "options": [
@@ -8321,7 +8321,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_3",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "What is unsafe condition ? பாதுகாப்பற்ற நிலை என்றால் என்ன?",
       "options": [
@@ -8347,7 +8347,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_4",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "What are fire  Classes? தீ வகைகள் என்ன?",
       "options": [
@@ -8373,7 +8373,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_5",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "What is BBS? பிபிஎஸ் என்றால் என்ன?",
       "options": [
@@ -8399,7 +8399,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_6",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "Where do you assemble during emergency? அவசர காலத்தில் நீங்கள் எங்கே கூடுகிறீர்கள்?",
       "options": [
@@ -8425,7 +8425,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_7",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "Safety",
       "question": "What are the safety PPE to be used during RRO/RRM flange changing??",
       "options": [
@@ -8451,7 +8451,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_8",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "In the context of 5S, what does \"Kaizen\" refer to? / 5S இன் சூழலில், \"கெய்சன்\" எதைக் குறிக்கிறது?",
       "options": [
@@ -8477,7 +8477,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_9",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "In the context of 5S, what does \"Set in Order\" refer to? 5S இன் சூழலில், \"செட் இன் ஆர்டர்\" என்பது எதைக் குறிக்கிறது?",
       "options": [
@@ -8503,7 +8503,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_10",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "Red Tags are used in which steps of 5S ? 5S இன் எந்தப் படியில், ரெட் டேக்குகள் பயன்படுத்தப்படுகின்றன?",
       "options": [
@@ -8529,7 +8529,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_11",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "QCC stands for / QCCக்கான விரிவாக்கம் என்ன?",
       "options": [
@@ -8555,7 +8555,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_12",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "What is the AIM of TPM ? TPM இன் நோக்கம் என்ன?",
       "options": [
@@ -8581,7 +8581,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_13",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "CLIT stands for / CLITக்கான விரிவாக்கம் என்ன?",
       "options": [
@@ -8607,7 +8607,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_14",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "CI & TPM",
       "question": "Find out the Abnormality Fuguai in the following / பின்வருவனவற்றில் ஃபுகுவாய் அசாதாரணத்தைக் கண்டறியவும்",
       "options": [
@@ -8633,7 +8633,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_15",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "What is the purpose of repairing a tire? / டயரை பழுது பார்க்கும் நோக்கம் என்ன?",
       "options": [
@@ -8659,7 +8659,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_16",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "What is the sequence of activities at FID? / FID இல் செயல்பாடுகளின் வரிசை என்ன?",
       "options": [
@@ -8685,7 +8685,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_17",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "How to identify OK tires in RRO testing? / RRO பரிசோதனையில் சரியான டயரை எப்படி அடையாளம் காணலாம்?",
       "options": [
@@ -8711,7 +8711,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_18",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "When is the cured tire RRO testing carried out? / கட்டிய டயர் RRO பரிசோதனை எப்போது நடைபெறும்?",
       "options": [
@@ -8737,7 +8737,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_19",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "100% ALT checking followed for which customer dispatch? / 100% ALT சரிபார்ப்பு எந்த வாடிக்கையாளர் அனுப்பலுக்கு பின்பற்றப்படுகிறது?",
       "options": [
@@ -8763,7 +8763,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_20",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "How many bolts are used for RRO Machine per disc? / RRO இயந்திரத்தில் ஒவ்வொரு டிஸ்க்குக்கும் எத்தனை போல்ட் பயன்படுத்தப்படுகிறது?",
       "options": [
@@ -8789,7 +8789,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_21",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "What is the RRO machine marking unit temperature specification? / RRO இயந்திரத்தின் மார்க்கிங் யூனிட் வெப்பநிலை விவரக்குறிப்பு என்ன?",
       "options": [
@@ -8815,7 +8815,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_22",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "What is the procedure for RRO machine tire loading? / RRO இயந்திரத்தில் டயர் ஏற்றும் நடைமுறை என்ன?",
       "options": [
@@ -8841,7 +8841,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_23",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "What is the defect? / குறைபாடு என்றால் என்ன?",
       "options": [
@@ -8867,7 +8867,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_24",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "Which defect can be identified through RRO testing? / RRO பரிசோதனையில் எந்த குறைபாடு கண்டறியப்படலாம்?",
       "options": [
@@ -8893,7 +8893,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_25",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "For which tires NE stamp to be applied? / எந்த டயர்களுக்கு NE முத்திரை பயன்படுத்தப்பட வேண்டும்?",
       "options": [
@@ -8919,7 +8919,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_26",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "How to identify OK tires in RRO testing? / RRO பரிசோதனையில் சரியான டயர்களை எப்படி அடையாளம் காணலாம்?",
       "options": [
@@ -8945,7 +8945,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_27",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "How to verify OD measurement in RRO machine? / RRO இயந்திரத்தில் OD அளவீட்டை எப்படி சரிபார்க்க வேண்டும்?",
       "options": [
@@ -8971,7 +8971,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_28",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "Frequency of RRO machine OD verification / RRO இயந்திரம் OD சரிபார்ப்பின் இடைவெளி",
       "options": [
@@ -8997,7 +8997,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_29",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "Frequency of RRO machine Master tire verification / RRO இயந்திரத்தின் மாஸ்டர் டயர் சரிபார்ப்பின் இடைவெளி",
       "options": [
@@ -9023,7 +9023,7 @@ const QUESTION_BANK = {
     {
       "id": "U_Final_Finish_RRo_&_ALT_QA_30",
       "level": "U",
-      "section": "Final Finish RRo & ALT QA",
+      "section": "Final Finish RRO & ALT QA",
       "category": "QA & Process",
       "question": "What is effect of poking in cured tire? / கட்டிய டயரில் பொக்கிங் விளைவுகள் என்ன?",
       "options": [
