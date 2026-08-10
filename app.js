@@ -430,29 +430,29 @@ function handleEmpLogin(e) {
 // Admin Mail ID + OTP Verification Handlers
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
-// 30-Second Integrity Admin Mail ID + OTP Verification Handlers
+// 60-Second Integrity Admin Mail ID + OTP Verification Handlers
 // ---------------------------------------------------------------------
 let adminOtpState = {
   email: '',
   generatedOtp: '',
-  expiresAt: 0,
+  expiresAt: null,
   timerInterval: null,
-  secondsLeft: 30
+  secondsLeft: 60
 };
 
 function startOtpCountdownTimer() {
   if (adminOtpState.timerInterval) clearInterval(adminOtpState.timerInterval);
-  adminOtpState.secondsLeft = 30;
-  adminOtpState.expiresAt = Date.now() + 30000; // 30 seconds limit
+  adminOtpState.secondsLeft = 60;
+  adminOtpState.expiresAt = Date.now() + 60000; // 60 seconds (1 minute) limit
 
   const timerEl = document.getElementById('otpTimerDisplay');
   const resendBtn = document.getElementById('btnResendOtp');
 
   if (resendBtn) {
     resendBtn.disabled = true;
-    resendBtn.innerText = `Resend OTP in 30s`;
+    resendBtn.innerText = `Resend OTP in 60s`;
   }
-  if (timerEl) timerEl.innerText = `30s`;
+  if (timerEl) timerEl.innerText = `60s`;
 
   adminOtpState.timerInterval = setInterval(() => {
     adminOtpState.secondsLeft--;
@@ -467,7 +467,7 @@ function startOtpCountdownTimer() {
         resendBtn.disabled = false;
         resendBtn.innerText = `🔄 Resend New OTP`;
       }
-      showToast('⚠️ OTP Code Expired (30s Integrity Limit)! Click Resend OTP.');
+      showToast('⚠️ OTP Code Expired (1-minute validity limit)! Click Resend OTP.');
     }
   }, 1000);
 }

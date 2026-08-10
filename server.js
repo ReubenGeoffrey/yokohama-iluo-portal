@@ -88,7 +88,7 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
   // Cryptographically secure 6-digit OTP generation using crypto.randomInt
   const otpNum = crypto.randomInt(100000, 1000000);
   const otp = String(otpNum);
-  const expiresAt = now + 30000; // Strictly 30 seconds expiry window
+  const expiresAt = now + 60000; // 1 minute (60 seconds) validity window
 
   otpStore.set(emailRaw, {
     otp: otp,
@@ -111,7 +111,7 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
           <div style="font-size: 38px; font-weight: 800; color: #005B9E; letter-spacing: 8px; background: #F0F9FF; border: 2px dashed #0284C7; padding: 16px 28px; border-radius: 10px; display: inline-block; margin: 12px 0 20px 0;">
             ${otp}
           </div>
-          <p style="color: #E31B23; font-weight: 800; font-size: 15px; margin-top: 8px;">⏱️ Expires in 30 seconds</p>
+          <p style="color: #E31B23; font-weight: 800; font-size: 15px; margin-top: 8px;">⏱️ Expires in 1 minute (60 seconds)</p>
         </div>
         <div style="border-top: 1px solid #E2E8F0; padding-top: 16px; font-size: 12px; color: #94A3B8; text-align: center;">
           Official Yokohama Off-Highway Tires Quality Assurance Portal
@@ -160,11 +160,11 @@ app.post('/api/auth/admin/verify-otp', (req, res) => {
     return res.status(429).json({ success: false, message: 'Maximum failed verification attempts reached (5/5). OTP invalidated. Please request a new OTP.' });
   }
 
-  // Check 30-second expiry limit
+  // Check 60-second (1-minute) expiry limit
   const now = Date.now();
   if (now > record.expiresAt) {
     otpStore.delete(emailRaw);
-    return res.status(400).json({ success: false, message: 'OTP Expired! (30-second integrity window passed). Please request a new OTP.' });
+    return res.status(400).json({ success: false, message: 'OTP Expired! (1-minute validity window passed). Please request a new OTP.' });
   }
 
   // Strict Single-Use OTP Match

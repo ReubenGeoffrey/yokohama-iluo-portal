@@ -119,7 +119,7 @@
                   <div>OTP sent to <strong id="otpTargetEmail">admin@yokohama.com</strong></div>
                   <div style="background: #0284C7; color: white; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 0.78rem; display: flex; align-items: center; gap: 4px;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <span id="otpTimerDisplay">30s</span>
+                    <span id="otpTimerDisplay">60s</span>
                   </div>
                 </div>
               </div>
@@ -136,7 +136,7 @@
               <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 0.82rem;">
                 <span class="login-toggle-link" onclick="resetAdminOtpForm()">Change Email</span>
                 <button type="button" id="btnResendOtp" class="btn-reset" style="padding: 4px 10px; font-size: 0.8rem;" onclick="resendAdminOTP()" disabled>
-                  Resend OTP in 30s
+                  Resend OTP in 60s
                 </button>
               </div>
             </form>
@@ -774,8 +774,8 @@
   <div class="toast-msg" id="toast">Message notification</div>
 
   <!-- Data Script -->
-  <script src="data.js?v=19.0"></script>
+  <script src="data.js?v=20.0"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=19.0"></script>
+  <script src="app.js?v=20.0"></script>
 </body>
 </html>
