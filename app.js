@@ -26,6 +26,8 @@ function initStorage() {
   }
   syncCloudRecords();
   syncCloudQuestions();
+  syncCloudEmployees();
+  syncCloudSettings();
 }
 
 function getStoredRecords() {
@@ -1322,10 +1324,90 @@ function deleteQuestion(qId) {
   renderQuestionsManager();
 }
 
+// Cloud Sync for Employees & Security Settings
+async function syncCloudEmployees() {
+  try {
+    const res = await fetch('/api/employees');
+    const data = await res.json();
+    if (data.success && data.employees && Array.isArray(data.employees) && data.employees.length > 0) {
+      EMPLOYEES.length = 0;
+      EMPLOYEES.push(...data.employees);
+      if (document.getElementById('empDirectoryTbody')) {
+        renderEmployeeDirectory();
+      }
+    }
+  } catch (e) {}
+}
+
+function saveCustomEmployeesToServer() {
+  try {
+    fetch('/api/employees', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ employees: EMPLOYEES })
+    }).catch(err => console.log('Employees sync pending:', err.message));
+  } catch (e) {}
+}
+
+async function syncCloudSettings() {
+  try {
+    const res = await fetch('/api/settings');
+    const data = await res.json();
+    if (data.success && data.settings) {
+      const s = data.settings;
+      if (s.adminEmail) {
+        const el = document.getElementById('secAdminEmail');
+        if (el) el.value = s.adminEmail;
+      }
+      if (s.passingPct) {
+        const el = document.getElementById('secPassingPct');
+        if (el) el.value = s.passingPct;
+      }
+      if (s.maxTabSwitches) {
+        const el = document.getElementById('secMaxTabSwitches');
+        if (el) el.value = s.maxTabSwitches;
+      }
+      if (s.tabAction) {
+        const el = document.getElementById('secTabAction');
+        if (el) el.value = s.tabAction;
+      }
+      if (s.otpDuration) {
+        const el = document.getElementById('secOtpDuration');
+        if (el) el.value = s.otpDuration;
+      }
+    }
+  } catch (e) {}
+}
+
+function saveSecuritySettings(e) {
+  if (e) e.preventDefault();
+  const settings = {
+    adminEmail: document.getElementById('secAdminEmail').value.trim(),
+    passingPct: parseInt(document.getElementById('secPassingPct').value) || 70,
+    maxTabSwitches: parseInt(document.getElementById('secMaxTabSwitches').value) || 3,
+    tabAction: document.getElementById('secTabAction').value,
+    otpDuration: parseInt(document.getElementById('secOtpDuration').value) || 60
+  };
+
+  try {
+    fetch('/api/settings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ settings: settings })
+    }).then(res => res.json()).then(data => {
+      showToast('Security Settings saved & updated in Cloud DB! ⚙️');
+    }).catch(err => showToast('Failed to save settings: ' + err.message));
+  } catch (err) {
+    showToast('Failed to save settings: ' + err.message);
+  }
+}
+
 // Employee Directory View
 function renderEmployeeDirectory() {
-  const search = document.getElementById('empDirectorySearch').value.toLowerCase().trim();
+  const searchInput = document.getElementById('empDirectorySearch');
+  const search = searchInput ? searchInput.value.toLowerCase().trim() : '';
   const tbody = document.getElementById('empDirectoryTbody');
+  if (!tbody) return;
   tbody.innerHTML = '';
 
   const filtered = EMPLOYEES.filter(emp => {
@@ -1333,7 +1415,8 @@ function renderEmployeeDirectory() {
     return emp.empNo.toLowerCase().includes(search) || emp.name.toLowerCase().includes(search) || emp.dept.toLowerCase().includes(search);
   });
 
-  document.getElementById('empDirCountText').innerText = filtered.length;
+  const countEl = document.getElementById('empDirCountText');
+  if (countEl) countEl.innerText = filtered.length;
 
   filtered.forEach(emp => {
     const tr = document.createElement('tr');
@@ -1344,9 +1427,92 @@ function renderEmployeeDirectory() {
       <td>${emp.section || '-'}</td>
       <td>${emp.doj || '-'}</td>
       <td><span style="background: #E0F2FE; color: #0369A1; font-weight: 700; padding: 2px 8px; border-radius: 4px;">${emp.currentLevel || 'I'}</span></td>
+      <td>
+        <div style="display: flex; gap: 6px;">
+          <button class="btn-reset" style="padding: 3px 8px; font-size: 0.76rem; background: #F1F5F9; color: #005B9E; border-color: #CBD5E1;" onclick="openEditEmpModal('${emp.empNo}')">✏️ Edit</button>
+          <button class="btn-reset" style="padding: 3px 8px; font-size: 0.76rem; color: #E31B23; border-color: #FECDD3; background: #FFF1F2;" onclick="deleteEmployee('${emp.empNo}')">🗑️ Delete</button>
+        </div>
+      </td>
     `;
     tbody.appendChild(tr);
   });
+}
+
+function openAddEmpModal() {
+  document.getElementById('modalEmpTitle').innerText = '➕ Add New Employee';
+  document.getElementById('empIsEdit').value = 'false';
+  document.getElementById('empOldNo').value = '';
+  document.getElementById('modalEmpNo').value = '';
+  document.getElementById('modalEmpNo').disabled = false;
+  document.getElementById('modalEmpName').value = '';
+  document.getElementById('modalEmpDept').value = 'Quality Control';
+  document.getElementById('modalEmpSection').value = 'Final Finish QA';
+  document.getElementById('modalEmpDoj').value = new Date().toLocaleDateString('en-GB');
+  document.getElementById('modalEmpLevel').value = 'I';
+  document.getElementById('modalAddEditEmployee').style.display = 'flex';
+}
+
+function openEditEmpModal(empNo) {
+  const emp = EMPLOYEES.find(e => e.empNo === empNo);
+  if (!emp) return;
+  document.getElementById('modalEmpTitle').innerText = `✏️ Edit Employee (${empNo})`;
+  document.getElementById('empIsEdit').value = 'true';
+  document.getElementById('empOldNo').value = empNo;
+  document.getElementById('modalEmpNo').value = emp.empNo;
+  document.getElementById('modalEmpNo').disabled = true;
+  document.getElementById('modalEmpName').value = emp.name;
+  document.getElementById('modalEmpDept').value = emp.dept || 'Quality Control';
+  document.getElementById('modalEmpSection').value = emp.section || 'Final Finish QA';
+  document.getElementById('modalEmpDoj').value = emp.doj || '';
+  document.getElementById('modalEmpLevel').value = emp.currentLevel || 'I';
+  document.getElementById('modalAddEditEmployee').style.display = 'flex';
+}
+
+function closeEmpModal() {
+  document.getElementById('modalAddEditEmployee').style.display = 'none';
+}
+
+function saveEmployeeFromModal(e) {
+  e.preventDefault();
+  const isEdit = document.getElementById('empIsEdit').value === 'true';
+  const oldNo = document.getElementById('empOldNo').value;
+  const empNo = document.getElementById('modalEmpNo').value.trim();
+  const name = document.getElementById('modalEmpName').value.trim();
+  const dept = document.getElementById('modalEmpDept').value.trim();
+  const section = document.getElementById('modalEmpSection').value;
+  const doj = document.getElementById('modalEmpDoj').value.trim();
+  const level = document.getElementById('modalEmpLevel').value;
+
+  if (!isEdit && EMPLOYEES.some(e => e.empNo === empNo)) {
+    alert(`Employee ID '${empNo}' already exists in the directory! Please use a unique Employee ID.`);
+    return;
+  }
+
+  if (isEdit) {
+    const idx = EMPLOYEES.findIndex(e => e.empNo === oldNo);
+    if (idx !== -1) {
+      EMPLOYEES[idx] = { empNo, name, dept, section, doj, currentLevel: level };
+      showToast(`Employee ${empNo} updated successfully! ✏️`);
+    }
+  } else {
+    EMPLOYEES.unshift({ empNo, name, dept, section, doj, currentLevel: level });
+    showToast(`New Employee ${empNo} (${name}) added! ➕`);
+  }
+
+  saveCustomEmployeesToServer();
+  closeEmpModal();
+  renderEmployeeDirectory();
+}
+
+function deleteEmployee(empNo) {
+  if (!confirm(`Are you sure you want to delete Employee ${empNo} from the directory?`)) return;
+  const idx = EMPLOYEES.findIndex(e => e.empNo === empNo);
+  if (idx !== -1) {
+    EMPLOYEES.splice(idx, 1);
+    saveCustomEmployeesToServer();
+    showToast(`Employee ${empNo} deleted from Directory 🗑️`);
+    renderEmployeeDirectory();
+  }
 }
 
 // Results Database Table & Reset Action

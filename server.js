@@ -416,6 +416,60 @@ app.post('/api/questions', async (req, res) => {
   res.json({ success: true, message: 'Question Bank updated and synced permanently to Cloud DB!' });
 });
 
+// ---------------------------------------------------------------------
+// EMPLOYEE DIRECTORY CLOUD PERSISTENCE ENGINE (Add, Edit, Delete)
+// ---------------------------------------------------------------------
+let customEmployeesMemory = null;
+
+app.get('/api/employees', async (req, res) => {
+  if (kvUrl && kvToken) {
+    const cloudEmployees = await syncWithCloudKv('GET', 'yokohama_employees');
+    if (cloudEmployees && Array.isArray(cloudEmployees) && cloudEmployees.length > 0) {
+      customEmployeesMemory = cloudEmployees;
+    }
+  }
+  res.json({ success: true, employees: customEmployeesMemory });
+});
+
+app.post('/api/employees', async (req, res) => {
+  const { employees } = req.body;
+  if (!employees || !Array.isArray(employees)) {
+    return res.status(400).json({ success: false, message: 'Array of employees required' });
+  }
+  customEmployeesMemory = employees;
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', 'yokohama_employees', employees);
+  }
+  res.json({ success: true, message: 'Employee directory updated in Cloud DB' });
+});
+
+// ---------------------------------------------------------------------
+// CUSTOM SECURITY SETTINGS ENGINE
+// ---------------------------------------------------------------------
+let customSettingsMemory = null;
+
+app.get('/api/settings', async (req, res) => {
+  if (kvUrl && kvToken) {
+    const cloudSettings = await syncWithCloudKv('GET', 'yokohama_settings');
+    if (cloudSettings && typeof cloudSettings === 'object' && Object.keys(cloudSettings).length > 0) {
+      customSettingsMemory = cloudSettings;
+    }
+  }
+  res.json({ success: true, settings: customSettingsMemory });
+});
+
+app.post('/api/settings', async (req, res) => {
+  const { settings } = req.body;
+  if (!settings) {
+    return res.status(400).json({ success: false, message: 'settings object required' });
+  }
+  customSettingsMemory = settings;
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', 'yokohama_settings', settings);
+  }
+  res.json({ success: true, message: 'Security settings saved to Cloud DB' });
+});
+
 // Protected Admin API Example Endpoint
 app.get('/api/admin/dashboard-stats', requireAdminAuth, (req, res) => {
   res.json({

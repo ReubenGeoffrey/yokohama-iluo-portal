@@ -542,14 +542,17 @@
             <div class="admin-header">
               <div>
                 <div class="admin-title">Employees Directory</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">Master list of 236 employees from ILUO SKILL.xlsx</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Manage employee database (Add, Edit, Delete, Search)</div>
               </div>
+              <button class="btn-primary" style="padding: 10px 18px; font-size: 0.88rem; display: flex; align-items: center; gap: 8px;" onclick="openAddEmpModal()">
+                <span>➕ Add New Employee</span>
+              </button>
             </div>
 
             <div class="table-card">
               <div class="table-header-tools">
                 <div class="search-box">
-                  <input type="text" id="empDirectorySearch" class="form-control" placeholder="Search employee..." onkeyup="renderEmployeeDirectory()">
+                  <input type="text" id="empDirectorySearch" class="form-control" placeholder="Search by Emp No, Name, Dept..." onkeyup="renderEmployeeDirectory()">
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted);">
                   Total <strong id="empDirCountText">0</strong> employees
@@ -565,6 +568,7 @@
                       <th>Section</th>
                       <th>DOJ</th>
                       <th>Skill Level</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody id="empDirectoryTbody">
@@ -599,19 +603,19 @@
                   <thead>
                     <tr>
                       <th>Emp No</th>
-                      <th>Employee Name</th>
+                      <th>Name</th>
                       <th>DOJ</th>
                       <th>Department</th>
                       <th>Section</th>
                       <th>Level</th>
-                      <th>U Mark</th>
-                      <th>L Mark</th>
-                      <th>O Mark</th>
-                      <th>Total Mark</th>
-                      <th>Mark %</th>
+                      <th>U mark</th>
+                      <th>L mark</th>
+                      <th>O mark</th>
+                      <th>Total</th>
+                      <th>%</th>
                       <th>Status</th>
-                      <th>Attempt Date</th>
-                      <th>Actions</th>
+                      <th>Date</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody id="adminTableBody">
@@ -622,18 +626,18 @@
             </div>
           </div>
 
-          <!-- SUB-VIEW F: Reports & Excel Export (/control-center/reports) -->
-          <div class="control-subview" id="ctrlSubReports" style="display: none;">
+          <!-- SUB-VIEW F: Export Excel (/control-center/export) -->
+          <div class="control-subview" id="ctrlSubExport" style="display: none;">
             <div class="admin-header">
               <div>
-                <div class="admin-title">Reports &amp; Excel Export</div>
+                <div class="admin-title">Export Assessment Reports</div>
                 <div style="font-size: 0.85rem; color: var(--text-muted);">Download official Excel reports for management review</div>
               </div>
             </div>
 
             <div class="instruction-card" style="margin: 0;">
               <h3>Admin Excel Generator</h3>
-              <p style="color: var(--text-muted); margin: 12px 0 24px 0;">Exports full .xlsx sheet formatted with Employee No, Name, DOJ, Department, Section, Skill Level, U mark, L mark, O mark, Total Mark, Percentage, Status, and Attempt Date.</p>
+              <p style="color: var(--text-muted); margin: 12px 0 24px 0;">Exports full .xlsx sheet formatted with all employee and assessment metrics.</p>
 
               <button class="btn-excel" style="padding: 14px 28px; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px;" onclick="exportAdminExcel()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -647,28 +651,72 @@
             <div class="admin-header">
               <div>
                 <div class="admin-title">Security &amp; System Settings</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">Configure exam security policies and thresholds</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Customized Security Rules, Thresholds &amp; Policy Enforcement</div>
               </div>
             </div>
 
-            <div class="instruction-card" style="margin: 0;">
-              <h4 style="margin-bottom: 16px;">Security Rules &amp; Policy Enforcement</h4>
-              <div class="form-group">
-                <label>Maximum Tab Switch Warning Limit</label>
-                <input type="number" class="form-control" value="3" readonly style="background: #F1F5F9; font-weight: 700; color: var(--accent-red);">
-                <span style="font-size: 0.78rem; color: var(--text-muted);">Exceeding 3 tab switches automatically terminates the candidate's exam session.</span>
+            <form id="formSecuritySettings" onsubmit="saveSecuritySettings(event)" class="instruction-card" style="margin: 0;">
+              <h4 style="margin-bottom: 18px; color: var(--primary-dark); font-size: 1.1rem; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px;">⚙️ Customized Portal Security Rules</h4>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label for="secAdminEmail">Authorized Admin Email ID</label>
+                  <input type="email" id="secAdminEmail" class="form-control" value="reubengeoffrey16@gmail.com" required style="font-weight: 600;">
+                  <span style="font-size: 0.76rem; color: var(--text-muted);">Admin email address authorized for OTP login</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="secPassingPct">Assessment Passing Percentage Standard (%)</label>
+                  <input type="number" id="secPassingPct" class="form-control" min="50" max="100" value="70" required style="font-weight: 600;">
+                  <span style="font-size: 0.76rem; color: var(--text-muted);">Percentage mark required to PASS an assessment</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="secMaxTabSwitches">Maximum Tab Switch Warnings Allowed</label>
+                  <select id="secMaxTabSwitches" class="form-control" style="font-weight: 600;">
+                    <option value="1">1 Warning (Strict Single-Window Limit)</option>
+                    <option value="2">2 Warnings</option>
+                    <option value="3" selected>3 Warnings (Standard Factory Default)</option>
+                    <option value="4">4 Warnings</option>
+                    <option value="5">5 Warnings (Relaxed Limit)</option>
+                  </select>
+                  <span style="font-size: 0.76rem; color: var(--text-muted);">Number of tab switch violations before action</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="secTabAction">Tab Switch Violation Penalty Action</label>
+                  <select id="secTabAction" class="form-control" style="font-weight: 600;">
+                    <option value="terminate" selected>Auto-Terminate &amp; Submit Exam (Strict Default)</option>
+                    <option value="flag">Flag Violations &amp; Allow Completion</option>
+                  </select>
+                  <span style="font-size: 0.76rem; color: var(--text-muted);">Action taken when tab switch threshold is exceeded</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="secOtpDuration">Admin OTP Validity Duration</label>
+                  <select id="secOtpDuration" class="form-control" style="font-weight: 600;">
+                    <option value="60" selected>1 Minute (60 seconds)</option>
+                    <option value="120">2 Minutes (120 seconds)</option>
+                    <option value="300">5 Minutes (300 seconds)</option>
+                    <option value="600">10 Minutes (600 seconds)</option>
+                  </select>
+                  <span style="font-size: 0.76rem; color: var(--text-muted);">Expiration time for single-use Gmail OTPs</span>
+                </div>
+
+                <div class="form-group">
+                  <label>Copy-Paste &amp; Right Click Prohibiting</label>
+                  <input type="text" class="form-control" value="STRICTLY ENABLED" readonly style="background: #D1FAE5; color: #065F46; font-weight: 700;">
+                  <span style="font-size: 0.76rem; color: var(--text-muted);">Protects exam questions from unauthorized copying</span>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Assessment Timer Limit</label>
-                <input type="text" class="form-control" value="45 Minutes" readonly style="background: #F1F5F9; font-weight: 700;">
+
+              <div style="margin-top: 24px;">
+                <button type="submit" class="btn-primary" style="padding: 12px 24px; font-size: 0.95rem; background: linear-gradient(135deg, #005B9E 0%, #003D6B 100%);">
+                  💾 Save Security Settings
+                </button>
               </div>
-              <div class="form-group">
-                <label>Copy-Paste &amp; Right Click Restriction</label>
-                <input type="text" class="form-control" value="ENABLED (Strict Prohibited)" readonly style="background: #D1FAE5; color: #065F46; font-weight: 700;">
-              </div>
-            </div>
+            </form>
           </div>
-
         </div>
       </div>
     </section>
@@ -772,8 +820,75 @@
         </div>
 
         <div style="display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" class="btn-secondary" onclick="closeQModal()" style="padding: 10px 20px;">Cancel</button>
-          <button type="submit" class="btn-primary" style="padding: 10px 24px;">Save Question 💾</button>
+          <button type="button" class="btn-reset" onclick="closeQModal()">Cancel</button>
+          <button type="submit" class="btn-primary" style="background: linear-gradient(135deg, #005B9E 0%, #003D6B 100%);">Save Question</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add/Edit Employee Modal -->
+  <div class="modal-overlay" id="modalAddEditEmployee" style="display: none;">
+    <div class="security-modal-box" style="max-width: 580px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px;">
+        <h3 id="modalEmpTitle" style="margin: 0; color: var(--primary-dark);">➕ Add New Employee</h3>
+        <button onclick="closeEmpModal()" style="background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+      </div>
+
+      <form id="formAddEditEmployee" onsubmit="saveEmployeeFromModal(event)">
+        <input type="hidden" id="empIsEdit" value="false">
+        <input type="hidden" id="empOldNo" value="">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Employee ID / No</label>
+            <input type="text" id="modalEmpNo" class="form-control" placeholder="e.g. 900999 or KK1445" required>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Full Name</label>
+            <input type="text" id="modalEmpName" class="form-control" placeholder="Enter employee name..." required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Department</label>
+            <input type="text" id="modalEmpDept" class="form-control" placeholder="e.g. Quality Control" value="Quality Control" required>
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Section</label>
+            <select id="modalEmpSection" class="form-control" required>
+              <option value="Final Finish QA">Final Finish QA</option>
+              <option value="Tire Building QA">Tire Building QA</option>
+              <option value="Tire Curing QA">Tire Curing QA</option>
+              <option value="Solid Tire QA">Solid Tire QA</option>
+              <option value="Preparatory QA">Preparatory QA</option>
+              <option value="Warehouse QA">Warehouse QA</option>
+              <option value="FID Inspector QA">FID Inspector QA</option>
+              <option value="Final Finish RRO &amp; ALT QA">Final Finish RRO &amp; ALT QA</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Date of Joining (DOJ)</label>
+            <input type="text" id="modalEmpDoj" class="form-control" placeholder="e.g. 12/05/2023">
+          </div>
+          <div>
+            <label style="font-weight: 600; font-size: 0.85rem; display: block; margin-bottom: 4px;">Current Skill Level</label>
+            <select id="modalEmpLevel" class="form-control" required>
+              <option value="I">I Level</option>
+              <option value="L">L Level</option>
+              <option value="U">U Level</option>
+              <option value="O">O Level</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn-reset" onclick="closeEmpModal()">Cancel</button>
+          <button type="submit" class="btn-primary" style="background: linear-gradient(135deg, #005B9E 0%, #003D6B 100%);">Save Employee</button>
         </div>
       </form>
     </div>
@@ -782,8 +897,8 @@
   <div class="toast-msg" id="toast">Message notification</div>
 
   <!-- Data Script -->
-  <script src="data.js?v=21.0"></script>
+  <script src="data.js?v=22.0"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=21.0"></script>
+  <script src="app.js?v=22.0"></script>
 </body>
 </html>
