@@ -140,11 +140,18 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
     otpDurationSecs = parseInt(customSettingsMemory.otpDuration) || 60;
   }
 
-  // Support ProtonMail (@protonmail.com, @proton.me), Gmail, and configured emails
-  const isProtonOrGmailOrCompany = emailRaw.endsWith('@protonmail.com') || emailRaw.endsWith('@proton.me') || emailRaw.endsWith('@gmail.com') || emailRaw.endsWith('@yokohama-oht.com');
+  // Support Outlook (@outlook.com, @hotmail.com, @live.com), ProtonMail, Gmail, and configured emails
+  const isAllowedDomain = emailRaw.endsWith('@outlook.com') ||
+                         emailRaw.endsWith('@hotmail.com') ||
+                         emailRaw.endsWith('@live.com') ||
+                         emailRaw.endsWith('@msn.com') ||
+                         emailRaw.endsWith('@protonmail.com') ||
+                         emailRaw.endsWith('@proton.me') ||
+                         emailRaw.endsWith('@gmail.com') ||
+                         emailRaw.endsWith('@yokohama-oht.com');
 
-  // Allow match if in allowed list OR if it's a valid ProtonMail/Gmail/Company admin email
-  if (!allowedEmails.includes(emailRaw) && !isProtonOrGmailOrCompany) {
+  // Allow match if in allowed list OR if it's a supported email provider
+  if (!allowedEmails.includes(emailRaw) && !isAllowedDomain) {
     return res.status(403).json({ success: false, message: `Unauthorized admin email. Please use your authorized email or register it in Admin Security Settings.` });
   }
 
