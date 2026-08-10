@@ -954,6 +954,24 @@ function submitAssessment() {
   else if (activeExam.targetLevel === 'L') lMark = correctCount;
   else if (activeExam.targetLevel === 'O') oMark = correctCount;
 
+  const submittedQuestions = questions.map((q, idx) => {
+    const selKey = responses[q.id] || 'Not Answered';
+    const selOpt = q.options ? q.options.find(o => o.key === selKey) : null;
+    const corrOpt = q.options ? q.options.find(o => o.key === q.correctAnswer) : null;
+    return {
+      index: idx + 1,
+      id: q.id,
+      category: q.category || 'General QA',
+      question: q.question,
+      selectedKey: selKey,
+      selectedText: selOpt ? selOpt.text : 'Not Answered',
+      correctKey: q.correctAnswer,
+      correctText: corrOpt ? corrOpt.text : '',
+      isCorrect: selKey === q.correctAnswer,
+      options: q.options || []
+    };
+  });
+
   const recordData = {
     empNo: currentUser.empNo,
     name: currentUser.name,
@@ -965,6 +983,7 @@ function submitAssessment() {
     isCompleted: true,
     tabSwitchCount: activeExam.tabSwitchCount || 0,
     responses: responses,
+    submittedQuestions: submittedQuestions,
     attemptedCount: Object.keys(responses).length,
     uMark: uMark,
     lMark: lMark,
@@ -992,6 +1011,13 @@ function showResultView(record) {
   }
 
   showView('viewResult');
+}
+
+function downloadCurrentEmployeePDF() {
+  const sessionStr = localStorage.getItem(STORAGE_KEY_SESSION);
+  const session = sessionStr ? JSON.parse(sessionStr) : null;
+  if (!session || !session.empNo) return alert('Session expired or employee not logged in.');
+  downloadEmployeePDF(session.empNo);
 }
 
 // ---------------------------------------------------------------------
@@ -1347,7 +1373,10 @@ function renderAdminTable(query) {
 
     const hasRecord = rec.isCompleted || rec.inProgress;
     const actionBtn = hasRecord
-      ? `<button class="btn-reset" onclick="confirmAndResetExam('${emp.empNo}', '${emp.name.replace(/'/g, "\\'")}')">🔄 Reset Exam</button>`
+      ? `<div style="display: flex; gap: 6px; flex-wrap: wrap;">
+           <button class="btn-primary" style="padding: 4px 10px; font-size: 0.78rem; background: #0284C7; border-color: #0284C7;" onclick="downloadEmployeePDF('${emp.empNo}')">📄 PDF Report</button>
+           <button class="btn-reset" style="padding: 4px 10px; font-size: 0.78rem;" onclick="confirmAndResetExam('${emp.empNo}', '${emp.name.replace(/'/g, "\\'")}')">🔄 Reset</button>
+         </div>`
       : `<span style="color: #CBD5E1; font-size: 0.8rem;">No attempt</span>`;
 
     tr.innerHTML = `
@@ -1369,6 +1398,170 @@ function renderAdminTable(query) {
 
     tbody.appendChild(tr);
   });
+}
+
+// Download PDF Evaluation Report for Employee Assessment
+function downloadEmployeePDF(empNo) {
+  const records = getStoredRecords();
+  const rec = records[empNo];
+  const emp = EMPLOYEES.find(e => e.empNo === empNo);
+
+  if (!rec || (!rec.isCompleted && !rec.inProgress)) {
+    alert('No assessment records found for this employee.');
+    return;
+  }
+
+  const empName = emp ? emp.name : (rec.name || empNo);
+  const empDept = emp ? emp.dept : (rec.dept || '-');
+  const empSection = emp ? (emp.section || rec.section || '-') : (rec.section || '-');
+  const empDoj = emp ? (emp.doj || rec.doj || '-') : (rec.doj || '-');
+  const level = rec.targetLevel || emp.currentLevel || 'O';
+  const status = rec.status || (rec.isCompleted ? 'Completed' : 'In Progress');
+  const isPass = status === 'Passed';
+
+  // Build question list for PDF
+  let qList = rec.submittedQuestions || [];
+  
+  if (qList.length === 0 && rec.responses) {
+    const matchedQs = getQuestionsForSection(level, empSection);
+    qList = matchedQs.map((q, idx) => {
+      const selKey = rec.responses[q.id] || 'Not Answered';
+      const selOpt = q.options ? q.options.find(o => o.key === selKey) : null;
+      const corrOpt = q.options ? q.options.find(o => o.key === q.correctAnswer) : null;
+      return {
+        index: idx + 1,
+        id: q.id,
+        category: q.category || 'General QA',
+        question: q.question,
+        selectedKey: selKey,
+        selectedText: selOpt ? selOpt.text : 'Not Answered',
+        correctKey: q.correctAnswer,
+        correctText: corrOpt ? corrOpt.text : '',
+        isCorrect: selKey === q.correctAnswer,
+        options: q.options || []
+      };
+    });
+  }
+
+  const reportDiv = document.createElement('div');
+  reportDiv.id = 'pdfReportTempContainer';
+  reportDiv.style.padding = '24px';
+  reportDiv.style.fontFamily = 'Arial, sans-serif';
+  reportDiv.style.color = '#1E293B';
+  reportDiv.style.background = '#FFFFFF';
+  reportDiv.style.maxWidth = '800px';
+  reportDiv.style.margin = '0 auto';
+
+  reportDiv.innerHTML = `
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #005B9E; padding-bottom: 12px; margin-bottom: 20px;">
+      <div>
+        <div style="font-size: 22px; font-weight: 800; color: #005B9E; letter-spacing: 0.5px;">YOKOHAMA OFF-HIGHWAY TIRES</div>
+        <div style="font-size: 13px; font-weight: 600; color: #64748B;">QUALITY ASSURANCE DEPARTMENT — ILUO ASSESSMENT REPORT</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="background: ${isPass ? '#DCFCE7' : '#FEE2E2'}; color: ${isPass ? '#166534' : '#991B1B'}; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 14px; text-transform: uppercase;">
+          ${status}
+        </span>
+      </div>
+    </div>
+
+    <!-- Employee Details Table -->
+    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13px;">
+        <div><strong>Employee No:</strong> <span style="color: #005B9E; font-weight: 700;">${empNo}</span></div>
+        <div><strong>Employee Name:</strong> ${empName}</div>
+        <div><strong>Department:</strong> ${empDept}</div>
+        <div><strong>Section:</strong> ${empSection}</div>
+        <div><strong>Date of Joining (DOJ):</strong> ${empDoj}</div>
+        <div><strong>Assessment Date:</strong> ${rec.attemptDate || new Date().toLocaleDateString('en-GB')}</div>
+        <div><strong>Target Skill Level:</strong> ${level} Level Assessment</div>
+        <div><strong>Tab Switch Alerts:</strong> <span style="color: ${rec.tabSwitchCount > 0 ? '#E31B23' : '#166534'}; font-weight: 700;">${rec.tabSwitchCount || 0} Warnings</span></div>
+      </div>
+    </div>
+
+    <!-- Scorecard Summary Box -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 24px; text-align: center;">
+      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; padding: 14px; border-radius: 8px;">
+        <div style="font-size: 11px; color: #1E40AF; text-transform: uppercase; font-weight: 700;">Total Score</div>
+        <div style="font-size: 24px; font-weight: 800; color: #1E3A8A; margin-top: 4px;">${rec.totalMark !== undefined ? rec.totalMark : '-'} / ${qList.length}</div>
+      </div>
+      <div style="background: #F0FDF4; border: 1px solid #BBF7D0; padding: 14px; border-radius: 8px;">
+        <div style="font-size: 11px; color: #166534; text-transform: uppercase; font-weight: 700;">Percentage Mark</div>
+        <div style="font-size: 24px; font-weight: 800; color: #14532D; margin-top: 4px;">${rec.markPct !== undefined ? rec.markPct + '%' : '-'}</div>
+      </div>
+      <div style="background: #FFFBEB; border: 1px solid #FDE68A; padding: 14px; border-radius: 8px;">
+        <div style="font-size: 11px; color: #92400E; text-transform: uppercase; font-weight: 700;">Passing Criteria</div>
+        <div style="font-size: 24px; font-weight: 800; color: #78350F; margin-top: 4px;">70%</div>
+      </div>
+    </div>
+
+    <!-- Question & Answer Audit Sheet -->
+    <div style="margin-bottom: 24px;">
+      <h3 style="font-size: 15px; border-bottom: 2px solid #E2E8F0; padding-bottom: 6px; margin-bottom: 14px; color: #0F172A;">
+        📋 Complete Question &amp; Answer Breakdown
+      </h3>
+
+      ${qList.map((q, idx) => `
+        <div style="margin-bottom: 14px; padding: 12px; border: 1px solid ${q.isCorrect ? '#CBD5E1' : '#FCA5A5'}; border-radius: 6px; background: ${q.isCorrect ? '#FFFFFF' : '#FFF5F5'}; font-size: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span style="font-weight: 700; color: #334155;">Q${idx + 1}. [${q.category}]</span>
+            <span style="font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 11px; background: ${q.isCorrect ? '#DCFCE7' : '#FEE2E2'}; color: ${q.isCorrect ? '#15803D' : '#B91C1C'};">
+              ${q.isCorrect ? '✔ Correct' : '✖ Incorrect'}
+            </span>
+          </div>
+          <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #0F172A;">${q.question}</div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+            <div style="background: ${q.isCorrect ? '#DCFCE7' : '#FEE2E2'}; border: 1px solid ${q.isCorrect ? '#86EFAC' : '#FCA5A5'}; padding: 6px 10px; border-radius: 4px;">
+              <strong>Employee Selected:</strong> [${q.selectedKey}] ${q.selectedText}
+            </div>
+            <div style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 6px 10px; border-radius: 4px;">
+              <strong>Correct Key:</strong> [${q.correctKey}] ${q.correctText}
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- Signatures -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 36px; padding-top: 20px; border-top: 1px solid #CBD5E1; font-size: 12px; text-align: center;">
+      <div>
+        <div style="margin-bottom: 40px; border-bottom: 1px dashed #94A3B8; width: 80%; margin: 0 auto 8px auto;"></div>
+        <div><strong>Evaluator / Supervisor Signature</strong></div>
+      </div>
+      <div>
+        <div style="margin-bottom: 40px; border-bottom: 1px dashed #94A3B8; width: 80%; margin: 0 auto 8px auto;"></div>
+        <div><strong>Quality Control Manager Stamp &amp; Date</strong></div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(reportDiv);
+
+  showToast(`Generating PDF report for ${empNo}... 📄`);
+
+  if (typeof html2pdf !== 'undefined') {
+    const opt = {
+      margin: [10, 10, 10, 10],
+      filename: `Yokohama_ILUO_Report_${empNo}_${empName.replace(/\s+/g, '_')}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(reportDiv).save().then(() => {
+      document.body.removeChild(reportDiv);
+      showToast('PDF Report downloaded successfully! 📄');
+    }).catch(err => {
+      console.error('PDF export error:', err);
+      document.body.removeChild(reportDiv);
+      window.print();
+    });
+  } else {
+    window.print();
+    document.body.removeChild(reportDiv);
+  }
 }
 
 function confirmAndResetExam(empNo, empName) {

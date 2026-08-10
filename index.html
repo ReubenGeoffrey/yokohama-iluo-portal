@@ -7,7 +7,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-  <link rel="stylesheet" href="styles.css?v=18.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=19.0">
 </head>
 <body>
 
@@ -288,6 +289,12 @@
         </div>
 
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Your marks and assessment evaluation have been logged for Admin review and Excel generation.</p>
+
+        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 12px;">
+          <button class="btn-primary" style="max-width: 280px; background: #0284C7; border-color: #0284C7; padding: 12px 20px; font-size: 0.95rem;" onclick="downloadCurrentEmployeePDF()">
+            📄 Download PDF Evaluation Report w/ Answers
+          </button>
+        </div>
       </div>
     </section>
 
@@ -767,8 +774,8 @@
   <div class="toast-msg" id="toast">Message notification</div>
 
   <!-- Data Script -->
-  <script src="data.js?v=18.0"></script>
+  <script src="data.js?v=19.0"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=18.0"></script>
+  <script src="app.js?v=19.0"></script>
 </body>
 </html>
