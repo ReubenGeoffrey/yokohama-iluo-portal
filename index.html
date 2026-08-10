@@ -277,13 +277,21 @@
         <h2 style="color: var(--primary-dark); font-size: 1.6rem; margin-bottom: 8px;">Assessment Completed!</h2>
         <p style="color: var(--text-muted); margin-bottom: 24px;">Thank you for completing your Tire Building QA ILUO Skill Assessment.</p>
 
-        <div class="info-grid" style="max-width: 500px; margin: 0 auto 28px auto;">
+        <div class="info-grid" style="max-width: 600px; margin: 0 auto 28px auto; grid-template-columns: 1fr 1fr;">
           <div class="info-item">
             <div class="label">Questions Attempted</div>
             <div class="value" id="resAttempted">-</div>
           </div>
           <div class="info-item">
-            <div class="label">Status</div>
+            <div class="label">Total Marks Scored</div>
+            <div class="value" id="resMarks" style="color: var(--primary-dark); font-weight: 800;">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Percentage Mark</div>
+            <div class="value" id="resPct" style="color: #0284C7; font-weight: 800;">-</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Result Status</div>
             <div class="value" id="resStatus">-</div>
           </div>
         </div>
@@ -774,8 +782,8 @@
   <div class="toast-msg" id="toast">Message notification</div>
 
   <!-- Data Script -->
-  <script src="data.js?v=20.0"></script>
+  <script src="data.js?v=21.0"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=20.0"></script>
+  <script src="app.js?v=21.0"></script>
 </body>
 </html>

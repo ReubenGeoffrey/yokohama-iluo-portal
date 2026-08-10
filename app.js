@@ -1001,6 +1001,15 @@ function submitAssessment() {
 function showResultView(record) {
   document.getElementById('resAttempted').innerText = `${record.attemptedCount || 0} Questions`;
   
+  const totalMarks = record.totalMark !== undefined ? record.totalMark : (record.lMark || record.uMark || record.oMark || 0);
+  const qCount = record.submittedQuestions ? record.submittedQuestions.length : (record.targetLevel === 'L' ? 20 : (record.targetLevel === 'U' ? 30 : 40));
+  
+  const resMarksEl = document.getElementById('resMarks');
+  if (resMarksEl) resMarksEl.innerText = `${totalMarks} / ${qCount} Marks`;
+
+  const resPctEl = document.getElementById('resPct');
+  if (resPctEl) resPctEl.innerText = `${record.markPct !== undefined ? record.markPct + '%' : '-'}`;
+
   const statusEl = document.getElementById('resStatus');
   statusEl.innerText = record.status || 'Completed';
   
