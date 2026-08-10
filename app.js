@@ -997,10 +997,10 @@ function submitAssessment() {
   };
 
   saveRecord(currentUser.empNo, recordData);
-  navigateTo('/employee/results');
+  showResultView(recordData, true);
 }
 
-function showResultView(record) {
+function showResultView(record, isImmediateCompletion = false) {
   document.getElementById('resAttempted').innerText = `${record.attemptedCount || 0} Questions`;
   
   const totalMarks = record.totalMark !== undefined ? record.totalMark : (record.lMark || record.uMark || record.oMark || 0);
@@ -1019,6 +1019,54 @@ function showResultView(record) {
     statusEl.style.color = 'var(--accent-red)';
   } else {
     statusEl.style.color = record.status === 'Passed' ? 'var(--success-color)' : 'var(--accent-red)';
+  }
+
+  // Handle One-Time Answer Review Container
+  const reviewContainer = document.getElementById('oneTimeAnswerReviewContainer');
+  if (reviewContainer) {
+    reviewContainer.innerHTML = '';
+    
+    // Only show full question-by-question breakdown right after completing the exam!
+    if (isImmediateCompletion && record.submittedQuestions && record.submittedQuestions.length > 0) {
+      const qList = record.submittedQuestions;
+
+      let html = `
+        <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 0.85rem; color: #92400E; display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.2rem;">⏱️</span>
+          <div><strong>ONE-TIME RESULT AUDIT VIEW:</strong> This detailed question-by-question breakdown of your correct and wrong answers is displayed <strong>ONLY ONCE</strong> upon completing your assessment. Once you leave this page, only your total score will be saved in your profile.</div>
+        </div>
+
+        <h3 style="font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 16px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+          📋 Immediate Question &amp; Answer Review
+        </h3>
+      `;
+
+      qList.forEach((q, idx) => {
+        const isCorr = q.isCorrect;
+        html += `
+          <div style="background: ${isCorr ? '#F0FDF4' : '#FEF2F2'}; border: 1px solid ${isCorr ? '#BBF7D0' : '#FCA5A5'}; border-radius: 8px; padding: 14px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);">Q${idx + 1}. [${q.category}]</span>
+              <span style="font-weight: 800; padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; background: ${isCorr ? '#DCFCE7' : '#FEE2E2'}; color: ${isCorr ? '#15803D' : '#B91C1C'};">
+                ${isCorr ? '✔ Correct Answer' : '✖ Incorrect Answer'}
+              </span>
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px;">${q.question}</div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem;">
+              <div style="background: ${isCorr ? '#DCFCE7' : '#FEE2E2'}; border: 1px solid ${isCorr ? '#86EFAC' : '#FCA5A5'}; padding: 8px 12px; border-radius: 6px; color: ${isCorr ? '#166534' : '#991B1B'};">
+                <strong>Your Choice:</strong> [${q.selectedKey}] ${q.selectedText}
+              </div>
+              <div style="background: #FFFFFF; border: 1px solid #CBD5E1; padding: 8px 12px; border-radius: 6px; color: #1E293B;">
+                <strong>Correct Key:</strong> [${q.correctKey}] ${q.correctText}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      reviewContainer.innerHTML = html;
+    }
   }
 
   showView('viewResult');

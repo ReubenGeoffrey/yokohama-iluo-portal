@@ -296,13 +296,10 @@
           </div>
         </div>
 
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Your marks and assessment evaluation have been logged for Admin review and Excel generation.</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">Your marks and assessment evaluation have been logged for Admin review.</p>
 
-        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 12px;">
-          <button class="btn-primary" style="max-width: 280px; background: #0284C7; border-color: #0284C7; padding: 12px 20px; font-size: 0.95rem;" onclick="downloadCurrentEmployeePDF()">
-            📄 Download PDF Evaluation Report w/ Answers
-          </button>
-        </div>
+        <!-- Dynamic One-Time Question & Answer Review Section (Immediate Completion Only) -->
+        <div id="oneTimeAnswerReviewContainer" style="margin-top: 28px; text-align: left;"></div>
       </div>
     </section>
 
@@ -897,8 +894,8 @@
   <div class="toast-msg" id="toast">Message notification</div>
 
   <!-- Data Script -->
-  <script src="data.js?v=22.0"></script>
+  <script src="data.js?v=23.0"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=22.0"></script>
+  <script src="app.js?v=23.0"></script>
 </body>
 </html>
