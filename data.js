@@ -13943,6 +13943,32 @@ const QUESTION_BANK = {
       "correctAnswer": "D"
     },
     {
+      "id": "O_FID_Inspector_QA_40",
+      "level": "O",
+      "section": "FID Inspector QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
       "id": "O_Final_Finish_QA_1",
       "level": "O",
       "section": "Final Finish QA",
@@ -14955,6 +14981,32 @@ const QUESTION_BANK = {
         }
       ],
       "correctAnswer": "D"
+    },
+    {
+      "id": "O_Final_Finish_QA_40",
+      "level": "O",
+      "section": "Final Finish QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
     },
     {
       "id": "O_Final_Finish_RRO_&_ALT_QA_1",
@@ -15971,6 +16023,32 @@ const QUESTION_BANK = {
       "correctAnswer": "D"
     },
     {
+      "id": "O_Final_Finish_RRO_&_ALT_QA_40",
+      "level": "O",
+      "section": "Final Finish RRO & ALT QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
       "id": "O_Preparatory_QA_1",
       "level": "O",
       "section": "Preparatory QA",
@@ -16957,6 +17035,58 @@ const QUESTION_BANK = {
         }
       ],
       "correctAnswer": "A"
+    },
+    {
+      "id": "O_Preparatory_QA_39",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "O_Preparatory_QA_40",
+      "level": "O",
+      "section": "Preparatory QA",
+      "category": "QA & Process",
+      "question": "What is the standard rejection limit for compound during changeover at extruder? / எக்ஸ்ட்ரூடரில் கலவை மாற்றத்தின் போது நிராகரிப்பு வரம்பு என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "5 kg / 5 கிலோ"
+        },
+        {
+          "key": "B",
+          "text": "10 kg / 10 கிலோ"
+        },
+        {
+          "key": "C",
+          "text": "15 kg / 15 கிலோ"
+        },
+        {
+          "key": "D",
+          "text": "As per SOP / SOP படி"
+        }
+      ],
+      "correctAnswer": "D"
     },
     {
       "id": "O_Solid_Tire_QA_1",
@@ -17973,6 +18103,32 @@ const QUESTION_BANK = {
       "correctAnswer": "A"
     },
     {
+      "id": "O_Solid_Tire_QA_40",
+      "level": "O",
+      "section": "Solid Tire QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
       "id": "O_Tire_Building_QA_1",
       "level": "O",
       "section": "Tire Building QA",
@@ -18987,6 +19143,32 @@ const QUESTION_BANK = {
       "correctAnswer": "A"
     },
     {
+      "id": "O_Tire_Building_QA_40",
+      "level": "O",
+      "section": "Tire Building QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
       "id": "O_Tire_Curing_QA_1",
       "level": "O",
       "section": "Tire Curing QA",
@@ -19906,6 +20088,10 @@ const QUESTION_BANK = {
       "question": "If there is a continuous defect in cured tire, what needs to be done? / கியூரிங் டயரில் தொடர்ச்சியான டிஃபெக்ட் இருப்பின் என்ன செய்ய வேண்டும்?",
       "options": [
         {
+          "key": "A",
+          "text": "Ignore and continue / புறக்கணித்து தொடரவும்"
+        },
+        {
           "key": "B",
           "text": "Inform the operator / இயக்குனருக்கு தகவல் தெரிவிக்கவும்"
         },
@@ -19918,7 +20104,33 @@ const QUESTION_BANK = {
           "text": "Both B & C / B மற்றும் C"
         }
       ],
-      "correctAnswer": "A"
+      "correctAnswer": "D"
+    },
+    {
+      "id": "O_Tire_Curing_QA_40",
+      "level": "O",
+      "section": "Tire Curing QA",
+      "category": "CI & TPM",
+      "question": "What is KAIZEN? / கைசென் என்றால் என்ன?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Japanese word for waste elimination / கழிவை நீக்குவதற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "B",
+          "text": "Japanese word for continuous improvement / தொடர் முன்னேற்றத்திற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "C",
+          "text": "Japanese word for quality control / தர கட்டுப்பாட்டிற்கான ஜப்பானிய வார்த்தை"
+        },
+        {
+          "key": "D",
+          "text": "Japanese word for production planning / உற்பத்தி திட்டமிடலுக்கான ஜப்பானிய வார்த்தை"
+        }
+      ],
+      "correctAnswer": "B"
     },
     {
       "id": "O_Warehouse_QA_1",
