@@ -120,9 +120,29 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
     return res.status(400).json({ success: false, message: 'Valid Admin Email ID required' });
   }
 
-  // Check if email matches authorized admin email
-  if (emailRaw !== AUTHORIZED_ADMIN_EMAIL && emailRaw !== 'admin@yokohama-oht.com') {
-    return res.status(403).json({ success: false, message: 'Unauthorized email address' });
+  // Read custom authorized admin email from Cloud Settings if saved by admin
+  let allowedEmails = [AUTHORIZED_ADMIN_EMAIL, 'reubengeoffrey16@gmail.com', 'admin@yokohama-oht.com'];
+  let otpDurationSecs = 60;
+
+  if (kvUrl && kvToken) {
+    const cloudSettings = await syncWithCloudKv('GET', 'yokohama_settings');
+    if (cloudSettings && cloudSettings.adminEmail) {
+      allowedEmails.push(cloudSettings.adminEmail.toLowerCase().trim());
+    }
+    if (cloudSettings && cloudSettings.otpDuration) {
+      otpDurationSecs = parseInt(cloudSettings.otpDuration) || 60;
+    }
+  }
+  if (customSettingsMemory && customSettingsMemory.adminEmail) {
+    allowedEmails.push(customSettingsMemory.adminEmail.toLowerCase().trim());
+  }
+  if (customSettingsMemory && customSettingsMemory.otpDuration) {
+    otpDurationSecs = parseInt(customSettingsMemory.otpDuration) || 60;
+  }
+
+  // Check if email matches any authorized admin email
+  if (!allowedEmails.includes(emailRaw)) {
+    return res.status(403).json({ success: false, message: `Unauthorized admin email. Allowed: ${allowedEmails.filter((v, i, a) => a.indexOf(v) === i).join(', ')}` });
   }
 
   // Rate Limiting: 30-second cooldown between send-otp requests
@@ -136,7 +156,7 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
   // Cryptographically secure 6-digit OTP generation using crypto.randomInt
   const otpNum = crypto.randomInt(100000, 1000000);
   const otp = String(otpNum);
-  const expiresAt = now + 60000; // 1 minute (60 seconds) validity window
+  const expiresAt = now + (otpDurationSecs * 1000);
 
   const newOtpRecord = {
     otp: otp,
