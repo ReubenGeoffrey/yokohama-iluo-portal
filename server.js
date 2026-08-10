@@ -52,13 +52,61 @@ transporter.verify((error, success) => {
 });
 
 
+// ---------------------------------------------------------------------
+// Cloud-Persisted OTP & Session Helpers (Fixes Vercel Serverless Resets)
+// ---------------------------------------------------------------------
+async function setCloudOtp(email, record) {
+  otpStore.set(email, record);
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', `otp:${email}`, record);
+  }
+}
+
+async function getCloudOtp(email) {
+  if (kvUrl && kvToken) {
+    const cloudRecord = await syncWithCloudKv('GET', `otp:${email}`);
+    if (cloudRecord && cloudRecord.otp) {
+      otpStore.set(email, cloudRecord);
+      return cloudRecord;
+    }
+  }
+  return otpStore.get(email) || null;
+}
+
+async function delCloudOtp(email) {
+  otpStore.delete(email);
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', `otp:${email}`, null);
+  }
+}
+
+async function setCloudSession(token, sessionData) {
+  activeSessions.set(token, sessionData);
+  if (kvUrl && kvToken) {
+    await syncWithCloudKv('SET', `sess:${token}`, sessionData);
+  }
+}
+
+async function getCloudSession(token) {
+  if (!token) return null;
+  if (kvUrl && kvToken) {
+    const cloudSess = await syncWithCloudKv('GET', `sess:${token}`);
+    if (cloudSess && cloudSess.email) {
+      activeSessions.set(token, cloudSess);
+      return cloudSess;
+    }
+  }
+  return activeSessions.get(token) || null;
+}
+
 // Middleware: Verify Authenticated Admin Session for /api/admin/*
-function requireAdminAuth(req, res, next) {
+async function requireAdminAuth(req, res, next) {
   const sessionToken = req.signedCookies.admin_session || req.cookies.admin_session;
-  if (!sessionToken || !activeSessions.has(sessionToken)) {
+  const sessionData = await getCloudSession(sessionToken);
+  if (!sessionToken || !sessionData) {
     return res.status(401).json({ success: false, authenticated: false, message: 'Unauthorized: Admin session required' });
   }
-  req.adminSession = activeSessions.get(sessionToken);
+  req.adminSession = sessionData;
   next();
 }
 
@@ -78,7 +126,7 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
   }
 
   // Rate Limiting: 30-second cooldown between send-otp requests
-  const existingRecord = otpStore.get(emailRaw);
+  const existingRecord = await getCloudOtp(emailRaw);
   const now = Date.now();
   if (existingRecord && (now - existingRecord.lastSendAt) < 30000) {
     const waitSecs = Math.ceil((30000 - (now - existingRecord.lastSendAt)) / 1000);
@@ -90,12 +138,14 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
   const otp = String(otpNum);
   const expiresAt = now + 60000; // 1 minute (60 seconds) validity window
 
-  otpStore.set(emailRaw, {
+  const newOtpRecord = {
     otp: otp,
     expiresAt: expiresAt,
     attempts: 0,
     lastSendAt: now
-  });
+  };
+
+  await setCloudOtp(emailRaw, newOtpRecord);
 
   const mailOptions = {
     from: `"Yokohama ILUO Admin" <${user}>`,
@@ -140,7 +190,7 @@ app.post('/api/auth/admin/send-otp', async (req, res) => {
 // ---------------------------------------------------------------------
 // API ROUTE 2: POST /api/auth/admin/verify-otp
 // ---------------------------------------------------------------------
-app.post('/api/auth/admin/verify-otp', (req, res) => {
+app.post('/api/auth/admin/verify-otp', async (req, res) => {
   const emailRaw = (req.body.email || '').trim().toLowerCase();
   const otpEntered = (req.body.otp || '').trim();
 
@@ -148,39 +198,41 @@ app.post('/api/auth/admin/verify-otp', (req, res) => {
     return res.status(400).json({ success: false, message: 'Email and OTP code required' });
   }
 
-  const record = otpStore.get(emailRaw);
+  const record = await getCloudOtp(emailRaw);
   if (!record) {
     return res.status(400).json({ success: false, message: 'No active OTP request found for this email. Please click Send OTP.' });
   }
 
   // Maximum 5 verification attempts to prevent brute-force attacks
-  record.attempts++;
+  record.attempts = (record.attempts || 0) + 1;
   if (record.attempts > 5) {
-    otpStore.delete(emailRaw);
+    await delCloudOtp(emailRaw);
     return res.status(429).json({ success: false, message: 'Maximum failed verification attempts reached (5/5). OTP invalidated. Please request a new OTP.' });
   }
 
   // Check 60-second (1-minute) expiry limit
   const now = Date.now();
   if (now > record.expiresAt) {
-    otpStore.delete(emailRaw);
+    await delCloudOtp(emailRaw);
     return res.status(400).json({ success: false, message: 'OTP Expired! (1-minute validity window passed). Please request a new OTP.' });
   }
 
   // Strict Single-Use OTP Match
   if (record.otp === otpEntered) {
-    otpStore.delete(emailRaw); // Single-use consumption & deletion
+    await delCloudOtp(emailRaw); // Single-use consumption & deletion
 
     // Create secure session
     const sessionToken = crypto.randomBytes(32).toString('hex');
     const adminName = emailRaw === AUTHORIZED_ADMIN_EMAIL ? 'Reuben Geoffrey (Superadmin)' : 'Administrator';
 
-    activeSessions.set(sessionToken, {
+    const sessionData = {
       email: emailRaw,
       name: adminName,
       role: 'SUPERADMIN',
       createdAt: new Date().toISOString()
-    });
+    };
+
+    await setCloudSession(sessionToken, sessionData);
 
     // Set HTTP-Only Cookie
     res.cookie('admin_session', sessionToken, {
@@ -201,6 +253,7 @@ app.post('/api/auth/admin/verify-otp', (req, res) => {
       }
     });
   } else {
+    await setCloudOtp(emailRaw, record);
     return res.status(400).json({
       success: false,
       message: `Incorrect OTP code (${record.attempts}/5 attempts)`
@@ -211,10 +264,10 @@ app.post('/api/auth/admin/verify-otp', (req, res) => {
 // ---------------------------------------------------------------------
 // API ROUTE 3: GET /api/auth/admin/session
 // ---------------------------------------------------------------------
-app.get('/api/auth/admin/session', (req, res) => {
+app.get('/api/auth/admin/session', async (req, res) => {
   const sessionToken = req.signedCookies.admin_session || req.cookies.admin_session;
-  if (sessionToken && activeSessions.has(sessionToken)) {
-    const sessionData = activeSessions.get(sessionToken);
+  const sessionData = await getCloudSession(sessionToken);
+  if (sessionToken && sessionData) {
     return res.json({
       success: true,
       authenticated: true,
